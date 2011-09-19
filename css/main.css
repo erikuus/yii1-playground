@@ -1,0 +1,255 @@
+/* begin overall style */
+body
+{
+	margin: 0;
+	padding: 0;
+	background: white;
+	color: #333;
+	font-family: verdana, tahoma, arial, sans-serif;
+	font-size: 8pt;
+	background: white url(bg.gif) repeat-x left top;
+}
+
+a
+{
+	color: #0066a7;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: red;
+}
+
+h1, h2, h3
+{
+	margin: 0px 0px 10px 0px;
+	font-family: verdana, tahoma, arial, sans-serif;
+	font-weight: bold;
+	color: #52565B;
+}
+
+h1, h2
+{
+	font-size: 13pt;
+}
+
+h3
+{
+	font-size: 10pt;
+}
+
+input, textarea, select, button, optgroup
+{
+	font-family: verdana, tahoma, arial, sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+}
+
+img
+{
+	border: none;
+}
+
+#page
+{
+	width: 960px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#header
+{
+	margin: 0;
+	padding: 0;
+	height: 95px;
+	background: url(bg_ra.gif) no-repeat center top;
+}
+
+#menubar
+{
+	float: right;
+	padding: 10px 0 10px;
+	text-align: right;
+}
+
+#logo
+{
+	margin: 0;
+	padding: 15px 0;
+	font-family: verdana, tahoma, arial, sans-serif;
+	font-size: 16pt;
+    font-weight: bold;
+    color: #52565B;
+}
+
+#langmenu
+{
+	margin: 0 0 10px 0;
+}
+
+#langmenu .sep
+{
+	color: #999;
+}
+
+#mainmenu
+{
+	position: absolute;
+	top: 64px;
+	padding: 5px 0 0 0;
+	background-color: #3285CE;
+	font-family: verdana, tahoma, arial, sans-serif;
+	font-size: 8pt;
+}
+
+#mainmenu ul
+{
+	margin: 0;
+	padding: 0.4em 0 0.3em;
+}
+
+#mainmenu ul li
+{
+	display: inline;
+}
+
+#mainmenu ul li a
+{
+	padding: 0.4em 0.4em;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	border: 1px dotted #FFF;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+	background: white;
+	color: #52565b;
+}
+
+#content
+{
+    position: relative;
+    margin: 10px 0;
+}
+
+#footer
+{
+	padding: 15px;
+	margin: 20px 0 0 0;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: 1px solid #EEE;
+}
+
+.large-text
+{
+	font-size: 10pt;
+	line-height: 150%;
+	margin: 10px 0 20px 0;
+}
+
+.clearfloat
+{
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+.confirmation
+{
+	margin: 0 0 10px 0;
+	color: green;
+	font-weight: bold;
+}
+
+.floatright {
+	float: right;
+}
+
+.breadcrumbs
+{
+	margin: 0px 0 10px 0;
+}
+
+.actionBar, .actionMenu
+{
+	margin: 0 0 10px 0;
+}
+
+.actionBar .sep, .actionMenu .sep
+{
+	color: #999;
+}
+
+div.item
+{
+	margin: 10px 0 10px 0;
+	padding: 5px 0 5px 0;
+	border-bottom: 1px solid #E8E8E8;
+}
+
+.tpanel {
+	margin: 15px 0 10px 0;
+}
+
+.tpanel .toggle {
+	margin: 0px 0 10px 0;
+	color: green;
+	cursor: pointer;
+	font-weigt: bold;
+}
+
+div.group {
+	margin: 20px 0 10px 0;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+div.sub-group {
+	padding: 5px;
+	background: #D0DEF0;
+	font-weight: bold;
+}
+/* end of overall style */
+
+/* begin grid style */
+table.dataGrid
+{
+	background: white;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.dataGrid th, table.dataGrid td
+{
+	border: 1px #E8E8E8 solid;
+	padding: 5px;
+	vertical-align: top;
+}
+
+table.dataGrid th
+{
+	border: 1px #D5E3F5 solid;
+	background: #EBF3FD;
+	text-align: left;
+}
+
+table.dataGrid th.label
+{
+	width: 150px;
+}
+
+table.dataGrid tr.odd
+{
+	background: #F4F4F4;
+}
+
+table.dataGrid td.nowrap
+{
+	white-space: nowrap;
+}
+/* end of grid style */

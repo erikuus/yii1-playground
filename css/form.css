@@ -1,0 +1,254 @@
+/* begin form style */
+
+div.form
+{
+	border: 1px solid #D5E3F5;
+	background: #EBF3FD;
+	margin: 0;
+	padding: 5px;
+	width: 600px;
+}
+
+div.portlet div.form
+{
+	border: none;
+	background: transparent;
+	margin: 0;
+	padding: 5px;
+	width: 100%;
+}
+
+div.form table.double td,
+div.form table.multiple td
+{
+	padding: 0 20px 0 0;
+	vertical-align: top;
+}
+
+div.form table.double td
+{
+	width: 45%;
+}
+
+div.form table.linear td
+{
+	padding: 2px 3px 2px 3px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+div.form p.hint
+{
+	color: gray;
+	margin: 0 0 0 110px;
+}
+
+div.form div.menu
+{
+	text-align: right;
+	color: #D5E3F5;
+}
+
+div.form div.group
+{
+	clear: left;
+	padding: 5px;
+	margin: 10px 0 10px 0;
+	background: #D5E3F5;
+	font-weight: bold;
+}
+
+div.form div.group a
+{
+	font-size: 8pt;
+	font-weight: normal;
+}
+
+div.form label
+{
+}
+
+div.form div.action
+{
+	clear: left;
+	margin-left: 150px;
+	padding: 5px 0;
+}
+
+div.form div.simple,
+div.form div.complex
+{
+	clear: left;
+	padding: 4px 0 ;
+}
+
+div.form div.simple label,
+div.form div.complex span.label,
+div.form div.complex span label
+{
+	display: block;
+	float: left;
+	margin-right: 10px;
+	position: relative;
+	text-align: right;
+	width: 140px;
+}
+
+div.form div.simple div,
+div.form div.complex div.panel
+{
+	margin-left: 150px;
+}
+
+div.form div.complex table.grid td
+{
+	padding: 0 5px 5px 0;
+	vertical-align: top;
+}
+
+div.form div.complex table.grid td label
+{
+	display: block;
+}
+
+div.form div.cpanel
+{
+}
+
+div.form div.cpanelContent
+{
+	padding: 5px 0 10px 0;
+}
+
+div.form div.rpanelContent,
+div.form div.spanelContent,
+div.form div.rpanelContent label.error,
+div.form div.spanelContent label.error,
+div.form div.rpanelContent div.errorMessage,
+div.form div.spanelContent div.errorMessage
+{
+	display: inline;
+}
+
+/* end of form style */
+
+/* begin common style */
+form
+{
+	margin: 0;
+}
+
+input[type=text],
+input[type=password],
+textarea,
+select
+{
+	background: white;
+	border: 1px solid #a6c9e2;
+}
+
+input[type=text],
+input[type=password],
+textarea
+{
+	padding: 2px;
+}
+
+select
+{
+	padding: 1px;
+}
+
+input.autocomplete
+{
+	background: #FFFFE0;	
+}
+
+input.readonly
+{
+	background: #F0F0F0;
+}
+
+label.required
+{
+}
+
+span.required
+{
+	color: red;
+}
+
+label.error,
+span.error
+{
+	color: #C00;
+}
+
+input.error,
+textarea.error,
+select.error
+{
+	background: #FEE;
+	border-color: #C00;
+}
+
+div.errorSummary
+{
+	border: 2px solid #C00;
+	padding: 7px 7px 12px 7px;
+	margin: 0 0 20px 0;
+	background: #FEE;
+}
+
+div.errorSummary p
+{
+	margin: 0;
+	padding: 5px;
+}
+
+div.errorSummary ul
+{
+	margin: 0;
+	padding: 0 0 0 20px;
+}
+
+div.errorSummary ul li
+{
+	list-style: square;
+}
+
+div.errorMessage
+{
+	color: #C00;
+}
+
+label.error 
+{
+    display: block;
+}
+
+div.add
+{
+    cursor: pointer;
+    width: 60px;
+    padding: 2px;
+    border: 1px solid #a6c9e2;
+    color: #0066a7;
+    text-align: center;
+}
+
+div.remove
+{
+    cursor: pointer;
+    width: 60px;
+    padding: 2px;
+    border: 1px solid #a6c9e2;
+    color: #0066a7;
+    text-align: center;
+}
+
+textarea.template
+{
+	display: none;
+}
+/* end of common style */

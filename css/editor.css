@@ -1,0 +1,91 @@
+body, p, td, th
+{
+	color: #333;
+	font-family: verdana, tahoma, arial, sans-serif;
+	font-size: 8pt;
+}
+
+a
+{
+	color: #0066a7;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: red;
+}
+
+h1, h2, h3
+{
+	margin: 0px 0px 10px 0px;
+	font-family: verdana, tahoma, arial, sans-serif;
+	font-weight: bold;
+	color: #52565B;
+}
+
+h1, h2
+{
+	font-size: 13pt;
+}
+
+h3
+{
+	font-size: 10pt;
+}
+
+img
+{
+	border: none;
+}
+
+.large-text
+{
+	font-size: 10pt;
+	line-height: 150%;
+	margin: 10px 0 20px 0;
+}
+
+.clearfloat
+{
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+table.dataGrid
+{
+	background: white;
+	border-collapse: collapse;
+	width: 100%;	
+}
+
+table.dataGrid th, table.dataGrid td
+{
+	border: 1px #E8E8E8 solid;
+	padding: 5px;
+	vertical-align: top;
+}
+
+table.dataGrid th
+{
+	border: 1px #D5E3F5 solid;
+	background: #EBF3FD;
+	text-align: left;
+}
+
+table.dataGrid th.label
+{
+	width: 150px;
+}
+
+table.dataGrid tr.odd
+{
+	background: #F4F4F4;
+}
+
+table.dataGrid td.nowrap
+{
+	white-space: nowrap;
+}

@@ -1,0 +1,1 @@
+<?php echo 'Content via partial render'; ?>
