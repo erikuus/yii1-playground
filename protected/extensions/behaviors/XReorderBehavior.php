@@ -1,29 +1,28 @@
 <?php
 /**
  * XReorderBehavior
- * 
+ *
  * This behavior adds reordering methods to a ActiveRecord model.
  * This behavior is designed to be used in connection with XReorderAction
- *  
- * It can be  be attached to a model on its behaviors() method: 
+ *
+ * It can be  be attached to a model on its behaviors() method:
  * <pre>
- *  	public function behaviors()
- * 		{
- *     		return array(
- *     			'ReorderBehavior' => array(
- * 					'class' => 'ext.behaviors.XReorderBehavior',
- *          	),
- * 			);
- *		}
- * </pre> 
- * 
+ * public function behaviors()
+ * {
+ *     return array(
+ *         'ReorderBehavior' => array(
+ *             'class' => 'ext.behaviors.XReorderBehavior',
+ *         ),
+ *     );
+ * }
+ * </pre>
+ *
  * @author Erik Uus <erik.uus@gmail.com>
  * @version 1.0.0
  */
 class XReorderBehavior extends CActiveRecordBehavior
 {
 	private $_groupId;
-	
 	/**
 	 * @var string the attribute name of unique id
 	 */
@@ -35,14 +34,14 @@ class XReorderBehavior extends CActiveRecordBehavior
 	/**
 	 * @var string the attribute name of order value
 	 */
-	public $sort='sort';	
-	
+	public $sort='sort';
+
 	/**
 	 * Move up
-     */
+	 */
 	public function moveUp()
 	{
-		$owner=$this->getOwner();	
+		$owner=$this->getOwner();
 		$owner->{$this->sort}=$owner->{$this->sort}-1;
 		$owner->update(array($this->sort));
 		$model=$owner->find(array(
@@ -59,10 +58,10 @@ class XReorderBehavior extends CActiveRecordBehavior
 
 	/**
 	 * Move down
-     */
+	 */
 	public function moveDown()
 	{
-		$owner=$this->getOwner();	
+		$owner=$this->getOwner();
 		$owner->{$this->sort}=$owner->{$this->sort}+1;
 		$owner->update(array($this->sort));
 		$model=$owner->find(array(
@@ -84,7 +83,7 @@ class XReorderBehavior extends CActiveRecordBehavior
 	{
 		$owner=$this->getOwner();
 		$this->_groupId=$owner->{$this->groupId};
-	}	
+	}
 
 	/**
 	 * This is invoked before the record is saved.
@@ -92,11 +91,11 @@ class XReorderBehavior extends CActiveRecordBehavior
 	public function beforeSave($event)
 	{
 		$owner=$this->getOwner();
-			
+
 		if($owner->isNewRecord)
-			$owner->{$this->sort}=$this->queryNextSort($owner->{$this->groupId});				
+			$owner->{$this->sort}=$this->queryNextSort($owner->{$this->groupId});
 		elseif($this->_groupId!=$owner->{$this->groupId})
-			$owner->{$this->sort}=$this->queryNextSort($owner->{$this->groupId});			
+			$owner->{$this->sort}=$this->queryNextSort($owner->{$this->groupId});
 	}
 
 	/**
@@ -105,17 +104,17 @@ class XReorderBehavior extends CActiveRecordBehavior
 	public function afterSave($event)
 	{
 		$owner=$this->getOwner();
-		
+
 		if(!$owner->isNewRecord && $this->_groupId!=$owner->{$this->groupId})
-		{	
+		{
 			$this->repairSort($owner->{$this->groupId});
 			$this->repairSort($this->_groupId);
 		}
-	}	
-	
+	}
+
 	/**
 	 * Repair sort attribute
-     * This is invoked after the record is deleted.
+	 * This is invoked after the record is deleted.
 	 */
 	public function afterDelete($event)
 	{
@@ -157,5 +156,5 @@ class XReorderBehavior extends CActiveRecordBehavior
 			$model->update(array($this->sort));
 			$sort++;
 		}
-	}	
+	}
 }

@@ -17,11 +17,11 @@ $cs->registerScriptFile(XHtml::jsUrl('common.js'), CClientScript::POS_HEAD);
 <body style="background: white;">
 
 	<div id="page" style="width: 625px">
-	
+
 		<div id="content">
 			<?php echo $content; ?>
 		</div><!-- content -->
-	
+
 	</div><!-- page -->
 
 </body>

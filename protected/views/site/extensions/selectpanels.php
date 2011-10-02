@@ -10,15 +10,15 @@ $this->leftPortlets['application.portlets.ExtensionMenu']=array();
 
 <div class="form">
 	<div class="spanel">
-		<?php echo CHtml::dropDownList('id1', '', array('-1'=>Yii::t('ui','-add-'))+Country::model()->options); ?> 
-		<span class="spanelContent">     
+		<?php echo CHtml::dropDownList('id1', '', array('-1'=>Yii::t('ui','-add-'))+Country::model()->options); ?>
+		<span class="spanelContent">
 			<?php echo CHtml::textField('name1','',array('size'=>30,'maxlength'=>128)); ?>
 		</span>
 	</div>
 	<br />
 	<div class="spanel">
-		<?php echo CHtml::dropDownList('id2', '', array('-1'=>Yii::t('ui','-add-'))+Country::model()->options, array('prompt'=>''));?> 
-		<span class="spanelContent">     
+		<?php echo CHtml::dropDownList('id2', '', array('-1'=>Yii::t('ui','-add-'))+Country::model()->options, array('prompt'=>''));?>
+		<span class="spanelContent">
 			<?php echo CHtml::textField('name2','',array('size'=>30,'maxlength'=>128)); ?>
 		</span>
 	</div>
@@ -40,7 +40,7 @@ $this->leftPortlets['application.portlets.ExtensionMenu']=array();
 		<?php $this->endWidget(); ?>
 	</div>
 </div>
- 
+
 <div class="tpanel">
 <div class="toggle"><?php echo Yii::t('ui','Browse code'); ?></div>
 <pre>

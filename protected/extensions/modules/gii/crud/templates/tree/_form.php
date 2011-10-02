@@ -4,7 +4,7 @@
  * - $this: the CrudCode object
  */
 ?>
-<?php echo "<?php"; ?> 
+<?php echo "<?php"; ?>
 Yii::app()->clientScript->registerScript('formTree', "
 	$('#<?php echo $this->class2id($this->modelClass); ?>-treeview a').live('click',function(){
 		var id=$(this).attr('id');
@@ -15,10 +15,10 @@ Yii::app()->clientScript->registerScript('formTree', "
 			cache:false,
 			success:function(data){return $('#parent-path').val(data);}
 		});
-		$('#tree-dialog').dialog('close');          
-		return false;     
-	});	
-"); 
+		$('#tree-dialog').dialog('close');
+		return false;
+	});
+");
 ?>
 
 <div class="form">
@@ -28,19 +28,19 @@ Yii::app()->clientScript->registerScript('formTree', "
 	'enableAjaxValidation'=>false,
 )); ?>\n"; ?>
 
-	<p><?php  echo "<?php echo Yii::t('ui', 'Fields with {mark} are required', 
+	<p><?php  echo "<?php echo Yii::t('ui', 'Fields with {mark} are required',
 	array('{mark}'=>'<span class=\"required\">*</span>')); ?>\n"; ?></p>
 
 	<?php echo "<?php echo \$form->errorSummary(\$model); ?>\n"; ?>
-	
+
 	<div class="simple">
-		<?php echo "<?php"; ?> echo $form->labelEx($model,'parent_id'); ?>	
+		<?php echo "<?php"; ?> echo $form->labelEx($model,'parent_id'); ?>
 		<?php echo "<?php"; ?> echo $form->textField($model,'parentPath', array(
 			'id'=>'parent-path',
 			'onclick'=>'$("#tree-dialog").dialog("open");return false;',
 			'readonly'=>'readonly',
 			'class'=>'readonly',
-			'style'=>'width:200px',			
+			'style'=>'width:200px',
 		)); ?>
 		<?php echo "<?php"; ?> $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 			'name'=>'suggest_hierarchy',
@@ -55,10 +55,10 @@ Yii::app()->clientScript->registerScript('formTree', "
 				'class'=>'autocomplete',
 				'style'=>'width:200px'
 			),
-		)); ?>	
+		)); ?>
 		<?php echo "<?php"; ?> echo $form->hiddenField($model,'parent_id',array('id'=>'parent-id')); ?>
 		<?php echo "<?php"; ?> echo $form->error($model,'parent_id'); ?>
-	</div>	
+	</div>
 <?php
 foreach($this->tableSchema->columns as $column)
 {
@@ -79,7 +79,7 @@ foreach($this->tableSchema->columns as $column)
 			'buttonType'=>'submit',
 			'name'=>'btnSubmit',
 			'value'=>'Submit',
-			'caption'=>\$model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save'), 
+			'caption'=>\$model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save'),
 		));  ?>\n"; ?>
 		<?php echo "<?php \$this->widget('zii.widgets.jui.CJuiButton', array(
 			'buttonType'=>'link',
@@ -88,7 +88,7 @@ foreach($this->tableSchema->columns as $column)
 			'caption'=>Yii::t('ui', 'Cancel'),
 			'url'=>\$this->getReturnUrl(),
 		)); ?>\n"; ?>
-	</div>			
+	</div>
 	<?php /* echo "<?php echo CHtml::submitButton(\$model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save')); ?>\n"; */ ?>
 	<?php /* echo "<?php echo CHtml::button(Yii::t('ui', 'Cancel'), array('submit'=>\$this->getReturnUrl())) ?>\n"; */ ?>
 

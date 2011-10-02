@@ -1,22 +1,22 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Dialog'); 
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Dialog');
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();
 ?>
 
 <h2><?php echo Yii::t('ui','Dialog');?></h2>
 
-<?php 
+<?php
 $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
-    'id'=>'mydialog',
-    'options'=>array(
-        'title'=>'Dialog',
-        'width'=>500,
-        'height'=>300,
-        'autoOpen'=>false,
-    ),
+	'id'=>'mydialog',
+	'options'=>array(
+		'title'=>'Dialog',
+		'width'=>500,
+		'height'=>300,
+		'autoOpen'=>false,
+	),
 ));
-	echo 'dialog content here';  
+	echo 'dialog content here';
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 
@@ -41,7 +41,7 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 
 <br />
 
-<?php 
+<?php
 $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 	'id'=>'mymodal',
 	'options'=>array(
@@ -57,11 +57,11 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 		),
 		'buttons'=>array(
 			'OK'=>'js:function(){alert("OK");}',
-			'Cancel'=>'js:function(){$(this).dialog("close");}',	
+			'Cancel'=>'js:function(){$(this).dialog("close");}',
 		),
 	),
 ));
-    echo 'Modal dialog content here ';
+	echo 'Modal dialog content here ';
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 ?>
 
@@ -85,11 +85,11 @@ $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 		),
 		'buttons'=>array(
 			'OK'=>'js:function(){alert("OK");}',
-			'Cancel'=>'js:function(){$(this).dialog("close");}',	
+			'Cancel'=>'js:function(){$(this).dialog("close");}',
 		),
 	),
 ));
-    echo 'Modal dialog content here ';
+	echo 'Modal dialog content here ';
 $this->endWidget('zii.widgets.jui.CJuiDialog');
 <?php $this->endWidget(); ?>
 </div>

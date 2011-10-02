@@ -1,79 +1,79 @@
 <?php
 /**
  * XHEditorUpload action
- * 
+ *
  * This action uploads file for XHEditor
- * 
+ *
  * The following shows how to use XHEditorUpload action.
  * First set up uploadFile action on RequestController actions() method:
  * <pre>
- * 		return array(
- *			'uploadFile'=>array(
- *				'class'=>'ext.actions.XHEditorUpload',
- *			),
- * 		);
+ * return array(
+ *     'uploadFile'=>array(
+ *         'class'=>'ext.actions.XHEditorUpload',
+ *     ),
+ * );
  * </pre>
- * 
+ *
  * And then in the view configure XHEditor widget as follows:
  * <pre>
  * $this->widget('ext.widgets.xheditor.XHeditor',array(
- * 	'model'=>$model,
- * 	'modelAttribute'=>'content', 
- * 	'config'=>array(
- * 		'id'=>'xheditor_1',
- * 		'tools'=>'full', // mini, simple, full
- * 		'skin'=>'o2007blue',
- * 		'width'=>'740px',
- * 		'height'=>'400px',
- * 		'upImgUrl'=>$this->createUrl('/request/uploadFile'),
- * 		'upImgExt'=>'jpg,jpeg,gif,png',
+ *     'model'=>$model,
+ *     'modelAttribute'=>'content',
+ *     'config'=>array(
+ *         'id'=>'xheditor_1',
+ *         'tools'=>'full', // mini, simple, full
+ *         'skin'=>'o2007blue',
+ *         'width'=>'740px',
+ *         'height'=>'400px',
+ *         'upImgUrl'=>$this->createUrl('/request/uploadFile'),
+ *         'upImgExt'=>'jpg,jpeg,gif,png',
  *     ),
  * ));
  * </pre>
- * 
+ *
  * @author Erik Uus <erik.uus@gmail.com>
- * @version 1.0.0 
+ * @version 1.0.0
  */
 class XHEditorUpload extends CAction
-{	
+{
 	/**
-     * @var file form field name
-     */
+	 * @var file form field name
+	 */
 	public $inputName='filedata';
 	/**
-     * @var upload file path, do not end with /
-     */	
+	 * @var upload file path, do not end with /
+	 */
 	public $attachDir='upload';
 	/**
-     * @var directory type: 1- by day, 2- by month, 3- by extension
-     */	
+	 * @var directory type: 1- by day, 2- by month, 3- by extension
+	 */
 	public $dirType=1;
 	/**
-     * @var maximum upload size, the default is 2M 
-     */	
+	 * @var maximum upload size, the default is 2M
+	 */
 	public $maxAttachSize=2097152;
 	/**
-     * @var upload extension 
-     */	
+	 * @var upload extension
+	 */
 	public $upExt='txt,rar,zip,jpg,jpeg,gif,png,swf,wmv,avi,wma,mp3,mid';
 	/**
-     * @var return format after upload: 1- only the url, 2- parameter array 
-     */	
-	public $msgType=2;	
-	
-	
-   /**
-    * Fills treeview based on the current user input.
-    */
-    public function run()
-    {  	
-    	if(!is_dir($this->attachDir))
-    	{
+	 * @var return format after upload: 1- only the url, 2- parameter array
+	 */
+	public $msgType=2;
+
+
+	/**
+	 * Fills treeview based on the current user input.
+	 */
+	public function run()
+	{
+		if(!is_dir($this->attachDir))
+		{
 			@mkdir($this->attachDir);
 			@chmod($this->attachDir,0777);
-    	}		
-    	
-    	$immediate=isset($_GET['immediate']) ? $_GET['immediate'] : 0;				
+		}
+
+		$immediate=isset($_GET['immediate']) ? $_GET['immediate'] : 0;
 		if(isset($_SERVER['HTTP_CONTENT_DISPOSITION']))
 		{
 			if(preg_match('/attachment;\s+name="(.+?)";\s+filename="(.+?)"/i',$_SERVER['HTTP_CONTENT_DISPOSITION'],$info))
@@ -84,10 +84,10 @@ class XHEditorUpload extends CAction
 				$_FILES[$info[1]]=array('name'=>$info[2],'tmp_name'=>$temp_name,'size'=>$size,'type'=>'','error'=>0);
 			}
 		}
-		
+
 		$err = "";
 		$msg = "''";
-		
+
 		$upfile=@$_FILES[$this->inputName];
 		if(!isset($upfile))
 			$err='Filename field was not sent.';
@@ -151,7 +151,7 @@ class XHEditorUpload extends CAction
 					PHP_VERSION < '4.2.0' && mt_srand((double)microtime() * 1000000);
 					$filename=date("YmdHis").mt_rand(1000,9999).'.'.$extension;
 					$target = $attach_dir.'/'.$filename;
-					
+
 					rename($upfile['tmp_name'],$target);
 					@chmod($target,0755);
 					$target=$this->jsonString($target);
@@ -159,31 +159,31 @@ class XHEditorUpload extends CAction
 						$target='!'.$target;
 					if($this->msgType==1)
 						$msg="'$target'";
-					else 
+					else
 						$msg="{'url':'".Yii::app()->baseUrl.'/'.$target."','localname':'".$this->jsonString($upfile['name'])."','id':'1'}";
 				}
 			}
 			else $err='Allowed extensions are '.$this->upExt;
-		
+
 			@unlink($temppath);
 		}
 		echo "{'err':'".$this->jsonString($err)."','msg':".$msg."}";
-    } 
+	}
 
 	/**
 	 * @param string
 	 * @return JSON string
-	 */    
+	 */
 	protected function jsonString($str)
 	{
 		return preg_replace("/([\\\\\/'])/",'\\\$1',$str);
-	}   
+	}
 
 	/**
 	 * @param bytes
 	 * @return filesize in bytes, KB, MB or GB
 	 */
-	protected function formatBytes($bytes) 
+	protected function formatBytes($bytes)
 	{
 		if($bytes >= 1073741824)
 			$bytes = round($bytes / 1073741824 * 100) / 100 . 'GB';
@@ -194,5 +194,5 @@ class XHEditorUpload extends CAction
 		else
 			$bytes = $bytes . 'Bytes';
 		return $bytes;
-	}    
+	}
 }

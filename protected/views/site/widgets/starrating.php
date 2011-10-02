@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Star rating');
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();

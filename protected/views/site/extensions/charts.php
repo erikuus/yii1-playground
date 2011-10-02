@@ -71,10 +71,10 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 	'title'=>'Browser market February  2008',
 	'data'=>array('IE7'=>22,'IE6'=>30.7,'IE5'=>1.7,'Firefox'=>36.5,'Mozilla'=>1.1,'Safari'=>2,'Opera'=>1.4),
 	'size'=>array(400,200),
-	'barsSize'=>array('a'), 
+	'barsSize'=>array('a'),
 	'color'=>array('3285ce'),
 	'axes'=>array(
-		'x'=>array(0,20,40,60,80,100), 
+		'x'=>array(0,20,40,60,80,100),
 		'y'=>array('Opera','Safari','Mozilla','Firefox','IE5','IE6','IE7'),
 	),
 ));
@@ -89,10 +89,10 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 	'title'=>'Browser market February  2008',
 	'data'=>array('IE7'=>22,'IE6'=>30.7,'IE5'=>1.7,'Firefox'=>36.5,'Mozilla'=>1.1,'Safari'=>2,'Opera'=>1.4),
 	'size'=>array(400,200),
-	'barsSize'=>array('a'), 
+	'barsSize'=>array('a'),
 	'color'=>array('3285ce'),
 	'axes'=>array(
-		'x'=>array(0,20,40,60,80,100), 
+		'x'=>array(0,20,40,60,80,100),
 		'y'=>array('Opera','Safari','Mozilla','Firefox','IE5','IE6','IE7'),
 	),
 ));
@@ -105,7 +105,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 
 <?php
 $this->widget('ext.widgets.google.XGoogleChart',array(
-	'type'=>'bar-vertical', 
+	'type'=>'bar-vertical',
 	'title'=>'Browser market 2008',
 	'data'=>array(
 		'February 2008'=>array('IE7'=>22,'IE6'=>30.7,'IE5'=>1.7,'Firefox'=>36.5,'Mozilla'=>1.1,'Safari'=>2,'Opera'=>1.4),
@@ -113,7 +113,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 	),
 	'size'=>array(550,300),
 	'color'=>array('c93404','3285ce'),
-	'axes'=>array('x','y'), 
+	'axes'=>array('x','y'),
 ));
 ?>
 
@@ -121,7 +121,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 <div class="toggle"><?php echo Yii::t('ui','View code'); ?></div>
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 $this->widget('ext.widgets.google.XGoogleChart',array(
-	'type'=>'bar-vertical', 
+	'type'=>'bar-vertical',
 	'title'=>'Browser market 2008',
 	'data'=>array(
 		'February 2008'=>array('IE7'=>22,'IE6'=>30.7,'IE5'=>1.7,'Firefox'=>36.5,'Mozilla'=>1.1,'Safari'=>2,'Opera'=>1.4),
@@ -129,7 +129,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 	),
 	'size'=>array(550,300),
 	'color'=>array('c93404','3285ce'),
-	'axes'=>array('x','y'), 
+	'axes'=>array('x','y'),
 ));
 <?php $this->endWidget(); ?>
 </div>
@@ -140,7 +140,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 
 <?php
 $this->widget('ext.widgets.google.XGoogleChart',array(
-	'type'=>'stacked-bar-vertical', 
+	'type'=>'stacked-bar-vertical',
 	'title'=>'Browser market 2008',
 	'data'=>array(
 		'February 2008'=>array('IE7'=>22,'IE6'=>30.7,'IE5'=>1.7,'Firefox'=>36.5,'Mozilla'=>1.1,'Safari'=>2,'Opera'=>1.4),
@@ -149,7 +149,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 	'size'=>array(500,200),
 	'barsSize'=>array(40,10), // bar width and space between bars
 	'color'=>array('6f8a09', '3285ce'),
-	'axes'=>array('x','y'),	
+	'axes'=>array('x','y'),
 ));
 ?>
 
@@ -157,7 +157,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 <div class="toggle"><?php echo Yii::t('ui','View code'); ?></div>
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 $this->widget('ext.widgets.google.XGoogleChart',array(
-	'type'=>'stacked-bar-vertical', 
+	'type'=>'stacked-bar-vertical',
 	'title'=>'Browser market 2008',
 	'data'=>array(
 		'February 2008'=>array('IE7'=>22,'IE6'=>30.7,'IE5'=>1.7,'Firefox'=>36.5,'Mozilla'=>1.1,'Safari'=>2,'Opera'=>1.4),
@@ -166,7 +166,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 	'size'=>array(500,200),
 	'barsSize'=>array(40,10), // bar width and space between bars
 	'color'=>array('6f8a09', '3285ce'),
-	'axes'=>array('x','y'),	
+	'axes'=>array('x','y'),
 ));
 <?php $this->endWidget(); ?>
 </div>
@@ -189,7 +189,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 	'fill'=>array('f8d4c8','d4e1a5'),
 	'gridSize'=>array(9,20), // x-axis and y-axis step of the grid
 	'gridStyle'=>'light', // optional: light or solid
-	'axes'=>array('x','y'), 
+	'axes'=>array('x','y'),
 ));
 ?>
 
@@ -209,7 +209,7 @@ $this->widget('ext.widgets.google.XGoogleChart',array(
 	'fill'=>array('f8d4c8','d4e1a5'),
 	'gridSize'=>array(9,20), // x-axis and y-axis step of the grid
 	'gridStyle'=>'light', // optional: light or solid
-	'axes'=>array('x','y'), 
+	'axes'=>array('x','y'),
 ));
 <?php $this->endWidget(); ?>
 </div>

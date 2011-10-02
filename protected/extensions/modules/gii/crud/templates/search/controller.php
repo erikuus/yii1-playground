@@ -13,7 +13,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
 	private $_model;
-	
+
 	/**
 	 * @return array actions
 	 */
@@ -25,17 +25,17 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 				'modelName'=>'<?php echo $this->modelClass; ?>',
 				'scenario'=>'search',
 				'view'=>'search',
-				'allowEmpty'=>false, 
+				'allowEmpty'=>false,
 			),
 			'searchAdvanced'=>array(
 				'class'=>'ext.actions.XSearchAction',
 				'modelName'=>'<?php echo $this->modelClass; ?>',
 				'scenario'=>'searchAdvanced',
 				'view'=>'searchAdvanced',
-				'allowEmpty'=>false, 
+				'allowEmpty'=>false,
 			),
 		);
-	}	
+	}
 
 	/**
 	 * @return array action filters
@@ -71,7 +71,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 				'users'=>array('*'),
 			),
 		);
-	}		
+	}
 
 	/**
 	 * Displays a particular model.
@@ -101,13 +101,13 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			{
 				// set flash
 				Yii::app()->user->setFlash('saved',Yii::t('ui','Data successfully saved!'));
-				
+
 				// using xreturnable extension to go back
 				if (!$this->goBack())
 					$this->redirect(array('view','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>));
 				else
 					$this->goBack();
-			}			
+			}
 		}
 
 		$this->render('create',array(
@@ -154,11 +154,11 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			{
 				// set flash
 				Yii::app()->user->setFlash('deleted',Yii::t('ui','Data successfully deleted!'));
-			
+
 				// using xreturnable extension to go back
 				if (!$this->goBack())
 					$this->redirect(array('search'));
-			 	else
+				 else
 					$this->goBack();
 				}
 		}

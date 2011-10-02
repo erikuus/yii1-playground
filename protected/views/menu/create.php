@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'New Menu');
 
 $this->breadcrumbs=array(

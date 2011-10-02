@@ -12,8 +12,8 @@ class Lookup extends CActiveRecord
 	 * @var integer $position
 	 */
 
-	private static $_items=array();	
-	
+	private static $_items=array();
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return CActiveRecord the static model class
@@ -22,19 +22,19 @@ class Lookup extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-	
+
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return isset(Yii::app()->getModule('lookup')->lookupTable) 
-			? Yii::app()->getModule('lookup')->lookupTable 
+		return isset(Yii::app()->getModule('lookup')->lookupTable)
+			? Yii::app()->getModule('lookup')->lookupTable
 			: Yii::app()->controller->module->lookupTable;
 	}
-	
-	// METHODS TO BE USED FROM WITHIN APPLICATION: 
-	
+
+	// METHODS TO BE USED FROM WITHIN APPLICATION:
+
 	/**
 	 * Returns the items for the specified type.
 	 * @param string item type (e.g. 'PostStatus').
@@ -60,14 +60,14 @@ class Lookup extends CActiveRecord
 			self::loadItems($type);
 		return isset(self::$_items[$type][$code]) ? self::$_items[$type][$code] : null;
 	}
-	
+
 	/**
 	 * @return array of 'add new' option for dropdown
-	 */	
+	 */
 	public static function add()
-	{									
+	{
 		return array('-1'=>Yii::t('LookupModule.ui','-add-'));
-	}	
+	}
 
 	/**
 	 * Loads the lookup items for the specified type from the database.
@@ -85,9 +85,9 @@ class Lookup extends CActiveRecord
 		foreach($models as $model)
 			self::$_items[$type][$model->code]=$model->{$name};
 	}
-	
-	// METHODS USED WITHIN MODULE:  
-	
+
+	// METHODS USED WITHIN MODULE:
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -142,8 +142,8 @@ class Lookup extends CActiveRecord
 			'criteria'=>$criteria,
 			'pagination'=>false,
 			'sort'=>array(
-        		'defaultOrder'=>'type,position',
-    		),
+				'defaultOrder'=>'type,position',
+			),
 		));
 	}
 
@@ -151,7 +151,7 @@ class Lookup extends CActiveRecord
 	 * Get menu items
 	 * @param integer maximum number of names to be returned
 	 * @return array for CMenu widget
-     */
+	 */
 	public function getMenu()
 	{
 		$menu=array();
@@ -159,17 +159,17 @@ class Lookup extends CActiveRecord
 		foreach($models as $model)
 		{
 			$menu[]=array(
-			     'label'=>Yii::t('ui',XHtml::labelize($model->type)),
-			     'url'=>array('admin','type'=>$model->type),
-			     'visible'=>$this->isTypeVisible($model->type),
+				 'label'=>Yii::t('ui',XHtml::labelize($model->type)),
+				 'url'=>array('admin','type'=>$model->type),
+				 'visible'=>$this->isTypeVisible($model->type),
 			);
 		}
 		return $menu;
-	}	
+	}
 
 	/**
 	 * Move up.
-     */
+	 */
 	public function moveUp()
 	{
 		$this->position=$this->position-1;
@@ -182,7 +182,7 @@ class Lookup extends CActiveRecord
 
 	/**
 	 * Move down.
-     */
+	 */
 	public function moveDown()
 	{
 		$this->position=$this->position+1;
@@ -232,13 +232,13 @@ class Lookup extends CActiveRecord
 	  * @return boolean whether the type should be visible in LookupMenu.
 	  */
 	protected function isTypeVisible($type)
-    {
-    	$safeTypes=Yii::app()->controller->module->safeTypes;
-        if ($safeTypes!==array() && !in_array($type,$safeTypes) && Yii::app()->user->name!='admin')
-            return false;
-    	else
-            return true;
-    }
+	{
+		$safeTypes=Yii::app()->controller->module->safeTypes;
+		if ($safeTypes!==array() && !in_array($type,$safeTypes) && Yii::app()->user->name!='admin')
+			return false;
+		else
+			return true;
+	}
 
 	 /**
 	  * This is invoked before the record is saved.
@@ -260,7 +260,7 @@ class Lookup extends CActiveRecord
 	}
 
 	/**
-     * This is invoked after the record is deleted.
+	 * This is invoked after the record is deleted.
 	 */
 	protected function afterDelete()
 	{
@@ -277,5 +277,5 @@ class Lookup extends CActiveRecord
 			$model->update(array('position'));
 			$position++;
 		}
-	}	
+	}
 }

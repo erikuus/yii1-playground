@@ -5,7 +5,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p><?php echo Yii::t('ui', 'Fields with {mark} are required', 
+	<p><?php echo Yii::t('ui', 'Fields with {mark} are required',
 	array('{mark}'=>'<span class="required">*</span>')); ?>
 </p>
 

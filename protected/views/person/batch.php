@@ -11,15 +11,15 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 	'checkBoxId'=>'person-id',
 	'emptyText'=>Yii::t('ui','Please check items you would like to perform this action on!'),
 	'confirm'=>Yii::t('ui','Are you sure to perform this action on checked items?'),
-    'items'=>array(
-        array('label'=>Yii::t('ui','Make selected persons 1 year younger'),'url'=>array('updateYears','op'=>'more')),
-        array('label'=>Yii::t('ui','Make selected persons 1 year older'),'url'=>array('updateYears','op'=>'less')),
-        // if CGridView has 'ajaxUpdate'=>false, then use ReturnableUrl and remove 'ajaxUpdate'=>'person-grid' from this widget
-        //array('label'=>Yii::t('ui','Make selected persons 1 year younger'),'url'=>$this->createReturnableUrl('updateYears',array('op'=>'more'))),
-        //array('label'=>Yii::t('ui','Make selected persons 1 year older'),'url'=>$this->createReturnableUrl('updateYears',array('op'=>'less'))),        
-    ),
-    'htmlOptions'=>array('class'=>'actionBar'),
-    'ajaxUpdate'=>'person-grid', // if you want to update grid by ajax
+	'items'=>array(
+		array('label'=>Yii::t('ui','Make selected persons 1 year younger'),'url'=>array('updateYears','op'=>'more')),
+		array('label'=>Yii::t('ui','Make selected persons 1 year older'),'url'=>array('updateYears','op'=>'less')),
+		// if CGridView has 'ajaxUpdate'=>false, then use ReturnableUrl and remove 'ajaxUpdate'=>'person-grid' from this widget
+		//array('label'=>Yii::t('ui','Make selected persons 1 year younger'),'url'=>$this->createReturnableUrl('updateYears',array('op'=>'more'))),
+		//array('label'=>Yii::t('ui','Make selected persons 1 year older'),'url'=>$this->createReturnableUrl('updateYears',array('op'=>'less'))),
+	),
+	'htmlOptions'=>array('class'=>'actionBar'),
+	'ajaxUpdate'=>'person-grid', // if you want to update grid by ajax
 )); ?>
 
 <?php echo CHtml::beginForm('','post',array('id'=>'person-form'));?>
@@ -59,11 +59,11 @@ $this->widget('ext.widgets.bmenu.XBatchMenu', array(
 	'ajaxUpdate'=>'person-grid', // if you want to update grid by ajax
 	'emptyText'=>Yii::t('ui','Please check items you would like to perform this action on!'),
 	'confirm'=>Yii::t('ui','Are you sure to perform this action on checked items?'),
-    'items'=>array(
+	'items'=>array(
 		array('label'=>Yii::t('ui','Make selected persons 1 year younger'),'url'=>array('updateYears','op'=>'more')),
 		array('label'=>Yii::t('ui','Make selected persons 1 year older'),'url'=>array('updateYears','op'=>'less')),
-    ),
-    'htmlOptions'=>array('class'=>'actionBar'),
+	),
+	'htmlOptions'=>array('class'=>'actionBar'),
 ));
 
 echo CHtml::beginForm('','post',array('id'=>'person-form'));

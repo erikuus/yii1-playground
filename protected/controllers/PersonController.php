@@ -150,8 +150,8 @@ class PersonController extends Controller
 				'pageVar'=>'page',
 			),
 			'sort'=>array(
-        		'defaultOrder'=>'lastname',
-    		),
+				'defaultOrder'=>'lastname',
+			),
 		));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
@@ -185,7 +185,7 @@ class PersonController extends Controller
 			'model'=>$model,
 		));
 	}
-	
+
 	/**
 	 * Manages all models with batch menu.
 	 */
@@ -199,36 +199,36 @@ class PersonController extends Controller
 			'model'=>$model,
 		));
 	}
-		
+
 	/**
 	 * Lists all models.
 	 */
 	public function actionAlpha()
 	{
-        // AlphaPagination
-	    Yii::import('ext.widgets.alphapager.XAlphaPagination');
-        $criteria=new CDbCriteria;
-        $alphaPages = new XAlphaPagination('lastname');
-        $alphaPages->charSet = Person::model()->getAlphaChars('lastname');
-        $alphaPages->applyCondition($criteria);
+		// AlphaPagination
+		Yii::import('ext.widgets.alphapager.XAlphaPagination');
+		$criteria=new CDbCriteria;
+		$alphaPages = new XAlphaPagination('lastname');
+		$alphaPages->charSet = Person::model()->getAlphaChars('lastname');
+		$alphaPages->applyCondition($criteria);
 
-	    // Dataprovider
-	    $dataProvider=new CActiveDataProvider('Person', array(
-	        'criteria'=>$criteria,
+		// Dataprovider
+		$dataProvider=new CActiveDataProvider('Person', array(
+			'criteria'=>$criteria,
 			'pagination'=>array(
 				'pageSize'=>Yii::app()->params['pageSize'],
 				'pageVar'=>'page',
 			),
 			'sort'=>array(
-        		'defaultOrder'=>'lastname',
-    		),
+				'defaultOrder'=>'lastname',
+			),
 		));
 		$this->render('alpha',array(
 			'dataProvider'=>$dataProvider,
 			'alphaPages'=>$alphaPages,
 		));
-	}		
-	
+	}
+
 	/**
 	 * Make selected persons 10 years older.
 	 */
@@ -236,11 +236,11 @@ class PersonController extends Controller
 	{
 		// we only allow POST request
 		if(Yii::app()->request->isPostRequest)
-		{		
-			$increment=!empty($_GET['op']) && $_GET['op']=='more' ?  1 : -1;							
+		{
+			$increment=!empty($_GET['op']) && $_GET['op']=='more' ?  1 : -1;
 			$updateIds=implode(',',$_POST['person-id']);
 			Person::model()->updateCounters(array('birthyear'=>$increment),"id IN ($updateIds)");
-			
+
 			// if AJAX request, we should not redirect the browser
 			if(!isset($_GET['ajax']))
 			{
@@ -248,12 +248,12 @@ class PersonController extends Controller
 					$this->redirect(array('batch'));
 				else
 					$this->goBack();
-			}						
+			}
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}	
-	
+	}
+
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

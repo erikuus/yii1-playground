@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Update Person');
 
 $this->breadcrumbs=array(

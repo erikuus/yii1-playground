@@ -104,7 +104,7 @@ class SiteController extends Controller
 			}
 		}
 		$this->render('contact',array('model'=>$model));
-	}	
+	}
 
 	/**
 	 * Displays the login page
@@ -130,7 +130,7 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		$this->redirect($this->createUrl('/site/index')); 
+		$this->redirect($this->createUrl('/site/index'));
 	}
 
 	/**
@@ -138,61 +138,61 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
-	    if($error=Yii::app()->errorHandler->error)
-	    {
-	    	if(Yii::app()->request->isAjaxRequest)
-	    		echo $error['message'];
-	    	else
-	        	$this->render('error', array('error'=>$error));
-	    }
+		if($error=Yii::app()->errorHandler->error)
+		{
+			if(Yii::app()->request->isAjaxRequest)
+				echo $error['message'];
+			else
+				$this->render('error', array('error'=>$error));
+		}
 	}
 
 	/**
 	 * Uploads files submitted via CMultiFileUpload widget
 	 * Deletes all old files before uploading new files
 	 */
-    public function actionUpload()
-    {
-        if(isset($_FILES['files']))
-        {
+	public function actionUpload()
+	{
+		if(isset($_FILES['files']))
+		{
 			// delete old files
 			foreach($this->findFiles() as $filename)
 				unlink(Yii::app()->params['uploadDir'].$filename);
 
-        	//upload new files
+			//upload new files
 			foreach($_FILES['files']['name'] as $key=>$filename)
 				move_uploaded_file($_FILES['files']['tmp_name'][$key],Yii::app()->params['uploadDir'].$filename);
-        }
-        $this->redirect(array('site/widget','view'=>'multifileupload'));
-    }
+		}
+		$this->redirect(array('site/widget','view'=>'multifileupload'));
+	}
 
 	/**
 	 * Move users between Australia and New Zealand.
 	 * This method is used by XMultiSelects widget.
 	 */
-    public function actionMovePersons()
-    {
+	public function actionMovePersons()
+	{
 		if(isset($_POST['Person']['australia']))
 		{
 			foreach ($_POST['Person']['australia'] as $id)
 				Person::model()->updateUserCountry($id, 14);
 		}
 
-    	if(isset($_POST['Person']['newzealand']))
+		if(isset($_POST['Person']['newzealand']))
 		{
 			foreach ($_POST['Person']['newzealand'] as $id)
 				Person::model()->updateUserCountry($id, 158);
 		}
 		Yii::app()->user->setFlash('saved',Yii::t('ui','Data successfully saved!'));
 		$this->redirect(array('site/extension','view'=>'listbuilder'));
-    }
-    
+	}
+
 
 	/**
 	 * @return array filename
 	 */
-    public function findFiles()
-    {
-    	return array_diff(scandir(Yii::app()->params['uploadDir']), array('.', '..'));
-    }    
+	public function findFiles()
+	{
+		return array_diff(scandir(Yii::app()->params['uploadDir']), array('.', '..'));
+	}
 }

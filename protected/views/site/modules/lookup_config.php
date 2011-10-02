@@ -15,15 +15,15 @@ $this->leftPortlets['ptl.ModuleMenu']=array();
 	),
 	// modules
 	'modules'=>array(
-        'lookup'=>array(
-            'class'=>'ext.modules.lookup.LookupModule',
+		'lookup'=>array(
+			'class'=>'ext.modules.lookup.LookupModule',
 			'lookupLayout'=>'application.views.layouts.leftbar',
-            'lookupTable'=>'tbl_lookup',
+			'lookupTable'=>'tbl_lookup',
 			'rbac'=>'manageLookups',
-            'safeTypes'=>array('eyecolor'),
-            'leftPortlets'=>array(
-                'ptl.ModuleMenu'=>array()
-            )
-        ),
-    ),      
+			'safeTypes'=>array('eyecolor'),
+			'leftPortlets'=>array(
+				'ptl.ModuleMenu'=>array()
+			)
+		),
+	),
 <?php $this->endWidget(); ?>

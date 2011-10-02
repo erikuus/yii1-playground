@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Accordion');
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();

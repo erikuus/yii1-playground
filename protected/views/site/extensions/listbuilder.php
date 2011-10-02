@@ -24,7 +24,7 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 	'width'=>'200px',
 ));?>
 <br />
-<?php echo CHtml::submitButton(Yii::t('ui', 'Save')); ?> 
+<?php echo CHtml::submitButton(Yii::t('ui', 'Save')); ?>
 <?php echo Yii::t('ui','NB! Access restricted by IP');?>
 <?php echo CHtml::endForm(); ?>
 

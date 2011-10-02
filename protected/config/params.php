@@ -10,10 +10,10 @@ return array(
 	'copyrightInfo' => 'Copyright &copy; 2011 Erik Uus',
 	//pagesizes
 	'pageSize' => 10,
-    // google
+	// google
 	'googleAnalytics' => false,
 	'googleAnalyticsTracker' => '',
-    'googleApiKey' => 'ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxQGj0PqsCtxKvarsoS-iqLdqZSKfxRdmoPmGl7Y9335WLC36wIGYa6o5Q',
-    //upload directory
-    'uploadDir' => 'upload2/',
+	'googleApiKey' => 'ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxQGj0PqsCtxKvarsoS-iqLdqZSKfxRdmoPmGl7Y9335WLC36wIGYa6o5Q',
+	//upload directory
+	'uploadDir' => 'upload2/',
 );

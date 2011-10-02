@@ -1,6 +1,6 @@
 <div class="item">
 
-    <h3><?php echo CHtml::link($data->fullname,$this->createReturnableUrl('view',array('id'=>$data->id)));?></h3>
+	<h3><?php echo CHtml::link($data->fullname,$this->createReturnableUrl('view',array('id'=>$data->id)));?></h3>
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('birthyear')); ?>:</b>
 	<?php echo CHtml::encode($data->birthyear); ?>

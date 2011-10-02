@@ -17,8 +17,8 @@ $this->menu=array(
 	array('label'=>Yii::t('ui', 'Back'),'url'=>$this->getReturnUrl(),'visible'=>$this->getReturnUrl()!==null),
 	array('label'=>Yii::t('ui', 'Update'),'url'=>$this->createReturnableUrl('update',array('id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>)),'visible'=>!Yii::app()->user->isGuest),
 	array(
-		'label'=>Yii::t('ui', 'Delete'), 
-		'url'=>array('delete','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>), 
+		'label'=>Yii::t('ui', 'Delete'),
+		'url'=>array('delete','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>),
 		'visible'=>!Yii::app()->user->isGuest,
 		'linkOptions'=>array(
 			'onclick'=>'
@@ -37,7 +37,7 @@ $this->menu=array(
 					}
 				});
 				$("#delete-dialog").dialog("open");
-				return false;'	
+				return false;'
 		)
 	),
 );

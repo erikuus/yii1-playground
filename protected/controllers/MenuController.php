@@ -6,7 +6,7 @@ class MenuController extends Controller
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
 	private $_model;
-	
+
 	/**
 	 * @return array actions
 	 */
@@ -28,7 +28,7 @@ class MenuController extends Controller
 				'attributeName'=>'pathText',
 			),
 		);
-	}	
+	}
 
 	/**
 	 * @return array action filters
@@ -74,7 +74,7 @@ class MenuController extends Controller
 		$this->render('view',array(
 			'model'=>$this->loadModel(),
 		));
-	}	
+	}
 
 	/**
 	 * Creates a new model.
@@ -90,19 +90,19 @@ class MenuController extends Controller
 		if(isset($_POST['Menu']))
 		{
 			$model->attributes=$_POST['Menu'];
-			
+
 			if($model->save())
 			{
 				if(!$this->goBack())
 					$this->redirect(array('view','id'=>$model->id));
 				else
-					$this->goBack();				
+					$this->goBack();
 			}
 		}
-		
+
 		$parent=$this->loadModel();
 		$model->parent_id=$parent->id;
-		$model->parentPath=$model->getPathText($parent->id);		
+		$model->parentPath=$model->getPathText($parent->id);
 
 		$this->render('create',array(
 			'model'=>$model,
@@ -128,17 +128,17 @@ class MenuController extends Controller
 				if(!$this->goBack())
 					$this->redirect(array('view','id'=>$model->id));
 				else
-					$this->goBack();				
+					$this->goBack();
 			}
 		}
 
-		$model->parentPath=$model->getPathText($model->parent_id);		
-		
+		$model->parentPath=$model->getPathText($model->parent_id);
+
 		$this->render('update',array(
 			'model'=>$model,
 		));
 	}
-	
+
 	/**
 	 * Take delete action according to command parameter
 	 */
@@ -146,16 +146,16 @@ class MenuController extends Controller
 	{
 		// we only allow deletion via POST request
 		if(Yii::app()->request->isPostRequest)
-		{		
+		{
 			$model=$this->loadModel();
-				
+
 			switch ($_GET['command']) {
 				case 'withChildren':
 					$model->deleteWithChildren();
 				break;
 				case 'keepChildren':
 					$model->deleteKeepChildren();
-				break;			
+				break;
 				case 'delete':
 					$model->delete();
 				break;
@@ -163,22 +163,22 @@ class MenuController extends Controller
 					throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 				break;
 			}
-				
+
 			// using xreturnable extension to go back
 			if (!$this->goBack())
 				$this->redirect(array('admin'));
 			else
-				$this->goBack();						
+				$this->goBack();
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}	
+	}
 
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{		
+	{
 		$model=$this->loadModel();
 		$dataProvider=Menu::model()->getDataProvider($model->id);
 		$this->render('index',array(
@@ -186,14 +186,14 @@ class MenuController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-	
+
 	/**
 	 * Displays tree in multilevel list.
 	 */
 	public function actionIndexMenu()
 	{
 		$this->render('menu');
-	}	
+	}
 
 	/**
 	 * Manages all models.
@@ -207,14 +207,14 @@ class MenuController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-	
+
 	/**
 	 * Displays tree in multilevel list.
 	 */
 	public function actionAdminMenu()
 	{
 		$this->render('menu');
-	}	
+	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -223,15 +223,15 @@ class MenuController extends Controller
 	public function loadModel()
 	{
 		if($this->_model===null)
-		{		
+		{
 			$id=isset($_GET['id']) ? $_GET['id'] : Menu::model()->rootId;
 			$this->_model=Menu::model()->findbyPk($id);
-				
+
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
 		return $this->_model;
-	}	
+	}
 
 	/**
 	 * Performs the AJAX validation.

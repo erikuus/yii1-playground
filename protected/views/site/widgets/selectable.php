@@ -30,7 +30,7 @@ $this->widget('zii.widgets.jui.CJuiSelectable',array(
 			$(".ui-selected", this).each(function(){
 				var index = $("#selectable li").index(this);
 				result.append(" #" + (index + 1));
-			});         
+			});
 		}'
 	)
 ));
@@ -52,7 +52,7 @@ $this->widget('zii.widgets.jui.CJuiSelectable',array(
 			$(".ui-selected", this).each(function(){
 				var index = $("#selectable li").index(this);
 				result.append(" #" + (index + 1));
-			});         
+			});
 		}'
 	)
 ));

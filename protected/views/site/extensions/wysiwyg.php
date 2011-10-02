@@ -10,7 +10,7 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 
 <?php $this->widget('ext.widgets.xheditor.XHeditor',array(
 	'model'=>$model,
-	'modelAttribute'=>'content', 
+	'modelAttribute'=>'content',
 	'config'=>array(
 		'id'=>'xheditor_1',
 		'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
@@ -20,7 +20,7 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 		'loadCSS'=>XHtml::cssUrl('editor.css'),
 		'upImgUrl'=>$this->createUrl('request/uploadFile'),
 		'upImgExt'=>'jpg,jpeg,gif,png',
-    ),
+	),
 )); ?>
 
 
@@ -30,7 +30,7 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 $this->widget('ext.widgets.xheditor.XHeditor',array(
 	'model'=>$model,
-	'modelAttribute'=>'content', 
+	'modelAttribute'=>'content',
 	'config'=>array(
 		'id'=>'xheditor_1',
 		'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
@@ -38,7 +38,7 @@ $this->widget('ext.widgets.xheditor.XHeditor',array(
 		'width'=>'740px',
 		'height'=>'400px',
 		'loadCSS'=>XHtml::cssUrl('editor.css'),
-		'upImgUrl'=>$this->createUrl('request/uploadFile'), // <?php echo Yii::t('ui','NB! Access restricted by IP');?> 
+		'upImgUrl'=>$this->createUrl('request/uploadFile'), // <?php echo Yii::t('ui','NB! Access restricted by IP');?>
 		'upImgExt'=>'jpg,jpeg,gif,png',
 	),
 ));

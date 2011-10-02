@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Menus');
 
 $this->breadcrumbs=array(
@@ -17,7 +17,7 @@ $this->menu=array(
 <div class="actionBar">
 	<?php $this->widget('ext.widgets.amenu.XActionMenu', array(
 		'items'=>$this->menu,
-	)); ?> 
+	)); ?>
 	<?php echo $this->renderPartial('_search'); ?>
 </div><!-- actionBar -->
 

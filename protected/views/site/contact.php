@@ -7,7 +7,7 @@
 <div class="confirmation">
 	<?php echo Yii::app()->user->getFlash('contact'); ?>
 </div>
-	
+
 <?php else: ?>
 
 <p>
@@ -63,7 +63,7 @@
 			<?php echo $form->error($model,'verifyCode'); ?>
 			<p>
 				<?php echo Yii::t('ui','Please enter the letters as they are shown in the image above.'); ?>
-			</p>			
+			</p>
 		</div>
 	</div>
 	<?php endif; ?>

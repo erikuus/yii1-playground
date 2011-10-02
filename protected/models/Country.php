@@ -86,13 +86,13 @@ class Country extends CActiveRecord
 		));
 		$suggest=array();
 		foreach($models as $model) {
-    		$suggest[] = array(
-        		'label'=>$model->name.' - '.$model->code.' - '.$model->call_code,  // label for dropdown list
-        		'value'=>$model->name,  // value for input field
-        		'id'=>$model->id,       // return values from autocomplete
-    			'code'=>$model->code,
-    			'call_code'=>$model->call_code,
-        	);
+			$suggest[] = array(
+				'label'=>$model->name.' - '.$model->code.' - '.$model->call_code,  // label for dropdown list
+				'value'=>$model->name,  // value for input field
+				'id'=>$model->id,       // return values from autocomplete
+				'code'=>$model->code,
+				'call_code'=>$model->call_code,
+			);
 		}
 		return $suggest;
 	}

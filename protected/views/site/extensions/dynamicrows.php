@@ -23,7 +23,7 @@ $persons=array();
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p><?php echo Yii::t('ui', 'Fields with {mark} are required', 
+	<p><?php echo Yii::t('ui', 'Fields with {mark} are required',
 	array('{mark}'=>'<span class="required">*</span>')); ?></p>
 
 	<div class="complex">
@@ -35,37 +35,37 @@ $persons=array();
 				<thead class="templateHead">
 					<tr>
 						<td>
-							<?php echo $form->labelEx(Person::model(),'firstname');?>			
+							<?php echo $form->labelEx(Person::model(),'firstname');?>
 						</td>
 						<td>
 							<?php echo $form->labelEx(Person::model(),'lastname');?>
-						</td>			
+						</td>
 						<td colspan="2">
 							<?php echo $form->labelEx(Person::model(),'eyecolor_code');?>
-						</td>			
-					</tr>					
+						</td>
+					</tr>
 				</thead>
 				<tbody class="templateTarget">
 				<?php foreach($persons as $i=>$person): ?>
 					<tr class="templateContent">
-						<td>			
+						<td>
 							<?php echo $form->textField($person,"[$i]firstname",array('style'=>'width:100px')); ?>
 						</td>
 						<td>
 							<?php echo $form->textField($person,"[$i]lastname",array('style'=>'width:100px')); ?>
-						</td>			
+						</td>
 						<td>
 							<?php echo $form->dropDownList($person,"[$i]eyecolor_code",Lookup::items('eyecolor'),array('style'=>'width:100px','prompt'=>'')); ?>
-						</td>																										
+						</td>
 						<td>
 							<div class="remove"><?php echo Yii::t('ui','Remove');?>
-						</td>			
+						</td>
 					</tr>
 				<?php endforeach; ?>
 				</tbody>
 				<tfoot>
-					<tr>																										
-						<td colspan="4">								
+					<tr>
+						<td colspan="4">
 							<div class="add"><?php echo Yii::t('ui','New');?></div>
 							<textarea class="template" rows="0" cols="0">
 								<tr class="templateContent">
@@ -76,19 +76,19 @@ $persons=array();
 										<?php echo CHtml::textField('Person[{0}][lastname]','',array('style'=>'width:100px')); ?>
 									</td>
 									<td>
-										<?php echo CHtml::dropDownList('Person[{0}][eyecolor_code]','',Lookup::items('eyecolor'),array('style'=>'width:100px','prompt'=>'')); ?>	
-									</td>																				
+										<?php echo CHtml::dropDownList('Person[{0}][eyecolor_code]','',Lookup::items('eyecolor'),array('style'=>'width:100px','prompt'=>'')); ?>
+									</td>
 									<td>
 										<div class="remove"><?php echo Yii::t('ui','Remove');?></div>
-									</td>			
+									</td>
 								</tr>
 							</textarea>
-						</td>			
-					</tr>					
-				</tfoot>				
-			</table>															
+						</td>
+					</tr>
+				</tfoot>
+			</table>
 		</div><!--panel-->
-	</div><!--complex-->	
+	</div><!--complex-->
 
 <?php $this->endWidget(); ?>
 
@@ -106,37 +106,37 @@ $persons=array();
 				<thead class="templateHead">
 					<tr>
 						<td>
-							<?php echo '<?php'; ?> echo $form->labelEx(Person::model(),'firstname');?>			
+							<?php echo '<?php'; ?> echo $form->labelEx(Person::model(),'firstname');?>
 						</td>
 						<td>
 							<?php echo '<?php'; ?> echo $form->labelEx(Person::model(),'lastname');?>
-						</td>			
+						</td>
 						<td colspan="2">
 							<?php echo '<?php'; ?> echo $form->labelEx(Person::model(),'eyecolor_code');?>
-						</td>			
-					</tr>					
+						</td>
+					</tr>
 				</thead>
 				<tbody class="templateTarget">
 				<?php echo '<?php'; ?> foreach($persons as $i=>$person): ?>
 					<tr class="templateContent">
-						<td>			
+						<td>
 							<?php echo '<?php'; ?> echo $form->textField($person,"[$i]firstname",array('style'=>'width:100px')); ?>
 						</td>
 						<td>
 							<?php echo '<?php'; ?> echo $form->textField($person,"[$i]lastname",array('style'=>'width:100px')); ?>
-						</td>			
+						</td>
 						<td>
 							<?php echo '<?php'; ?> echo $form->dropDownList($person,"[$i]eyecolor_code",Lookup::items('eyecolor'),array('style'=>'width:100px','prompt'=>'')); ?>
-						</td>																										
+						</td>
 						<td>
 							<div class="remove"><?php echo '<?php'; ?> echo Yii::t('ui','Remove');?>
-						</td>			
+						</td>
 					</tr>
 				<?php echo '<?php'; ?> endforeach; ?>
 				</tbody>
 				<tfoot>
-					<tr>																										
-						<td colspan="4">								
+					<tr>
+						<td colspan="4">
 							<div class="add"><?php echo '<?php'; ?> echo Yii::t('ui','New');?></div>
 							<textarea class="template" rows="0" cols="0">
 								<tr class="templateContent">
@@ -147,17 +147,17 @@ $persons=array();
 										<?php echo '<?php'; ?> echo CHtml::textField('Person[{0}][lastname]','',array('style'=>'width:100px')); ?>
 									</td>
 									<td>
-										<?php echo '<?php'; ?> echo CHtml::dropDownList('Person[{0}][eyecolor_code]','',Lookup::items('eyecolor'),array('style'=>'width:100px','prompt'=>'')); ?>	
-									</td>																				
+										<?php echo '<?php'; ?> echo CHtml::dropDownList('Person[{0}][eyecolor_code]','',Lookup::items('eyecolor'),array('style'=>'width:100px','prompt'=>'')); ?>
+									</td>
 									<td>
 										<div class="remove"><?php echo '<?php'; ?> echo Yii::t('ui','Remove');?></div>
-									</td>			
+									</td>
 								</tr>
 							</textarea>
-						</td>			
-					</tr>					
-				</tfoot>				
-			</table>															
+						</td>
+					</tr>
+				</tfoot>
+			</table>
 		</div><!--panel-->
 	</div><!--complex-->
 <?php $this->endWidget(); ?>

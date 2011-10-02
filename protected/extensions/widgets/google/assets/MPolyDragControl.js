@@ -3,7 +3,7 @@ MPolyDragControl = function(MOptions) {
 	this.type = MOptions.type ? MOptions.type : 'rectangle';
 	this.map = MOptions.map ? MOptions.map : null;
 	this.unitDivisor = 2589988.11;
-	
+
 	this.style = {
 		markerImage : 'square.png',
 		strokeColor : 'red',
@@ -16,7 +16,7 @@ MPolyDragControl = function(MOptions) {
 	for (var s in MOptions.style) {
 		this.style[s]=MOptions.style[s];
 	}
-	
+
 	this.initialize()
 };
 
@@ -30,7 +30,7 @@ MPolyDragControl.prototype.initialize = function() {
 	this.circleCenter;
 
 	this.dragMarker0;
-	this.dragMarker1;	
+	this.dragMarker1;
 
 	var baseIcon = new GIcon();
 	baseIcon.iconSize = new GSize(11,11);
@@ -44,7 +44,7 @@ MPolyDragControl.prototype.initialize = function() {
 MPolyDragControl.prototype.initialRectangle = function(sw_lat, sw_lon, ne_lat, ne_lon) {
 	var self = this.self;
 	self.clear();
-	
+
 	var sw_latlon = new GLatLng(sw_lat, sw_lon);
 	var ne_latlon = new GLatLng(ne_lat, ne_lon);
 
@@ -54,7 +54,7 @@ MPolyDragControl.prototype.initialRectangle = function(sw_lat, sw_lon, ne_lat, n
 	var p4 = new GLatLng(sw_lat, ne_lon);
 	var points = Array(p1,p2,p3,p4,p1);
 
-	self.drawPoly(points);	
+	self.drawPoly(points);
 
 	self.dragMarker0 = new GMarker(sw_latlon,{icon:self.polyEditIcon,draggable:true,bouncy:false,dragCrossMove:true});
 	self.map.addOverlay(self.dragMarker0);
@@ -79,7 +79,7 @@ MPolyDragControl.prototype.addListener = function(latlon) {
 MPolyDragControl.prototype.mapClick = function(latlon) {
 
 	var self = this.self;
-	
+
 	self.clear();
 
 	self.dragMarker0 = new GMarker(latlon,{icon:self.polyEditIcon,draggable:true,bouncy:false,dragCrossMove:true});
@@ -112,14 +112,14 @@ MPolyDragControl.prototype.drag = function() {
 	else if (self.type == 'rectangle') {
 		self.updateRectangle();
 	}
-};	
+};
 
 MPolyDragControl.prototype.dragEnd = function() {
 	var self = this.self;
 	if (self.ondragend) {
 		self.ondragend();
 	}
-//	GLog.write('Search parameters: ' + self.getParams());
+//    GLog.write('Search parameters: ' + self.getParams());
 };
 
 MPolyDragControl.prototype.updateRectangle = function() {
@@ -167,7 +167,7 @@ MPolyDragControl.prototype.updateCircle = function() {
 	this.radius = this.dragMarker0.getLatLng().distanceFrom(this.dragMarker1.getLatLng()); // meters
 
 	with (Math) {
-		var d = this.radius/6378800;	// circle radius / meters of Earth radius = radians
+		var d = this.radius/6378800;    // circle radius / meters of Earth radius = radians
 		var lat1 = (PI/180)* this.circleCenter.lat(); // radians
 		var lng1 = (PI/180)* this.circleCenter.lng(); // radians
 
@@ -197,7 +197,7 @@ MPolyDragControl.prototype.clear = function() {
 	var self = this.self;
 	if (self.onclear) {
 		self.onclear();
-	}	
+	}
 	if (this.poly) {
 		this.map.removeOverlay(this.poly);
 		this.poly = null;
@@ -227,10 +227,10 @@ MPolyDragControl.prototype.getParams = function() {
 
 MPolyDragControl.prototype.getCoords = function() {
 	return coords = {
-	    sw_lat : this.bounds.getSouthWest().lat().toFixed(5),
-	    ne_lat : this.bounds.getNorthEast().lat().toFixed(5),
-	    sw_lon : this.bounds.getSouthWest().lng().toFixed(5),
-	    ne_lon : this.bounds.getNorthEast().lng().toFixed(5)
+		sw_lat : this.bounds.getSouthWest().lat().toFixed(5),
+		ne_lat : this.bounds.getNorthEast().lat().toFixed(5),
+		sw_lon : this.bounds.getSouthWest().lng().toFixed(5),
+		ne_lon : this.bounds.getNorthEast().lng().toFixed(5)
 	}
 }
 

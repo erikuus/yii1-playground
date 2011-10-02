@@ -85,7 +85,7 @@ jQuery.fn.multiSelect = function(to, options) {
 
 	options = $.extend({
 		trigger: null,     // selector of elements whose 'click' event should invoke a move
-		allTrigger:null,	// select all of options
+		allTrigger:null,    // select all of options
 		autoSubmit: true,  // true => select all child <option>s on parent form submit (if any)
 		beforeMove: null,  // before move callback function
 		afterMove: null    // after move callback
@@ -126,17 +126,17 @@ jQuery.fn.multiSelect = function(to, options) {
 
 	// moves the options
 	function moveOptions(from, toSel, beforeMove, afterMove) {
-      if (beforeMove && !beforeMove())
+	  if (beforeMove && !beforeMove())
 			return;
 
 		jQuery("option:selected", from).each(function() {
-         jQuery(this)
-            .attr("selected", false)
-            .appendTo(toSel);
-      });
+		 jQuery(this)
+			.attr("selected", false)
+			.appendTo(toSel);
+	  });
 
 		afterMove && afterMove();
-   }
+}
 
 
 	// selects all child options

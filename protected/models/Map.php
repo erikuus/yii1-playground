@@ -49,7 +49,7 @@ class Map extends CFormModel
 		parent::afterConstruct();
 
 		if($this->scenario=='test1')
-        {
+		{
 			$this->ce_lat=58.3844382319306;
 			$this->ce_lon=26.7022705078125;
 			$this->zoom=5;
@@ -60,7 +60,7 @@ class Map extends CFormModel
 		}
 
 		if($this->scenario=='test2')
-        {
+		{
 			$this->ce_lat=null;
 			$this->ce_lon=null;
 			$this->zoom=null;

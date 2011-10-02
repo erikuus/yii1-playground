@@ -15,7 +15,7 @@
  *     ),
  * ));
  * </pre>
- * 
+ *
  * @author Erik Uus <erik.uus@gmail.com>
  * @version 1.0.0
  */
@@ -50,7 +50,7 @@ class XActionMenu extends CWidget
 	/**
 	 * @var boolean whether the portlet is visible. Defaults to true.
 	 */
-	public $visible=true;	
+	public $visible=true;
 	/**
 	 * @var boolean whether the labels for menu items should be HTML-encoded. Defaults to true.
 	 */
@@ -63,7 +63,7 @@ class XActionMenu extends CWidget
 	 * @var string separator of menu links
 	 */
 	public $separator=' | ';
-	
+
 	/**
 	 * Initializes the menu widget.
 	 * This method mainly normalizes the {@link items} property.
@@ -101,7 +101,7 @@ class XActionMenu extends CWidget
 			$this->renderMenuItems($items);
 			echo CHtml::closeTag('div');
 		}
-	}	
+	}
 
 	/**
 	 * Recursively renders the menu items.
@@ -123,13 +123,13 @@ class XActionMenu extends CWidget
 			}
 			else
 				echo $menu;
-				
+
 			if($count < count($items))
 				echo '<span class="sep">'.$this->separator.'</span>';
 			$count++;
 		}
 	}
-	
+
 	/**
 	 * Normalizes the {@link items} property so that the 'active' state is properly identified for every menu item.
 	 * @param array the items to be normalized.
@@ -150,5 +150,5 @@ class XActionMenu extends CWidget
 				$items[$i]['label']=CHtml::encode($item['label']);
 		}
 		return array_values($items);
-	}	
+	}
 }

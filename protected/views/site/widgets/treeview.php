@@ -5,19 +5,19 @@ $this->leftPortlets['application.portlets.WidgetMenu'] = array();
 
 $cs=Yii::app()->clientScript;
 $cs->registerScript('menuTreeClick', "
-    jQuery('#menu-treeview a').click(function() {
-    	alert('Node #'+this.id+' was clicked!');
-    	return false;
-    });
+	jQuery('#menu-treeview a').click(function() {
+		alert('Node #'+this.id+' was clicked!');
+		return false;
+	});
 ");
 $cs->registerScript('unitTreeClick', "
 	jQuery('#unit-treeview a').live('click',function(){
 	   jQuery.ajax({
-	       url:'".$this->createUrl('request/treePath')."',
-	       data:{'id':this.id},
-	       cache:false,
-	       success:function(data){alert(data);},
-	       error:function(){alert('Error!');}
+		   url:'".$this->createUrl('request/treePath')."',
+		   data:{'id':this.id},
+		   cache:false,
+		   success:function(data){alert(data);},
+		   error:function(){alert('Error!');}
 	   });
 	   return false;
 	});
@@ -110,4 +110,4 @@ protected/extensions/behaviors/XTreeBehavior: public function fillTree()
 <h3><?php echo Yii::t('ui','Read more'); ?></h3>
 
 <a target="_blank"
-	href="http://bassistance.de/jquery-plugins/jquery-plugin-treeview/">http://bassistance.de/jquery-plugins/jquery-plugin-treeview/</a>	
+	href="http://bassistance.de/jquery-plugins/jquery-plugin-treeview/">http://bassistance.de/jquery-plugins/jquery-plugin-treeview/</a>

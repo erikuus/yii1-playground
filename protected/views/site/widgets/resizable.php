@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Resizable'); 
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Resizable');
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();
 ?>
@@ -18,7 +18,7 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 	),
 ));
 	echo 'Your resizable content here';
-	
+
 $this->endWidget();
 ?>
 
@@ -36,7 +36,7 @@ $this->beginWidget('zii.widgets.jui.CJuiResizable', array(
 		'style'=>'width: 150px; height: 150px; padding: 0.5em; border: 1px solid #D0DEF0'
 	),
 ));
-	echo 'Your resizable content here';	
+	echo 'Your resizable content here';
 $this->endWidget();
 <?php $this->endWidget(); ?>
 </div>

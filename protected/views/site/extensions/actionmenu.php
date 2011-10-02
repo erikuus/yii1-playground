@@ -8,14 +8,14 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 
 <?php $this->widget('ext.widgets.amenu.XActionMenu', array(
 	'htmlOptions'=>array('class'=>'actionBar'),
-    'items'=>array(
+	'items'=>array(
 		array('label'=>Yii::t('ui','Home'), 'url'=>array('/site/index')),
 		array('label'=>Yii::t('ui','Widgets'), 'url'=>array('/person/index')),
 		array('label'=>Yii::t('ui', 'Extensions'), 'url'=>array('/site/extension','view'=>'dropdownmenu')),
 		array('label'=>Yii::t('ui', 'Hello'), 'url'=>'#', 'linkOptions'=>array('onclick'=>'alert("Hello!");')),
 		array('label'=>Yii::t('ui', 'Login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 		array('label'=>Yii::t('ui', 'Logout'), 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-    ),
+	),
 )); ?>
 
 <div class="tpanel">
@@ -23,14 +23,14 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 $this->widget('ext.widgets.amenu.XActionMenu', array(
 	'htmlOptions'=>array('class'=>'actionBar'),
-    'items'=>array(
+	'items'=>array(
 		array('label'=>Yii::t('ui','Home'), 'url'=>array('/site/index')),
 		array('label'=>Yii::t('ui','Widgets'), 'url'=>array('/person/index')),
 		array('label'=>Yii::t('ui', 'Extensions'), 'url'=>array('/site/extension','view'=>'dropdownmenu')),
 		array('label'=>Yii::t('ui', 'Hello'), 'url'=>'#', 'linkOptions'=>array('onclick'=>'alert("Hello!");')),
 		array('label'=>Yii::t('ui', 'Login'), 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 		array('label'=>Yii::t('ui', 'Logout'), 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-    ),
+	),
 ));
 <?php $this->endWidget(); ?>
 </div>

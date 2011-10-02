@@ -10,11 +10,11 @@ $this->leftPortlets['ptl.ModuleMenu']=array();
 
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 echo Help::item('annotation','title');
-echo Help::item('annotation','content');     
+echo Help::item('annotation','content');
 <?php $this->endWidget(); ?>
 
-<?php echo Help::item('annotation','title'); ?><br>  
-<?php echo Help::item('annotation','content'); ?>  
+<?php echo Help::item('annotation','title'); ?><br>
+<?php echo Help::item('annotation','content'); ?>
 
 <h3 style="margin-top:30px"><?php echo Yii::t('ui','Popup text (for xwebapp sceleton only)');?></h3>
 
@@ -25,10 +25,10 @@ echo CHtml::link(
 	array('class'=>'openhelp')
 );
 echo XHtml::imageLink(
-	'hint.png', 
-	array('/help/default/view','code'=>'explain_something_else'), 
+	'hint.png',
+	array('/help/default/view','code'=>'explain_something_else'),
 	array('class'=>'openhelp','title'=>Yii::t('ui','Help'))
-);    
+);
 <?php $this->endWidget(); ?>
 
 <?php echo CHtml::link(
@@ -38,7 +38,7 @@ echo XHtml::imageLink(
 ); ?>
 
 <?php echo XHtml::imageLink(
-	'hint.png', 
-	array('/help/default/view','code'=>'explain_something_else'), 
+	'hint.png',
+	array('/help/default/view','code'=>'explain_something_else'),
 	array('class'=>'openhelp','title'=>Yii::t('ui','Help'))
 ); ?>

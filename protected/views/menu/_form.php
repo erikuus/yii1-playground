@@ -1,4 +1,4 @@
-<?php  
+<?php
 Yii::app()->clientScript->registerScript('formTree', "
 	$('#menu-treeview a').live('click',function(){
 		var id=$(this).attr('id');
@@ -9,10 +9,10 @@ Yii::app()->clientScript->registerScript('formTree', "
 			cache:false,
 			success:function(data){return $('#parent-path').val(data);}
 		});
-		$('#tree-dialog').dialog('close');          
-		return false;     
-	});	
-"); 
+		$('#tree-dialog').dialog('close');
+		return false;
+	});
+");
 ?>
 
 <div class="form">
@@ -22,20 +22,20 @@ Yii::app()->clientScript->registerScript('formTree', "
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p><?php echo Yii::t('ui', 'Fields with {mark} are required', 
+	<p><?php echo Yii::t('ui', 'Fields with {mark} are required',
 	array('{mark}'=>'<span class="required">*</span>')); ?>
 </p>
 
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="simple">
-		<?php echo $form->labelEx($model,'parent_id'); ?>	
+		<?php echo $form->labelEx($model,'parent_id'); ?>
 		<?php echo $form->textField($model,'parentPath', array(
 			'id'=>'parent-path',
 			'onclick'=>'$("#tree-dialog").dialog("open");return false;',
 			'readonly'=>'readonly',
 			'class'=>'readonly',
-			'style'=>'width:200px',			
+			'style'=>'width:200px',
 		)); ?>
 		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 			'name'=>'suggest_hierarchy',
@@ -50,7 +50,7 @@ Yii::app()->clientScript->registerScript('formTree', "
 				'class'=>'autocomplete',
 				'style'=>'width:200px'
 			),
-		));	?>	
+		));	?>
 		<?php echo $form->hiddenField($model,'parent_id',array('id'=>'parent-id')); ?>
 		<?php echo $form->error($model,'parent_id'); ?>
 	</div>

@@ -11,25 +11,25 @@ class DefaultController extends Controller
 	 * initialize the default portlets for the views
 	 */
 	public function init()
-     {
+	 {
 		parent::init();
 
 		$this->layout=Yii::app()->controller->module->lookupLayout;
-		
-		if(Yii::app()->controller->module->leftPortlets!==array())		
+
+		if(Yii::app()->controller->module->leftPortlets!==array())
 			$this->leftPortlets=Yii::app()->controller->module->leftPortlets;
-		
-    	if(Yii::app()->controller->module->rightPortlets!==array())
+
+		if(Yii::app()->controller->module->rightPortlets!==array())
 			$this->rightPortlets=Yii::app()->controller->module->rightPortlets;
 	}
-	
+
 	/**
 	 * Default action.
 	 */
 	public function actionIndex()
 	{
 		$this->render('index');
-	}	
+	}
 
 	/**
 	 * Creates a new model.

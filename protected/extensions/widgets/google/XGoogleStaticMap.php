@@ -6,36 +6,36 @@
  *
  * Example of usage:
  * <pre>
- * 		$this->widget('application.components.widgets.WGoogleStaticMap',array(
- *				'center'=>'52.3214,2.34403',
- *				'alt'=>"Map for location of something", // Alt text for image
- *				'zoom'=>0, // Google map zoom level
- *				'width'=>150, // image width
- *				'height'=>150, // image Height
- *				'markers'=>array(
- *					array(
- *						'style'=>array('color'=>'green'),
- *						'locations'=>array('London, UK','San Francisco, US'),
- *					),
- *					array(
- *						'style'=>array('color'=>'blue','label'=>'X'),
- *						'locations'=>array('52.433432,-5.34322'),
- *					),
- *				),
- *				'linkUrl'=>array('location/view'), // Where the image should link
- *				'linkOptions'=>array('target'=>'_blank'), // HTML options for link tag
- *				'imageOptions'=>array('class'=>'map-image'), // HTML options for img tag
- *		));
+ * $this->widget('application.components.widgets.WGoogleStaticMap',array(
+ *     'center'=>'52.3214,2.34403',
+ *     'alt'=>"Map for location of something", // Alt text for image
+ *     'zoom'=>0, // Google map zoom level
+ *     'width'=>150, // image width
+ *     'height'=>150, // image Height
+ *     'markers'=>array(
+ *         array(
+ *             'style'=>array('color'=>'green'),
+ *             'locations'=>array('London, UK','San Francisco, US'),
+ *         ),
+ *         array(
+ *             'style'=>array('color'=>'blue','label'=>'X'),
+ *             'locations'=>array('52.433432,-5.34322'),
+ *         ),
+ *      ),
+ *      'linkUrl'=>array('location/view'), // Where the image should link
+ *      'linkOptions'=>array('target'=>'_blank'), // HTML options for link tag
+ *      'imageOptions'=>array('class'=>'map-image'), // HTML options for img tag
+ * ));
  * </pre>
  *
  * @author Alex Muir
  */
-class XGoogleStaticMap extends CWidget 
+class XGoogleStaticMap extends CWidget
 {
 	/**
 	 * @var boolean whether the portlet is visible. Defaults to true.
 	 */
-	public $visible=true;	
+	public $visible=true;
 	/**
 	 * HTML options for the image tag
 	 * @var array
@@ -77,9 +77,9 @@ class XGoogleStaticMap extends CWidget
 	/**
 	 * Possible attributes for each marker:
 	 * -style
-	 *		- size {tiny,mid,small}
-	 *		- color: {color=0xFFFFCC or name}
-	 *		- label: {alphanumeric-character
+	 *        - size {tiny,mid,small}
+	 *        - color: {color=0xFFFFCC or name}
+	 *        - label: {alphanumeric-character
 	 * - locations (array of text locations)
 	 * @var array holds an array of markers
 	 */
@@ -88,9 +88,9 @@ class XGoogleStaticMap extends CWidget
 	/**
 	 * Possible attributes for each marker:
 	 * -style
-	 *		- weight {numeric}
-	 *		- color: {color=0xFF0000FF or name}
-	 *		- fillcolor: {color=0xFFFF0033 or name}
+	 *        - weight {numeric}
+	 *        - color: {color=0xFF0000FF or name}
+	 *        - fillcolor: {color=0xFFFF0033 or name}
 	 * - locations (array of path locations)
 	 * @var array holds an array of markers
 	 */
@@ -113,10 +113,10 @@ class XGoogleStaticMap extends CWidget
 	public function init()
 	{
 		if($this->visible)
-		{		
+		{
 			if (is_null($this->center))
 				throw new CHttpException('No center supplied for static Google Map image');
-	
+
 			if (is_null($this->width) || is_null($this->height))
 				throw new CHttpException('No size specified for static Google Map image');
 		}
@@ -127,11 +127,11 @@ class XGoogleStaticMap extends CWidget
 		if($this->visible)
 		{
 			$url = $this->createImageUrl();
-	
+
 			// Deal with image size
 			$this->imageOptions['width'] = $this->width;
 			$this->imageOptions['height'] = $this->height;
-	
+
 			if (is_null($this->linkUrl))
 				echo CHtml::image($url,$this->alt,$this->imageOptions);
 			else

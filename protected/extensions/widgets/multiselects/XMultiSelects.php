@@ -6,16 +6,16 @@
  *
  * Usage
  * <pre>
- *      $this->widget('ext.widgets.multiselects.XMultiSelects',array(
- *	         'leftTitle'=>'Australia',
- *	         'leftName'=>'Person[australia][]',
- *	         'leftList'=>Person::model()->findUsersByCountry(14),
- *	         'rightTitle'=>'New Zealand',
- *	         'rightName'=>'Person[newzealand][]',
- *	         'rightList'=>Person::model()->findUsersByCountry(158),
- *	         'size'=>20,
- *	         'width'=>'200px',
- *      ));
+ * $this->widget('ext.widgets.multiselects.XMultiSelects',array(
+ *     'leftTitle'=>'Australia',
+ *     'leftName'=>'Person[australia][]',
+ *     'leftList'=>Person::model()->findUsersByCountry(14),
+ *     'rightTitle'=>'New Zealand',
+ *     'rightName'=>'Person[newzealand][]',
+ *     'rightList'=>Person::model()->findUsersByCountry(158),
+ *     'size'=>20,
+ *     'width'=>'200px',
+ * ));
  * </pre>
  */
 class XMultiSelects extends CWidget
@@ -70,9 +70,9 @@ class XMultiSelects extends CWidget
 	 */
 	public $width;
 
-	//***************************************************************************
-	// register clientside widget files
-	//***************************************************************************
+	/**
+	 * register clientside widget files
+	 */
 	protected function registerClientScript()
 	{
 		$cs=Yii::app()->getClientScript();
@@ -80,9 +80,9 @@ class XMultiSelects extends CWidget
 		$cs->registerScriptFile(Yii::app()->getAssetManager()->publish(dirname(__FILE__).'/jquery.multiselects.js'));
 	}
 
-	//***************************************************************************
-	// Initializes the widget
-	//***************************************************************************
+	/**
+	 * Initializes the widget
+	 */
 	public function init()
 	{
 		if(!isset($this->leftName))
@@ -103,9 +103,9 @@ class XMultiSelects extends CWidget
 		}
 	}
 
-	//***************************************************************************
-	// Run the widget
-	//***************************************************************************
+	/**
+	 * Run the widget
+	 */
 	public function run()
 	{
 		echo "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n";

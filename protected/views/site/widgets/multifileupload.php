@@ -18,7 +18,7 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 	'htmlOptions'=>array('size'=>25),
 )); ?>
 <br />
-<?php echo CHtml::submitButton(Yii::t('ui', 'Upload')); ?> 
+<?php echo CHtml::submitButton(Yii::t('ui', 'Upload')); ?>
 <?php echo Yii::t('ui','NB! Access restricted by IP');?>
 <?php echo CHtml::endForm(); ?>
 

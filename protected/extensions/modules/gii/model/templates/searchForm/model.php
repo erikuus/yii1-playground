@@ -16,7 +16,7 @@ class <?php echo $modelClass; ?> extends CFormModel
 {
 	/**
 	 * The followings are the search parameters
-	 */	 
+	 */
 <?php foreach($columns as $column): ?>
 	 <?php echo 'public $'.$column->name.";\n"; ?>
 <?php endforeach; ?>
@@ -37,7 +37,7 @@ class <?php echo $modelClass; ?> extends CFormModel
 			array('<?php echo implode(', ', array_keys($columns)); ?>', 'safe', 'on'=>'search'),
 			// The following rule is used by advanced search
 			// Please remove those attributes that should not be searched by advanced search.
-			array('<?php echo implode(', ', array_keys($columns)); ?>', 'safe', 'on'=>'searchAdvanced'),			
+			array('<?php echo implode(', ', array_keys($columns)); ?>', 'safe', 'on'=>'searchAdvanced'),
 		);
 	}
 
@@ -55,32 +55,32 @@ class <?php echo $modelClass; ?> extends CFormModel
 
 	/**
 	 * @return array of params for search url
-	 */	
-    public function buildParams()
-    {
-        $params=array();
-    	foreach ($this->attributes as $name=>$value) 
-    	{
-            if ($value) 
-                $params[$name]=trim($value);
-        }
-        if($params!==array())
-        	$params['q']= 1;
-        	
-        return $params;
-    }
+	 */
+	public function buildParams()
+	{
+		$params=array();
+		foreach ($this->attributes as $name=>$value)
+		{
+			if ($value)
+				$params[$name]=trim($value);
+		}
+		if($params!==array())
+			$params['q']= 1;
+
+		return $params;
+	}
 
 	/**
 	 * @return array get params that match form attributes
 	 */
-	public function getParams() 
+	public function getParams()
 	{
-        $params=array();
-    	foreach ($_GET as $name=>$value) 
-    	{
-            if (in_array($name, $this->safeAttributeNames)) 
-                $params[$name]=$value;
-        }  	
-        return $params;
+		$params=array();
+		foreach ($_GET as $name=>$value)
+		{
+			if (in_array($name, $this->safeAttributeNames))
+				$params[$name]=$value;
+		}
+		return $params;
 	}
 }

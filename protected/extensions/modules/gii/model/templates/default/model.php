@@ -114,8 +114,8 @@ foreach($columns as $name=>$column)
 				'pageSize'=>Yii::app()->params['pageSize'],
 			),
 			'sort'=>array(
-        		'defaultOrder'=>'id',
-    		),
+				'defaultOrder'=>'id',
+			),
 		));
-	}	
+	}
 }

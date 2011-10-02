@@ -1,5 +1,4 @@
 <?php
-
 class InstallController extends Controller
 {
 	public function actionIndex()
@@ -9,7 +8,7 @@ class InstallController extends Controller
 
 	public function actionCreate()
 	{
-		if(Yii::app()->request->isPostRequest) 
+		if(Yii::app()->request->isPostRequest)
 		{
 			$this->createTable();
 			$this->render('done');
@@ -20,7 +19,7 @@ class InstallController extends Controller
 
 	protected function createTable()
 	{
-		if($db=Yii::app()->db) 
+		if($db=Yii::app()->db)
 		{
 			// table name
 			$helpTable=Yii::app()->controller->module->helpTable;
@@ -30,24 +29,24 @@ class InstallController extends Controller
 				CREATE TABLE $helpTable
 				(
 					id serial NOT NULL,
-  					code character varying(64),
-  					title_et character varying(256),
-  					content_et text,
-  					title_en character varying(256),
-  					content_en text,
-  					CONSTRAINT pk_help PRIMARY KEY (id)
-				);			
+					code character varying(64),
+					title_et character varying(256),
+					content_et text,
+					title_en character varying(256),
+					content_en text,
+					CONSTRAINT pk_help PRIMARY KEY (id)
+				);
 			";
 			$db->createCommand($sql)->execute();
-			
+
 			// insert into table
 			$sql="
 				INSERT INTO $helpTable (code,title_et,content_et,title_en,content_en)
-				VALUES ('annotation','Tutvustus','Siia tuleb tutvustus...','Annotation','Here comes annotation...');			
+				VALUES ('annotation','Tutvustus','Siia tuleb tutvustus...','Annotation','Here comes annotation...');
 			";
-			$db->createCommand($sql)->execute();			
+			$db->createCommand($sql)->execute();
 		}
-		else 
-			throw new CException('Database connection is not working!');		
-	}	
+		else
+			throw new CException('Database connection is not working!');
+	}
 }

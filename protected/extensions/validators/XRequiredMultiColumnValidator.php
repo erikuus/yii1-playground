@@ -1,13 +1,13 @@
 <?php
 /**
  * XRequiredMultiColumnValidator validator
- * 
+ *
  * The following shows how to use this validator on model actions() method
  * <pre>
- *		return array(
- *			array('attr1+attr2+attr3','XRequiredMultiColumnValidator'),
- *		);
- * </pre> 
+ * return array(
+ *     array('attr1+attr2+attr3','XRequiredMultiColumnValidator'),
+ * );
+ * </pre>
  */
 class XRequiredMultiColumnValidator extends CValidator
 {
@@ -41,19 +41,19 @@ class XRequiredMultiColumnValidator extends CValidator
 			$attributes = explode("+", $attribute);
 		else
 			$attributes = array($attribute);
-			
-		$countAttributes=count($attributes);	
-		$countErrors=0;			
+
+		$countAttributes=count($attributes);
+		$countErrors=0;
 		foreach($attributes as $attribute)
 		{
-			$value=$object->$attribute;	
+			$value=$object->$attribute;
 			if($this->requiredValue!==null)
 			{
 				if(!$this->strict && $value!=$this->requiredValue || $this->strict && $value!==$this->requiredValue)
 					$countErrors++;
 			}
 			else if($this->isEmpty($value,true))
-				$countErrors++;		
+				$countErrors++;
 		}
 		if($countAttributes==$countErrors)
 		{
@@ -61,9 +61,9 @@ class XRequiredMultiColumnValidator extends CValidator
 			$labels=$object->attributeLabels();
 			foreach ($attributes as $attribute)
 				$message.=$labels[$attribute] ? $labels[$attribute].", " : null;
-				
+
 			$message = substr ($message, 0, -2);
-			$message = $this->message!==null ? $this->message : Yii::t('vd','At least one of these ({attributes}) should be filled.', array('{attributes}'=>$message));		
+			$message = $this->message!==null ? $this->message : Yii::t('vd','At least one of these ({attributes}) should be filled.', array('{attributes}'=>$message));
 			$this->addError($object,$attributes[0],$message);
 		}
 	}

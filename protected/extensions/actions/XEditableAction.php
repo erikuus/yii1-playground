@@ -7,20 +7,20 @@
  * The following shows how to use XEditableWidget action
  * First set up fillTree action on RequestController actions() method
  * <pre>
- * 		return array(
- *			'clickToEdit'=>array(
- *				'class'=>'ext.actions.XEditableWidget',
- *			),
- * 		);
+ * return array(
+ *     'clickToEdit'=>array(
+ *         'class'=>'ext.actions.XEditableWidget',
+ *     ),
+ * );
  * </pre>
  * And then set up widget
  * <pre>
- *      $this->widget('ext.widgets.jeditable.XEditableWidget',array(
- * 	        'saveurl'=>$this->createUrl('request/clickToEdit',array('id'=>$model->id)),
- * 	        'model'=>$model,
- * 	        'attribute'=>'title',
- * 	        'jeditable_type'=>'text',
- *      ));
+ * $this->widget('ext.widgets.jeditable.XEditableWidget',array(
+ *     'saveurl'=>$this->createUrl('request/clickToEdit',array('id'=>$model->id)),
+ *     'model'=>$model,
+ *     'attribute'=>'title',
+ *     'jeditable_type'=>'text',
+ * ));
  * </pre>
  *
  * @author Erik Uus <erik.uus@gmail.com>
@@ -31,28 +31,28 @@ class XEditableAction extends CAction
 	/**
 	 * @var boolean whether to use markdown parser on response. Defaults to false.
 	 */
-	public $markdown=false;	
-	
+	public $markdown=false;
+
 	public function run()
-    {	
-    	if(isset($_GET['id'], $_POST['attribute']) && isset($_POST['value']))
-		{			
+	{
+		if(isset($_GET['id'], $_POST['attribute']) && isset($_POST['value']))
+		{
 			$modelName=$this->getModelName($_POST['attribute']);
 			$attributeName=$this->getAttributeName($_POST['attribute']);
 			$model=CActiveRecord::model($modelName)->findbyPk($_GET['id']);
 			$model->{$attributeName}=$_POST['value'];
-    		if($model->update($attributeName))
-	    		$this->renderResponse($model->{$attributeName});
-			else 
+			if($model->update($attributeName))
+				$this->renderResponse($model->{$attributeName});
+			else
 				throw new CException('Error on update');
 
 		}
-	}    
-    
+	}
+
 	/**
 	 * Render response value
 	 * @param string value to render
-	 */   
+	 */
 	protected function renderResponse($value)
 	{
 		if($this->markdown)
@@ -62,25 +62,25 @@ class XEditableAction extends CAction
 		}
 		else
 			echo $value;
-	}   
-    
+	}
+
 	/**
 	 * @param string modelName_attributeName
 	 * @return CActiveRecord
-	 */   
+	 */
 	protected function getModelName($model_attribute)
-	{		
-		$p=strpos($model_attribute, '_');	
+	{
+		$p=strpos($model_attribute, '_');
 		return substr($model_attribute,0,$p);
 	}
-    
+
 	/**
 	 * @param string modelName_attributeName
 	 * @return attribute name
-	 */    
+	 */
 	protected function getAttributeName($model_attribute)
-	{		
-		$p=strpos($model_attribute, '_');	
+	{
+		$p=strpos($model_attribute, '_');
 		return substr($model_attribute,$p+1);
-	} 
+	}
 }

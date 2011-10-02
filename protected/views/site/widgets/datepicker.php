@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Datepicker');
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();
@@ -14,13 +14,13 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 	'options'=>array(
 		'showAnim'=>'fold', // 'show' (the default), 'slideDown', 'fadeIn', 'fold'
 		'showOn'=>'button', // 'focus', 'button', 'both'
-		'buttonText'=>Yii::t('ui','Select form calendar'), 
-		'buttonImage'=>XHtml::imageUrl('calendar.png'), 
+		'buttonText'=>Yii::t('ui','Select form calendar'),
+		'buttonImage'=>XHtml::imageUrl('calendar.png'),
 		'buttonImageOnly'=>true,
-    ),
+	),
 	'htmlOptions'=>array(
 		'style'=>'width:80px;vertical-align:top'
-	),  
+	),
 )); ?>
 
 <div class="tpanel">
@@ -32,13 +32,13 @@ $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 	'options'=>array(
 		'showAnim'=>'fold', // 'show' (the default), 'slideDown', 'fadeIn', 'fold'
 		'showOn'=>'button', // 'focus', 'button', 'both'
-		'buttonText'=>Yii::t('ui','Select form calendar'), 
-		'buttonImage'=>Yii::app()->request->baseUrl.'/images/calendar.gif', 
+		'buttonText'=>Yii::t('ui','Select form calendar'),
+		'buttonImage'=>Yii::app()->request->baseUrl.'/images/calendar.gif',
 		'buttonImageOnly'=>true,
-    ),
+	),
 	'htmlOptions'=>array(
 		'style'=>'width:80px;vertical-align:top'
-	),  
+	),
 ));
 <?php $this->endWidget(); ?>
 </div>

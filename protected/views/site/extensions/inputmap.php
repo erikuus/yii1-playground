@@ -14,8 +14,8 @@ $this->leftPortlets['ptl.ExtensionMenu'] = array();
 )); ?>
 	<?php $this->widget('ext.widgets.google.XGoogleInputMap', array(
 		'googleApiKey'=>Yii::app()->params['googleApiKey'],
-	    'form'=>$form,
-	    'model'=>new Map,
+		'form'=>$form,
+		'model'=>new Map,
 	)); ?>
 <?php $this->endWidget(); ?>
 <br />
@@ -28,8 +28,8 @@ $this->leftPortlets['ptl.ExtensionMenu'] = array();
 )); ?>
 	<?php $this->widget('ext.widgets.google.XGoogleInputMap', array(
 		'googleApiKey'=>Yii::app()->params['googleApiKey'],
-	    'form'=>$form,
-	    'model'=>new Map('test1')
+		'form'=>$form,
+		'model'=>new Map('test1')
 	)); ?>
 <?php $this->endWidget(); ?>
 <br />
@@ -42,8 +42,8 @@ $this->leftPortlets['ptl.ExtensionMenu'] = array();
 )); ?>
 	<?php $this->widget('ext.widgets.google.XGoogleInputMap', array(
 		'googleApiKey'=>Yii::app()->params['googleApiKey'],
-	    'form'=>$form,
-	    'model'=>new Map('test2')
+		'form'=>$form,
+		'model'=>new Map('test2')
 	)); ?>
 <?php $this->endWidget(); ?>
 <br />
@@ -52,9 +52,9 @@ $this->leftPortlets['ptl.ExtensionMenu'] = array();
 <div class="toggle"><?php echo Yii::t('ui','View code'); ?></div>
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 $this->widget('ext.widgets.google.XGoogleInputMap', array(
-    'googleApiKey'=>Yii::app()->params['googleApiKey'],
-    'form'=>$form,
-    'model'=>$model,
+	'googleApiKey'=>Yii::app()->params['googleApiKey'],
+	'form'=>$form,
+	'model'=>$model,
 ));
 <?php $this->endWidget(); ?>
 </div>

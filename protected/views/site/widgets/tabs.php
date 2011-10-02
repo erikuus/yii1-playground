@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Tabs advanced');
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();
@@ -39,7 +39,7 @@ $this->widget('zii.widgets.jui.CJuiTabs', array(
 	'htmlOptions'=>array(
 		'style'=>'width:500px;'
 	),
-)); 
+));
 <?php $this->endWidget(); ?>
 </div>
 
@@ -48,7 +48,7 @@ $this->widget('zii.widgets.jui.CJuiTabs', array(
 <pre>
 protected/controllers/SiteController.php: public function actions()
 protected/views/site/pages/_content1.php
-protected/views/site/pages/_content2.php 
+protected/views/site/pages/_content2.php
 </pre></div>
 
 <br />

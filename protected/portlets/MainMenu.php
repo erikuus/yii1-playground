@@ -29,7 +29,7 @@ class MainMenu extends CWidget
 					'label'=>Yii::t('ui', 'Modules'),
 					'url'=>array('/lookup/default'),
 					'active'=>$this->isMenuItemActive(array(
-                    	'lookup/default'=>array('*'),
+						'lookup/default'=>array('*'),
 						'help/default'=>array('*'),
 						'site'=>array('module'),
 					)),
@@ -60,18 +60,18 @@ class MainMenu extends CWidget
 	 */
 	protected function isMenuItemActive($pattern)
 	{
-	    $route=$this->controller->getRoute();
-	    foreach($pattern as $controller=>$actions)
-	    {
-	        foreach($actions as $action)
-	        {
-	            if($action=='*' && $this->controller->uniqueID==$controller)
-	               return true;
-	            elseif($route==$controller.'/'.$action)
-	               return true;
-	        }
-	    }
-	    return false;
+		$route=$this->controller->getRoute();
+		foreach($pattern as $controller=>$actions)
+		{
+			foreach($actions as $action)
+			{
+				if($action=='*' && $this->controller->uniqueID==$controller)
+				   return true;
+				elseif($route==$controller.'/'.$action)
+				   return true;
+			}
+		}
+		return false;
 	}
 }
 ?>

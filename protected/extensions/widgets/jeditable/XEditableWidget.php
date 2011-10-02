@@ -19,33 +19,33 @@
  * See the following code examples:
  * In a form definition:
  * <pre>
- *     return array(
- *       'name'=>array(
+ * return array(
+ *     'name'=>array(
  *         'type'=>'application.extensions.ds.jeditable.DsJEditableWidget',
  *         'jeditable_type'=>'text'
- *       )
- *     );
+ *     )
+ * );
  * </pre>
  * In a view:
  * <pre>
- *     $this->widget('application.extensions.ds.jeditable.DsJEditableWidget', array(
- *       'jeditable_type' => 'text'
- *     ))
+ * $this->widget('application.extensions.ds.jeditable.DsJEditableWidget', array(
+ *     'jeditable_type' => 'text'
+ * ))
  * </pre>
  *
  * Further documentation and examples of usage can be found at the [Jeditable home page]
  * (http://www.appelsiini.net/projects/jeditable). Remember to use jeditable_id, jeditable_name
- * and jeditable_type wherever it uses id, name or type in the examples. 
+ * and jeditable_type wherever it uses id, name or type in the examples.
  */
 class XEditableWidget extends CInputWidget
-{		
+{
 	/**
 	 * @var the URL the editable content is saved to
 	 */
 	public $saveurl=null;
 	/**
 	 * @var method to use when submitting edited content.
-	 */	
+	 */
 	public $method='POST';
 	/**
 	 * @var method to use when submitting edited content.
@@ -58,70 +58,70 @@ class XEditableWidget extends CInputWidget
 	public $callback=null;
 	/**
 	 * @var name of the submitted parameter which contains edited content.
-	 */		
+	 */
 	public $jeditable_name='value';
 	/**
 	 * @var name of the submitted parameter which contains id.
-	 */		
+	 */
 	public $jeditable_id='attribute';
 	/**
 	 * @var extra parameters when submitting content.
 	 * Can be either a hash or function returning a hash.
-	 */		
+	 */
 	public $submitdata=null;
 	/**
 	 * @var input type to use. Default input types are text, textarea or select.
-	 */		
+	 */
 	public $jeditable_type='text';
 	/**
 	 * @var number of rows if using textarea.
-	 */		
+	 */
 	public $rows=null;
 	/**
 	 * @var number of columns if using textarea.
-	 */		
+	 */
 	public $cols=null;
 	/**
 	 * @var height of the input element in pixels.
 	 * Can also be set to none.
-	 */		
+	 */
 	public $height='auto';
 	/**
 	 * @var width of the input element in pixels.
 	 * Can also be set to none.
-	 */		
+	 */
 	public $width='auto';
 	/**
 	 * @var load content of the element from an external URL.
-	 */		
+	 */
 	public $loadurl=null;
 	/**
 	 * @var request type to use when using loadurl.
-	 */		
+	 */
 	public $loadtype='GET';
 	/**
 	 * @var extra parameters to add to request when using loadurl.
-	 */		
+	 */
 	public $loaddata=null;
 	/**
 	 * @var form data passed as parameter. Can be either a string or function returning a string.
-	 */	
+	 */
 	public $data=null;
 	/**
 	 * @var name of the submit button
-	 */		
+	 */
 	public $submit=null;
 	/**
 	 * @var name of the cancel button
-	 */		
+	 */
 	public $cancel=null;
 	/**
 	 * @var text of the tooltip
-	 */		
+	 */
 	public $tooltip=null;
 	/**
 	 * @var saving indicator
-	 */		
+	 */
 	public $indicator=null;
 	/**
 	 * @var boolean whether the content is editable. Defaults to true.
@@ -133,7 +133,7 @@ class XEditableWidget extends CInputWidget
 	public $markdown=false;
 	/**
 	 * @var boolean whether to use CMarkdown safeTransform method. Defaults to false.
-	 * This method calls the transform() method to convert markdown content into HTML content. 
+	 * This method calls the transform() method to convert markdown content into HTML content.
 	 * It then uses CHtmlPurifier to purify the HTML content to avoid XSS attacks.
 	 * Note: since HTML Purifier is a big package, its performance is not very good.
 	 */
@@ -151,17 +151,17 @@ class XEditableWidget extends CInputWidget
 				$this->htmlOptions['id']=$id;
 			if(!isset($this->htmlOptions['name']))
 				$this->htmlOptions['name']=$name;
-	
+
 			$this->registerClientScript();
 			$this->renderContent();
 		}
 		else
-			$this->renderContent();		
+			$this->renderContent();
 	}
 
 	/**
 	 * Render content
-	 */   
+	 */
 	protected function renderContent()
 	{
 		if($this->hasModel())
@@ -173,7 +173,7 @@ class XEditableWidget extends CInputWidget
 	/**
 	 * Prepare content
 	 * @return string content
-	 */   
+	 */
 	protected function prepareContent($value)
 	{
 		if($this->markdown)
@@ -184,7 +184,7 @@ class XEditableWidget extends CInputWidget
 		else
 			return CHtml::encode($value);
 	}
-	
+
 	/**
 	 * Registers necessary client scripts.
 	 */

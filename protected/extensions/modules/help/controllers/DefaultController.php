@@ -1,30 +1,30 @@
 <?php
 
 class DefaultController extends Controller
-{  
+{
 	/**
 	 * @var default action.
-	 */    
-    public $defaultAction='admin';    
-    	
+	 */
+	public $defaultAction='admin';
+
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
 	private $_model;
-		
+
 	/**
 	 * initialize the default portlets for the views
 	 */
 	public function init()
-    {
-    	parent::init();
-    					
+	{
+		parent::init();
+
 		$this->layout=Yii::app()->controller->module->helpLayout;
-			
-		if(Yii::app()->controller->module->leftPortlets!==array())		
+
+		if(Yii::app()->controller->module->leftPortlets!==array())
 			$this->leftPortlets=Yii::app()->controller->module->leftPortlets;
-			
-	    if(Yii::app()->controller->module->rightPortlets!==array())
+
+		if(Yii::app()->controller->module->rightPortlets!==array())
 			$this->rightPortlets=Yii::app()->controller->module->rightPortlets;
 	}
 
@@ -92,17 +92,17 @@ class DefaultController extends Controller
 			'model'=>$model,
 		));
 	}
-	
+
 	/**
 	 * Updates a particular model onPage.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionUpdateOnPage()
-	{				
+	{
 		$this->layout=null;
 		$this->leftPortlets=array();
 		$this->rightPortlets=array();
-		
+
 		$model=$this->loadModel();
 
 		// Uncomment the following line if AJAX validation is needed
@@ -123,7 +123,7 @@ class DefaultController extends Controller
 		$this->render('updateOnPage',array(
 			'model'=>$model,
 		));
-	}	
+	}
 
 	/**
 	 * Deletes a particular model.
@@ -154,8 +154,8 @@ class DefaultController extends Controller
 				'pageSize'=>Yii::app()->params['pageSize'],
 			),
 			'sort'=>array(
-        		'defaultOrder'=>'title_et',
-    		),
+				'defaultOrder'=>'title_et',
+			),
 		));
 
 		$this->render('admin',array(
@@ -190,5 +190,5 @@ class DefaultController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-	}	
+	}
 }

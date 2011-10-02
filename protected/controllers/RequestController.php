@@ -21,7 +21,7 @@ class RequestController extends Controller
 				'class'=>'ext.actions.XFillTreeAction',
 				'modelName'=>'Menu',
 				'showRoot'=>false
-			),						
+			),
 			'treePath'=>array(
 				'class'=>'ext.actions.XAjaxEchoAction',
 				'modelName'=>'Menu',
@@ -41,19 +41,19 @@ class RequestController extends Controller
 			),
 			'uploadFile'=>array(
 				'class'=>'ext.actions.XHEditorUpload',
-			),	
+			),
 			'suggestAuPlaces'=>array(
 				'class'=>'ext.actions.XSuggestAction',
 				'modelName'=>'AdminUnit',
 				'methodName'=>'suggestPlaces',
 				'limit'=>30
-			),							
+			),
 			'suggestAuHierarchy'=>array(
 				'class'=>'ext.actions.XSuggestAction',
 				'modelName'=>'AdminUnit',
 				'methodName'=>'suggestHierarchy',
 				'limit'=>30
-			),					
+			),
 			'fillAuTree'=>array(
 				'class'=>'ext.actions.XFillTreeAction',
 				'modelName'=>'AdminUnit',
@@ -71,14 +71,14 @@ class RequestController extends Controller
 			),
 		);
 	}
-	
+
 	/**
 	 * @return array action filters
 	 */
 	public function filters()
 	{
 		return array(
-			'accessControl', 
+			'accessControl',
 		);
 	}
 
@@ -92,18 +92,18 @@ class RequestController extends Controller
 		return array(
 			array('allow',
 				'actions'=>array(
-					'suggestCountry','legacySuggestCountry','fillTree','treePath','loadContent',		
+					'suggestCountry','legacySuggestCountry','fillTree','treePath','loadContent',
 					'suggestAuPlaces','suggestAuHierarchy','fillAuTree','viewUnitPath','viewUnitLabel'
 				),
 				'users'=>array('*'),
 			),
 			array('allow',
 				'actions'=>array('saveTitle','saveContent','uploadFile'),
-				'ips'=>$this->ips,			
+				'ips'=>$this->ips,
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);
-	}	
+	}
 }

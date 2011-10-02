@@ -11,26 +11,26 @@ $model=Person::model()->findByPk(1);
 <h3><?php echo Yii::t('ui','Display classificator');?></h3>
 
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
-echo Lookup::item("eyecolor",$model->eyecolor_code);     
+echo Lookup::item("eyecolor",$model->eyecolor_code);
 <?php $this->endWidget(); ?>
 
-<?php echo Lookup::item("eyecolor",$model->eyecolor_code); ?>  
+<?php echo Lookup::item("eyecolor",$model->eyecolor_code); ?>
 
 <h3 style="margin-top:30px"><?php echo Yii::t('ui','Dropdown classificators');?></h3>
 
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
-echo CHtml::activeDropDownList($model,'eyecolor_code',Lookup::items('eyecolor'));     
+echo CHtml::activeDropDownList($model,'eyecolor_code',Lookup::items('eyecolor'));
 <?php $this->endWidget(); ?>
 
 <?php echo CHtml::activeDropDownList($model,'eyecolor_code',Lookup::items('eyecolor')); ?>
 
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 echo CHtml::activeDropDownList($model,'eyecolor_code',
-	Lookup::add()+Lookup::items('eyecolor'),array('prompt'=>''));  
+	Lookup::add()+Lookup::items('eyecolor'),array('prompt'=>''));
 <?php $this->endWidget(); ?>
 
 <?php echo CHtml::activeDropDownList($model,'eyecolor_code',
-	Lookup::add()+Lookup::items('eyecolor'),array('prompt'=>'')); ?>  
+	Lookup::add()+Lookup::items('eyecolor'),array('prompt'=>'')); ?>
 
 <h3 style="margin-top:30px"><?php echo Yii::t('ui','Gridview with classificators');?></h3>
 
@@ -50,13 +50,13 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'dataProvider'=>Person::model()->search(),
-    'pager'=>array(
-        'header'=>'',
-        'firstPageLabel'=>'<<',
-        'prevPageLabel'=>'<',
-        'nextPageLabel'=>'>',
-        'lastPageLabel'=>'>>',
-    ),
+	'pager'=>array(
+		'header'=>'',
+		'firstPageLabel'=>'<<',
+		'prevPageLabel'=>'<',
+		'nextPageLabel'=>'>',
+		'lastPageLabel'=>'>>',
+	),
 	'columns'=>array(
 		'firstname',
 		'lastname',

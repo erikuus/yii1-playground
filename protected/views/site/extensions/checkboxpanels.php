@@ -16,17 +16,17 @@ $model=Person::model()->findbyPk(1);
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p><?php echo Yii::t('ui', 'Fields with {mark} are required', 
+	<p><?php echo Yii::t('ui', 'Fields with {mark} are required',
 	array('{mark}'=>'<span class="required">*</span>')); ?>
 	</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="cpanel">
-	
+
 		<?php echo CHtml::checkBox('g1', true, array('id'=>'group1')); ?>
 		<?php echo CHtml::label(Yii::t('ui','Group A'),'group1'); ?>
-	
+
 		<div class="cpanelContent">
 
 			<div class="simple">
@@ -34,13 +34,13 @@ $model=Person::model()->findbyPk(1);
 				<?php echo $form->textField($model,'firstname',array('size'=>40,'maxlength'=>64)); ?>
 				<?php echo $form->error($model,'firstname'); ?>
 			</div>
-		
+
 			<div class="simple">
 				<?php echo $form->labelEx($model,'lastname'); ?>
 				<?php echo $form->textField($model,'lastname',array('size'=>40,'maxlength'=>64)); ?>
 				<?php echo $form->error($model,'lastname'); ?>
 			</div>
-		
+
 			<div class="simple">
 				<?php echo $form->labelEx($model,'birthyear'); ?>
 				<?php echo $form->textField($model,'birthyear',array('size'=>6,'maxlength'=>4)); ?>
@@ -52,10 +52,10 @@ $model=Person::model()->findbyPk(1);
 	</div><!-- cpanel -->
 
 	<div class="cpanel">
-	
+
 		<?php echo CHtml::checkBox('g2', false, array('id'=>'group2')); ?>
 		<?php echo CHtml::label(Yii::t('ui','Group B'),'group2'); ?>
-		
+
 		<div class="cpanelContent">
 
 			<div class="simple">
@@ -63,25 +63,25 @@ $model=Person::model()->findbyPk(1);
 				<?php echo $form->textField($model,'email',array('size'=>40,'maxlength'=>64)); ?>
 				<?php echo $form->error($model,'email'); ?>
 			</div>
-		
+
 			<div class="simple">
 				<?php echo $form->labelEx($model,'webpage'); ?>
 				<?php echo $form->textField($model,'webpage',array('size'=>40,'maxlength'=>64)); ?>
 				<?php echo $form->error($model,'webpage'); ?>
 			</div>
-		
+
 			<div class="simple">
 				<?php echo $form->labelEx($model,'country_id'); ?>
 				<?php echo $form->DropDownList($model,'country_id',Country::model()->options,array('prompt'=>''));?>
 				<?php echo $form->error($model,'country_id'); ?>
 			</div>
-		
+
 			<div class="simple">
 				<?php echo $form->labelEx($model,'eyecolor_code'); ?>
 				<?php echo $form->dropDownList($model,'eyecolor_code',Lookup::items('eyecolor'),array('prompt'=>''));?>
 				<?php echo $form->error($model,'eyecolor_code'); ?>
 			</div>
-	
+
 		</div><!-- cpanelContent -->
 
 	</div><!-- cpanel -->

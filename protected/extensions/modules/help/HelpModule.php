@@ -7,11 +7,9 @@
  * To use HelpModule, you must include it as a module in the application configuration like the following:
  * <pre>
  * return array(
- *     ...
  *     'modules'=>array(
  *         'help'=>array(
- *				'class'=>'ext.modules.lookup.HelpModule',
- * 				...
+ *             'class'=>'ext.modules.lookup.HelpModule',
  *         ),
  *     ),
  * )
@@ -23,16 +21,16 @@
  *
  * If your application is using path-format URLs, you can then access HelpModule via:
  * http://localhost/path/to/index.php/help
- * 
- * In order to access help model from anywhere of your application, 
+ *
+ * In order to access help model from anywhere of your application,
  * you need to import it in the application configuration like the following:
- * 
- * 	'import'=>array(
- *		'ext.modules.help.models.*',
- *	),
- * 
+ *
+ * 'import'=>array(
+ *     'ext.modules.help.models.*',
+ * ),
+ *
  * The following examples show how to use Help to display help texts in your application:
- *  
+ *
  * echo Help::item('annotation','title');
  * echo Help::item('annotation','content');
  *
@@ -48,7 +46,7 @@ class HelpModule extends CWebModule
 	public $helpTable='help';
 	/**
 	 * @var string the path to the layout
-	 */	
+	 */
 	public $helpLayout;
 	/**
 	 * @var array a list of application portlets (className=>properties)
@@ -62,29 +60,29 @@ class HelpModule extends CWebModule
 	public $rightPortlets=array();
 	/**
 	 * @var css file for XHeditor widget
-	 */	
-	public $editorCSS;	
+	 */
+	public $editorCSS;
 	/**
 	 * @var string route to application upload action (ex. 'request/uploadFile')
 	 * that will be used by XHeditor widget
 	 */
-	public $editorUploadRoute;	
+	public $editorUploadRoute;
 	/**
 	 * @var string list of tools for XHeditor widget
 	 * Possible values are also 'mini', 'simple', 'full'
-	 */	
-	public $editorTools='GStart,Cut,Copy,Paste,Pastetext,GEnd,Separator,GStart,Blocktag,Bold,Italic,Underline,FontColor,BackColor,Removeformat,GEnd,Separator,GStart,Align,List,Outdent,Indent,GEnd,Separator,GStart,Link,Unlink,Img,Table,GEnd,Separator,GStart,Source,Preview,Fullscreen,GEnd';	
+	 */
+	public $editorTools='GStart,Cut,Copy,Paste,Pastetext,GEnd,Separator,GStart,Blocktag,Bold,Italic,Underline,FontColor,BackColor,Removeformat,GEnd,Separator,GStart,Align,List,Outdent,Indent,GEnd,Separator,GStart,Link,Unlink,Img,Table,GEnd,Separator,GStart,Source,Preview,Fullscreen,GEnd';
 	/**
-	 * @var mixed a rbac operation name that controlls access to restricted pages (admin, update, create). 
-	 * Defaults to false, meaning role based access control is not used at all and all authenticated 
+	 * @var mixed a rbac operation name that controlls access to restricted pages (admin, update, create).
+	 * Defaults to false, meaning role based access control is not used at all and all authenticated
 	 * users are allowed to access all but admin pages.
 	 */
-	public $rbac=false;	
-	
+	public $rbac=false;
+
 	private $publicPages=array(
 		'default/view'
 	);
-	
+
 	private $adminPages=array(
 		'default/delete',
 		'install/index',
@@ -100,7 +98,7 @@ class HelpModule extends CWebModule
 		$this->setImport(array(
 			'help.models.*',
 			'help.components.*',
-		));		
+		));
 	}
 
 	/**
@@ -108,13 +106,13 @@ class HelpModule extends CWebModule
 	 * @param CController the controller to be accessed.
 	 * @param CAction the action to be accessed.
 	 * @return boolean whether the action should be executed.
-	 */	
+	 */
 	public function beforeControllerAction($controller, $action)
 	{
 		if(parent::beforeControllerAction($controller, $action))
 		{
-			$route=$controller->id.'/'.$action->id;			
-			
+			$route=$controller->id.'/'.$action->id;
+
 			// allow only admin user to install module and delete help texts
 			if(Yii::app()->user->name!='admin' && in_array($route,$this->adminPages))
 				throw new CHttpException(403,'You are not allowed to access this page.');
@@ -123,26 +121,26 @@ class HelpModule extends CWebModule
 			if(Yii::app()->user->name!='admin' && $this->rbac===false)
 				$this->checkUserAccess($route);
 			if(Yii::app()->user->name!='admin' && $this->rbac!==false)
-				$this->checkRoleAccess($route); 	
-			
+				$this->checkRoleAccess($route);
+
 			return true;
 		}
 		else
 			return false;
 	}
-	
+
 	/**
 	 * Allow authenticated users to access restricted pages
-	 * @param string route of current request 
+	 * @param string route of current request
 	 */
 	protected function checkUserAccess($route)
 	{
 		if(Yii::app()->user->isGuest && !in_array($route,$this->publicPages))
 			Yii::app()->user->loginRequired();
 		else
-			return true;			
+			return true;
 	}
-	
+
 	/**
 	 * Allow only users with given role to access restricted pages
 	 * @param string route of current request
@@ -154,6 +152,6 @@ class HelpModule extends CWebModule
 		if(!Yii::app()->user->checkAccess($this->rbac) && !in_array($route,$this->publicPages))
 			Yii::app()->user->loginRequired();
 		else
-			return true;			
-	}	
+			return true;
+	}
 }

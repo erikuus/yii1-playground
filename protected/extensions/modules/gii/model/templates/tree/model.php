@@ -12,15 +12,15 @@
 
 /**
  * Before we start generating the tree model we validate:
- * - if table has at least one string column needed for tree label 
+ * - if table has at least one string column needed for tree label
  * - if table has columns named id and parent_id
  */
 $treeLabelAttribute=null;
 foreach($columns as $column)
 {
-	if($column->type=='string') 
+	if($column->type=='string')
 	{
-		$treeLabelAttribute=$column->name; 
+		$treeLabelAttribute=$column->name;
 		break;
 	}
 }
@@ -64,30 +64,30 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 	{
 		return '<?php echo $tableName; ?>';
 	}
-	
+
 	/**
 	 * @return array behaviors.
 	 */
 	public function behaviors()
 	{
-    	return array(
-    		// NOTE: you may need to change label attribute
-    		'TreeBehavior' => array(
+		return array(
+			// NOTE: you may need to change label attribute
+			'TreeBehavior' => array(
 				'class' => 'ext.behaviors.XTreeBehavior',
 				'label' => '<?php echo $treeLabelAttribute; ?>',
 				'menuUrlMethod'=>'getMenuUrl',
 				/*
-				'sort'=>'',	
-				'pathLabelMethod'=>'',	
+				'sort'=>'',
+				'pathLabelMethod'=>'',
 				'breadcrumbsLabelMethod'=>'',
-				'breadcrumbsUrlMethod'=>'',		
-				'menuLabelMethod'=>'',	
+				'breadcrumbsUrlMethod'=>'',
+				'menuLabelMethod'=>'',
 				'treeLabelMethod'=>'',
-				'treeUrlMethod'=>'',				
+				'treeUrlMethod'=>'',
 				*/
-            ),
-    	);
-	}	
+			),
+		);
+	}
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -137,20 +137,20 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 	 * @return array menu url
 	 */
 	public function getMenuUrl()
-	{			
+	{
 		if(Yii::app()->controller->action->id=='adminMenu')
 			return array('admin', 'id'=>$this->id);
 		else
 			return array('index', 'id'=>$this->id);
 	}
-	
+
 	/**
 	 * Retrieves a list of child models
 	 * @param integer the id of the parent model
 	 * @return CActiveDataProvider the data provider
 	 */
 	public function getDataProvider($id=null)
-	{			
+	{
 		// NOTE: you may need to change order criteria
 		if($id===null)
 			$id=$this->TreeBehavior->getRootId();
@@ -165,7 +165,7 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 			'pagination'=>false,
 		));
 	}
-	
+
 	/**
 	 * Suggests a list of existing values matching the specified keyword.
 	 * @param string the keyword to be matched
@@ -181,14 +181,14 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 			'params'=>array(':keyword'=>"$keyword%"),
 			'order'=>'<?php echo $treeLabelAttribute; ?>',
 		));
-		$suggest=array();	
+		$suggest=array();
 		foreach($models as $model) {
-    		$suggest[] = array(
-        		'label'=>$model->TreeBehavior->pathText,  // label for dropdown list          
-        		'value'=>$model-><?php echo $treeLabelAttribute; ?>,  // value for input field          
-        		'id'=>$model->id,       // return values from autocomplete
-        	);      
+			$suggest[] = array(
+				'label'=>$model->TreeBehavior->pathText,  // label for dropdown list
+				'value'=>$model-><?php echo $treeLabelAttribute; ?>,  // value for input field
+				'id'=>$model->id,       // return values from autocomplete
+			);
 		}
 		return $suggest;
-	}	
+	}
 }

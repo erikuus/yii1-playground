@@ -23,8 +23,8 @@ $this->leftPortlets['ptl.ModuleMenu']=array();
 			'leftPortlets'=>array(
 				'ptl.ModuleMenu'=>array()
 			),
-            'editorCSS'=>'editor.css',
-            'editorUploadRoute'=>'/request/uploadFile',			
+			'editorCSS'=>'editor.css',
+			'editorUploadRoute'=>'/request/uploadFile',
 		),
-    ),		      
+	),
 <?php $this->endWidget(); ?>

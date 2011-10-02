@@ -91,10 +91,10 @@ class <?php echo $modelClass; ?> extends <?php echo $this->baseClass."\n"; ?>
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-		
+
 <?php
 foreach($columns as $name=>$column)
-{	
+{
 	if($column->type==='string')
 	{
 		echo "\t\t\$criteria->compare('$name',\$form->$name,true);\n\n";
@@ -104,7 +104,7 @@ foreach($columns as $name=>$column)
 		echo "\t\t\$criteria->compare('$name',\$form->$name);\n\n";
 	}
 }
-?>		
+?>
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,
 			'pagination'=>array(
@@ -112,9 +112,9 @@ foreach($columns as $name=>$column)
 				'pageVar'=>'page',
 			),
 			'sort'=>array(
-        		'defaultOrder'=>'id',
+				'defaultOrder'=>'id',
 				'sortVar'=>'sort',
-    		),
+			),
 		));
-	}	
+	}
 }

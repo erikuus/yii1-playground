@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScript('scriptId', "
 <div id="amount" style="margin-left:210px; padding:3px;"></div>
 
 <br class="clearfloat" />
- 
+
 <div class="tpanel">
 <div class="toggle"><?php echo Yii::t('ui','View code'); ?></div>
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>

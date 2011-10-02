@@ -1,5 +1,5 @@
-<?php 
-class XDbCriteria extends CDbCriteria 
+<?php
+class XDbCriteria extends CDbCriteria
 {
 	/**
 	 * Appends search condition with meta symbols to the existing {@link condition}.
@@ -9,9 +9,9 @@ class XDbCriteria extends CDbCriteria
 	 * @param string $operator the operator used to concatenate the new condition with the existing one.
 	 * @param string $like the LIKE operator. Defaults to 'LIKE'. You may also set this to be 'NOT LIKE'.
 	 * @return CDbCriteria the criteria object itself
-	 */	
+	 */
 	public function mcompare($column, $keyword, $operator='AND', $like='LIKE')
-	{				
+	{
 		return $this->addSearchCondition("LOWER($column)",$this->formatSearch($keyword,true),false,$operator,$like);
 	}
 
@@ -33,48 +33,48 @@ class XDbCriteria extends CDbCriteria
 	 * Defaults to 'AND'.
 	 * @return CDbCriteria the criteria object itself
 	 */
-	
+
 	public function icompare($column, $value, $partialMatch=false, $operator='AND')
 	{
-	    $value="$value";
-	
-	    if(preg_match('/^(?:\s*(<>|<=|>=|<|>|=))?(.*)$/',$value,$matches))
-	    {
-	        $value=$matches[2];
-	        $op=$matches[1];
-	    }
-	    else
-	        $op='';
-	
-	    if($value==='')
-	        return $this;
-	
-	    if($partialMatch)
-	    {
-	        if($op==='')
-	            return $this->addSearchCondition("LOWER($column)",$this->formatSearch($value),true,$operator);
-	        if($op==='<>')
-	            return $this->addSearchCondition("LOWER($column)",$this->formatSearch($value),true,$operator,'NOT LIKE');
-	    }
-	    else if($op==='')
-	        $op='=';
-	
-	    $this->addCondition("LOWER($column)".$op.self::PARAM_PREFIX.self::$paramCount,$operator);
-	    $this->params[self::PARAM_PREFIX.self::$paramCount++]=$this->formatSearch($value);
-	
-	    return $this;
-	}	
-		
+		$value="$value";
+
+		if(preg_match('/^(?:\s*(<>|<=|>=|<|>|=))?(.*)$/',$value,$matches))
+		{
+			$value=$matches[2];
+			$op=$matches[1];
+		}
+		else
+			$op='';
+
+		if($value==='')
+			return $this;
+
+		if($partialMatch)
+		{
+			if($op==='')
+				return $this->addSearchCondition("LOWER($column)",$this->formatSearch($value),true,$operator);
+			if($op==='<>')
+				return $this->addSearchCondition("LOWER($column)",$this->formatSearch($value),true,$operator,'NOT LIKE');
+		}
+		else if($op==='')
+			$op='=';
+
+		$this->addCondition("LOWER($column)".$op.self::PARAM_PREFIX.self::$paramCount,$operator);
+		$this->params[self::PARAM_PREFIX.self::$paramCount++]=$this->formatSearch($value);
+
+		return $this;
+	}
+
 	/**
-	 * Formats search string 
+	 * Formats search string
 	 * @param string search from user input
 	 * @param boolean whether to convert meta symbols
 	 * @return string search for sql
-	 */	
+	 */
 	public function formatSearch($str, $symbols=false)
-	{			
+	{
 		if($symbols===true)
-			$str=strtr($str, array('*'=>'%','?'=>'_'));		
+			$str=strtr($str, array('*'=>'%','?'=>'_'));
 		return mb_strtolower($str);
-	}	
+	}
 }

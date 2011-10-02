@@ -30,7 +30,7 @@
 			'buttonType'=>'submit',
 			'name'=>'btnSubmit',
 			'value'=>'Submit',
-			'caption'=>$model->isNewRecord ? Yii::t('LookupModule.ui', 'Create') : Yii::t('LookupModule.ui','Save'), 
+			'caption'=>$model->isNewRecord ? Yii::t('LookupModule.ui', 'Create') : Yii::t('LookupModule.ui','Save'),
 		));  ?>
 		<?php $this->widget('zii.widgets.jui.CJuiButton', array(
 			'buttonType'=>'link',

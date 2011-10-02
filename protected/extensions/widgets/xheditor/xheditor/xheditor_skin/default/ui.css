@@ -107,7 +107,7 @@
 
 .xheModal{
 	position: fixed;z-index: 1000010;text-align:left;top:50%;left:50%;background:#FFF;border:1px solid #BBB;font-size:12px;
-	_position:absolute;_margin-top:expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');	
+	_position:absolute;_margin-top:expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
 }
 .xheModalTitle{padding:5px;background:#F0F0EE;border-bottom:1px solid #BBB;}
 .xheModalClose{float:right;width:16px;height:16px;background:url(img/close.gif);cursor:pointer;}

@@ -95,23 +95,15 @@ class Person extends CActiveRecord
 		$criteria=new XDbCriteria(array(
 			'with'=>'country',
 		));
-		
+
 		$criteria->compare('id',$this->id);
-
 		$criteria->icompare('firstname',$this->firstname,true);
-
 		$criteria->icompare('lastname',$this->lastname,true);
-
 		$criteria->compare('birthyear',$this->birthyear);
-
 		$criteria->icompare('email',$this->email,true);
-
 		$criteria->icompare('webpage',$this->webpage,true);
-
 		$criteria->compare('country_id',$this->country_id);
-
 		$criteria->icompare('registered',$this->registered,true);
-
 		$criteria->compare('eyecolor_code',$this->eyecolor_code);
 
 		return new CActiveDataProvider(get_class($this), array(
@@ -120,19 +112,19 @@ class Person extends CActiveRecord
 				'pageSize'=>Yii::app()->params['pageSize'],
 				'pageVar'=>'page',
 			),
-    		'sort'=>array(
-    			'defaultOrder'=>'lastname,firstname',
-    			'sortVar'=>'sort',
-    			'attributes'=>array(
-    				'firstname',
-    				'lastname',
-    				'birthyear',
-    				'country_id'=>array(
-    					'asc'=>'country.name',
-    					'desc'=>'country.name DESC',
-    				)
-    			),
-    		),
+			'sort'=>array(
+				'defaultOrder'=>'lastname,firstname',
+				'sortVar'=>'sort',
+				'attributes'=>array(
+					'firstname',
+					'lastname',
+					'birthyear',
+					'country_id'=>array(
+						'asc'=>'country.name',
+						'desc'=>'country.name DESC',
+					)
+				),
+			),
 
 		));
 	}
@@ -144,7 +136,7 @@ class Person extends CActiveRecord
 	{
 		return $this->firstname.' '.$this->lastname;
 	}
-	
+
 	/**
 	 * @param string attribute name
 	 * @return array for XAlphaPagination (A,B,C,etc)
@@ -157,7 +149,7 @@ class Person extends CActiveRecord
 			'order'=>"$attribute",
 		);
 		$models=$this->findAll($criteria);
-	    foreach($models as $model)
+		foreach($models as $model)
 			$chars[]=mb_strtoupper($model->$attribute);
 		return $chars;
 	}
@@ -173,12 +165,12 @@ class Person extends CActiveRecord
 			'condition'=>'country_id='.$country_id,
 			'order'=>'firstname, lastname',
 		);
-	    return CHtml::listData($this->findAll($criteria),'id','firstname');
+		return CHtml::listData($this->findAll($criteria),'id','firstname');
 	}
 
 	/**
 	 * @param int $id the id (primary key) of person
-     * @param int $country_id
+	 * @param int $country_id
 	 */
 	public function updateUserCountry($id, $country_id)
 	{

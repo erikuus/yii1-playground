@@ -1,6 +1,6 @@
 <?php $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Breadcrumbs'); ?>
 
-<?php 
+<?php
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();
 ?>

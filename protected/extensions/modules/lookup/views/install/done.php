@@ -1,5 +1,5 @@
-<?php 
-$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('LookupModule.ui', 'Install'); 
+<?php
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('LookupModule.ui', 'Install');
 $this->breadcrumbs=array(
 	Yii::t('LookupModule.ui', 'Lookup Names')=>array('/lookup'),
 	Yii::t('LookupModule.ui', 'Installation')=>array('index'),

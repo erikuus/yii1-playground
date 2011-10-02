@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Draggable'); 
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Draggable');
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();
 ?>

@@ -12,9 +12,9 @@ class Menu extends CActiveRecord
 	 * @property string $title
 	 * @property integer $position
 	 */
-	
+
 	public $parentPath;
-	
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Menu the static model class
@@ -37,15 +37,15 @@ class Menu extends CActiveRecord
 	 */
 	public function behaviors()
 	{
-    	return array(
-    		'TreeBehavior' => array(
+		return array(
+			'TreeBehavior' => array(
 				'class' => 'ext.behaviors.XTreeBehavior',
-    			'treeLabelMethod'=> 'getTreeLabel',
-    			'menuUrlMethod'=> 'getMenuUrl',
-            ),
-    	);
-	}		
-	
+				'treeLabelMethod'=> 'getTreeLabel',
+				'menuUrlMethod'=> 'getMenuUrl',
+			),
+		);
+	}
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -67,8 +67,8 @@ class Menu extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-      		'parent' => array(self::BELONGS_TO, 'Menu', 'parent_id'),
-      		'children' => array(self::HAS_MANY, 'Menu', 'parent_id', 'order' => 'position'),
+			  'parent' => array(self::BELONGS_TO, 'Menu', 'parent_id'),
+			  'children' => array(self::HAS_MANY, 'Menu', 'parent_id', 'order' => 'position'),
 			'childCount' => array(self::STAT, 'Menu', 'parent_id'),
 		);
 	}
@@ -85,25 +85,25 @@ class Menu extends CActiveRecord
 			'position' => Yii::t('ui', 'Position'),
 		);
 	}
-	
+
 	/**
 	 * @return string tree label
-	 */	
+	 */
 	public function getTreeLabel()
-	{			
+	{
 		return $this->label . ':' . $this->childCount;
 	}
-	
+
 	/**
 	 * @return array menu url
-	 */	
+	 */
 	public function getMenuUrl()
-	{			
+	{
 		if(Yii::app()->controller->action->id=='adminMenu')
 			return array('admin', 'id'=>$this->id);
 		else
 			return array('index', 'id'=>$this->id);
-	}	
+	}
 
 	/**
 	 * Retrieves a list of child models
@@ -111,7 +111,7 @@ class Menu extends CActiveRecord
 	 * @return CActiveDataProvider the data provider
 	 */
 	public function getDataProvider($id=null)
-	{			
+	{
 		if($id===null)
 			$id=$this->TreeBehavior->getRootId();
 		$criteria=new CDbCriteria(array(
@@ -125,7 +125,7 @@ class Menu extends CActiveRecord
 			'pagination'=>false,
 		));
 	}
-	
+
 	/**
 	 * Suggests a list of existing values matching the specified keyword.
 	 * @param string the keyword to be matched
@@ -139,13 +139,13 @@ class Menu extends CActiveRecord
 			'limit'=>$limit,
 			'params'=>array(':keyword'=>"$keyword%")
 		));
-		$suggest=array();	
+		$suggest=array();
 		foreach($models as $model) {
-    		$suggest[] = array(
-        		'label'=>$model->TreeBehavior->pathText,  // label for dropdown list          
-        		'value'=>$model->label,  // value for input field          
-        		'id'=>$model->id,       // return values from autocomplete
-        	);      
+			$suggest[] = array(
+				'label'=>$model->TreeBehavior->pathText,  // label for dropdown list
+				'value'=>$model->label,  // value for input field
+				'id'=>$model->id,       // return values from autocomplete
+			);
 		}
 		return $suggest;
 	}

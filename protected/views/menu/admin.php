@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Manage Menus');
 
 Yii::app()->clientScript->registerScript('admin', "
@@ -27,7 +27,7 @@ $this->menu=array(
 <div class="actionBar">
 	<?php $this->widget('ext.widgets.amenu.XActionMenu', array(
 		'items'=>$this->menu,
-	)); ?> 
+	)); ?>
 	<?php echo $this->renderPartial('_search'); ?>
 </div><!-- actionBar -->
 
@@ -81,7 +81,7 @@ $this->menu=array(
 						});
 						$("#delete-dialog").dialog("open");
 						return false;
-					}',				
+					}',
 				),
 				'deleteSimple'=>array(
 					'label'=>Yii::t('ui','Delete'),
@@ -105,8 +105,8 @@ $this->menu=array(
 						});
 						$("#delete-dialog").dialog("open");
 						return false;
-					}',			
-				),				
+					}',
+				),
 			)
 		),
 	),

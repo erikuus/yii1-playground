@@ -85,17 +85,11 @@ class Content extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-
 		$criteria->compare('id',$this->id);
-
 		$criteria->compare('title',$this->title,true);
-
 		$criteria->compare('content',$this->content,true);
-
 		$criteria->compare('authorid',$this->authorid);
-
 		$criteria->compare('createtime',$this->createtime);
-
 		$criteria->compare('updatetime',$this->updatetime);
 
 		return new CActiveDataProvider(get_class($this), array(
@@ -104,11 +98,11 @@ class Content extends CActiveRecord
 				'pageSize'=>Yii::app()->params['pageSize'],
 			),
 			'sort'=>array(
-        		'defaultOrder'=>'id',
-    		),
+				'defaultOrder'=>'id',
+			),
 		));
 	}
-	
+
 	/**
 	 * This is invoked before the record is saved.
 	 * @return boolean whether the record should be saved.
@@ -119,13 +113,13 @@ class Content extends CActiveRecord
 		{
 			if($this->isNewRecord)
 				$this->createtime=time();
-			else			
+			else
 				$this->updatetime=time();
-										
+
 			$this->authorid=1;
 			return true;
 		}
 		else
 			return false;
-	}	
+	}
 }

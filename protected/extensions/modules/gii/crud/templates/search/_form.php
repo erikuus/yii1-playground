@@ -11,7 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>\n"; ?>
 
-	<p><?php  echo "<?php echo Yii::t('ui', 'Fields with {mark} are required', 
+	<p><?php  echo "<?php echo Yii::t('ui', 'Fields with {mark} are required',
 	array('{mark}'=>'<span class=\"required\">*</span>')); ?>\n"; ?></p>
 
 	<?php echo "<?php echo \$form->errorSummary(\$model); ?>\n"; ?>
@@ -45,7 +45,7 @@ foreach($this->tableSchema->columns as $column)
 			'caption'=>Yii::t('ui', 'Cancel'),
 			'url'=>\$model->isNewRecord ? array('admin') : \$this->getReturnUrl(),
 		)); ?>\n"; ?>
-	</div>			
+	</div>
 	<?php /* echo "<?php echo CHtml::submitButton(\$model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save')); ?>\n"; */ ?>
 	<?php /* echo "<?php echo CHtml::button(Yii::t('ui', 'Cancel'), array('submit' => \$model->isNewRecord ? array('admin') : \$this->getReturnUrl())) ?>\n"; */ ?>
 

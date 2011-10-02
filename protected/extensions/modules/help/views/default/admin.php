@@ -1,5 +1,5 @@
-<?php 
-$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('HelpModule.ui', 'Helps'); 
+<?php
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('HelpModule.ui', 'Helps');
 $this->breadcrumbs=array(
 	Yii::t('HelpModule.ui', 'Helps'),
 );
@@ -20,9 +20,9 @@ $this->breadcrumbs=array(
 	),
 	'columns'=>array(
 		array(
-	           'name'=>'code',
-	           'visible'=>Yii::app()->user->name=='admin',
-	    ),
+			   'name'=>'code',
+			   'visible'=>Yii::app()->user->name=='admin',
+		),
 		'title_et',
 		'title_en',
 		array(
@@ -35,7 +35,7 @@ $this->breadcrumbs=array(
 				'delete'=>array(
 					'visible'=>'Yii::app()->user->name=="admin"',
 				),
-			),		
+			),
 		),
 	),
 )); ?>

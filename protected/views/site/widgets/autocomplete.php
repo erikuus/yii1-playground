@@ -145,20 +145,20 @@ $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 	//'attribute'=>'name',
 	'id'=>'country-chain',
 	'name'=>'country_chain',
-    'source'=>$this->createUrl('request/suggestCountry'),
-    'options'=>array(
+	'source'=>$this->createUrl('request/suggestCountry'),
+	'options'=>array(
 		'delay'=>300,
 		'minLength'=>2,
-        'showAnim'=>'fold',
-        'select'=>"js:function(event, ui) {
+		'showAnim'=>'fold',
+		'select'=>"js:function(event, ui) {
 			$('#label').val(ui.item.label);
 			$('#code').val(ui.item.code);
 			$('#call_code').val(ui.item.call_code);
 		}"
-    ),
-    'htmlOptions'=>array(
-        'size'=>'40'
-    ),
+	),
+	'htmlOptions'=>array(
+		'size'=>'40'
+	),
 )); ?>
 
 <br />

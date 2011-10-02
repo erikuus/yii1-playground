@@ -1,14 +1,14 @@
 <?php
 /**
  * XCompareRangeRequiredValidator validator
- * 
+ *
  * The following shows how to use this validator on model actions() method
  * <pre>
- *		return array(
- *			array('attr1','XCompareRangeRequiredValidator','compareAttribute'=>'attr2','compareRange'=>array(1,2),
- *				'message'=>Yii::t('ui','{attribute} cannot be blank if ...'),
- *		);
- * </pre> 
+ * return array(
+ *     array('attr1','XCompareRangeRequiredValidator','compareAttribute'=>'attr2','compareRange'=>array(1,2),
+ *         'message'=>Yii::t('ui','{attribute} cannot be blank if ...'),
+ *     );
+ * </pre>
  */
 class XCompareRangeRequiredValidator extends CValidator
 {
@@ -29,7 +29,7 @@ class XCompareRangeRequiredValidator extends CValidator
 	 * meaning that if the attribute is empty, it is considered valid.
 	 */
 	public $allowEmpty=true;
-	
+
 	/**
 	 * Validates the attribute of the object.
 	 * If there is any error, the error message is added to the object.
@@ -39,7 +39,7 @@ class XCompareRangeRequiredValidator extends CValidator
 	protected function validateAttribute($object,$attribute){
 		$value=$object->$attribute;
 		$compareAttribute=$this->compareAttribute;
-		$valueAttribute=$object->$compareAttribute;		
+		$valueAttribute=$object->$compareAttribute;
 		if($this->allowEmpty && $this->isEmpty($valueAttribute))
 			return;
 		if(is_array($this->compareRange) && in_array($valueAttribute,$this->compareRange,$this->strict))
@@ -49,5 +49,5 @@ class XCompareRangeRequiredValidator extends CValidator
 				$this->addError($object,$attribute,$message);
 			}
 		}
-	}	
+	}
 }

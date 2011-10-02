@@ -1,4 +1,4 @@
-<?php $this->beginContent(); ?> 
+<?php $this->beginContent(); ?>
 
 <?php if(Yii::app()->layout=='print'): ?>
 
@@ -8,11 +8,11 @@
 
 	<div class="container_16">
 		<div class="grid_3 alpha">
-			<?php foreach($this->leftPortlets as $class=>$properties) $this->widget($class,$properties); ?>	
-		</div>	
+			<?php foreach($this->leftPortlets as $class=>$properties) $this->widget($class,$properties); ?>
+		</div>
 		<div class="grid_10">
-			<?php $this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs)); ?>							
-			<?php echo $content; ?>	
+			<?php $this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs)); ?>
+			<?php echo $content; ?>
 		</div>
 		<div class="grid_3 omega">
 			<?php foreach($this->rightPortlets as $class=>$properties) $this->widget($class,$properties); ?>

@@ -97,7 +97,7 @@ if($count>=7)
 						});
 						$("#delete-dialog").dialog("open");
 						return false;
-					}',				
+					}',
 				),
 				'deleteSimple'=>array(
 					'label'=>Yii::t('ui','Delete'),
@@ -121,8 +121,8 @@ if($count>=7)
 						});
 						$("#delete-dialog").dialog("open");
 						return false;
-					}',				
-				),				
+					}',
+				),
 			)
 		),
 	),

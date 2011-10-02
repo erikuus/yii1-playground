@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name.' - '.Yii::t('LookupModule.ui','Lookup Names');
 $this->breadcrumbs=array(
 	Yii::t('LookupModule.ui','Lookup Names'),

@@ -128,7 +128,7 @@ $this->widget('CAutoComplete',array(
 $this->widget('CAutoComplete',array(
 	//'model'=>$model,
 	//'attribute'=>'name',
-	'id'=>'country-chain',	
+	'id'=>'country-chain',
 	'name'=>'country_chain',
 	'url'=>array('request/legacySuggestCountry'),
 	'max'=>100,

@@ -25,14 +25,14 @@ foreach($this->tableSchema->columns as $column)
 {
 	if(++$count==7)
 		echo "\t\t/*\n";
-			
+
 	if($column->isPrimaryKey)
 	{
 		echo "\t\tarray(\n";
 		echo "\t\t\t'name'=>'".$column->name."',\n";
 		echo "\t\t\t'type'=>'raw',\n";
-		echo "\t\t\t'value'=>'CHtml::link(\$data->primaryKey, \$this->grid->controller->createReturnableUrl(\"view\",array(\"id\"=>\$data->primaryKey)))',\n";	
-		echo "\t\t),\n";		
+		echo "\t\t\t'value'=>'CHtml::link(\$data->primaryKey, \$this->grid->controller->createReturnableUrl(\"view\",array(\"id\"=>\$data->primaryKey)))',\n";
+		echo "\t\t),\n";
 	}
 	else
 		echo "\t\t'".$column->name."',\n";
@@ -43,11 +43,11 @@ if($count>=7)
 		array(
 			'class'=>'CButtonColumn',
 			'template'=>'{update<?php echo $this->modelClass; ?>} {delete<?php echo $this->modelClass; ?>}',
-			'buttons'=>array(				
+			'buttons'=>array(
 				'update<?php echo $this->modelClass; ?>'=>array(
 					'label'=>Yii::t('ui','Update'),
 					'url'=>'$this->grid->controller->createReturnableUrl("update",array("id"=>$data->primaryKey))',
-					'imageUrl'=>XHtml::imageUrl('update.png'),	
+					'imageUrl'=>XHtml::imageUrl('update.png'),
 					'visible'=>'!Yii::app()->user->isGuest',
 				),
 				'delete<?php echo $this->modelClass; ?>'=>array(
@@ -60,7 +60,7 @@ if($count>=7)
 						$("#delete-dialog").dialog({
 							open : function(){
 								$(this).text("'.Yii::t('ui','Are you sure to delete this item?').'");
-							},						
+							},
 							buttons : {
 								"'.Yii::t('ui','Cancel').'": function() {
 									$(this).dialog("close");
@@ -68,12 +68,12 @@ if($count>=7)
 								"'.Yii::t('ui','Yes').'": function() {
 									$.yii.submitForm(this, targetUrl,{});
 								}
-				           	}
-				       });
-				       $("#delete-dialog").dialog("open");
-				       return false;
+							   }
+					   });
+					   $("#delete-dialog").dialog("open");
+					   return false;
 					}',
-				),		
+				),
 			),
 		),
 	),

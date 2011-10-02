@@ -1,13 +1,13 @@
 <?php
 /**
  * XCompareRequiredValidator validator
- * 
+ *
  * The following shows how to use this validator on model actions() method
  * <pre>
- *		return array(
- *			array('attr1','XCompareRequiredValidator','compareAttribute'=>'attr2','compareValue'=>1),
- *		);
- * </pre> 
+ * return array(
+ *     array('attr1','XCompareRequiredValidator','compareAttribute'=>'attr2','compareValue'=>1),
+ * );
+ * </pre>
  */
 class XCompareRequiredValidator extends CValidator
 {
@@ -28,8 +28,6 @@ class XCompareRequiredValidator extends CValidator
 	 * @var string the operator for comparison. Defaults to '='.
 	 */
 	public $operator='=';
-	
-	
 
 	/**
 	 * Validates the attribute of the object.
@@ -50,7 +48,7 @@ class XCompareRequiredValidator extends CValidator
 				$this->addError($object,$attribute,$message);
 			}
 		}
-		
+
 		switch($this->operator)
 		{
 			case '=':
@@ -74,6 +72,6 @@ class XCompareRequiredValidator extends CValidator
 					}
 				}
 			break;
-		}	
+		}
 	}
 }

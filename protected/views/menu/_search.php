@@ -1,5 +1,5 @@
 &nbsp;
-<?php echo Yii::t('ui','Search'); ?> 
+<?php echo Yii::t('ui','Search'); ?>
 <?php $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 	'name'=>'suggest_hierarchy',
 	'source'=>$this->createUrl('suggestHierarchy'),

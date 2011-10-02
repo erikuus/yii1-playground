@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Multilevel menu');
 $this->layout='leftbar';
 $this->leftPortlets['application.portlets.WidgetMenu']=array();
@@ -9,7 +9,7 @@ $this->leftPortlets['application.portlets.WidgetMenu']=array();
 <h3><?php echo Yii::t('ui','Static items'); ?></h3>
 
 <?php $this->widget('zii.widgets.CMenu', array(
-    'items'=>array(
+	'items'=>array(
 		array('label'=>Yii::t('ui','Home'), 'url'=>array('/site/index')),
 		array('label'=>Yii::t('ui','Data Widgets'), 'items'=>array(
 			array('label'=>Yii::t('ui','Tree view'), 'url'=>array('/site/widget', 'view'=>'treeview')),
@@ -21,14 +21,14 @@ $this->leftPortlets['application.portlets.WidgetMenu']=array();
 			array('label'=>Yii::t('ui','Datepicker'), 'url'=>array('/site/widget', 'view'=>'datepicker')),
 			array('label'=>Yii::t('ui','Star rating'), 'url'=>array('/site/widget', 'view'=>'starrating')),
 		)),
-    ),
+	),
 )); ?>
 
 <div class="tpanel">
 <div class="toggle"><?php echo Yii::t('ui','View code'); ?></div>
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 $this->widget('zii.widgets.CMenu', array(
-    'items'=>array(
+	'items'=>array(
 		array('label'=>Yii::t('ui','Home'), 'url'=>array('/site/index')),
 		array('label'=>Yii::t('ui','Data Widgets'), 'items'=>array(
 			array('label'=>Yii::t('ui','Tree view'), 'url'=>array('/site/widget', 'view'=>'treeview')),
@@ -40,7 +40,7 @@ $this->widget('zii.widgets.CMenu', array(
 			array('label'=>Yii::t('ui','Datepicker'), 'url'=>array('/site/widget', 'view'=>'datepicker')),
 			array('label'=>Yii::t('ui','Star rating'), 'url'=>array('/site/widget', 'view'=>'starrating')),
 		)),
-    ),
+	),
 ));
 <?php $this->endWidget(); ?>
 </div>
@@ -49,10 +49,10 @@ $this->widget('zii.widgets.CMenu', array(
 
 <h3><?php echo Yii::t('ui','Items from database'); ?></h3>
 
-<?php 
+<?php
 $this->widget('zii.widgets.CMenu',array(
 	'items'=>Menu::model()->getMenuItems(),
-)); 
+));
 ?>
 
 <div class="tpanel">

@@ -7,8 +7,8 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 <h2><?php echo Yii::t('ui', 'Alpha pagination'); ?></h2>
 
 <?php $this->widget('ext.widgets.alphapager.XAlphaLinkPager',array(
-    'pages'=>$alphaPages,
-    'header'=>false,
+	'pages'=>$alphaPages,
+	'header'=>false,
 )); ?>
 
 <br /><br />
@@ -19,7 +19,7 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 	'template'=>'{pager}{sorter}{summary}{items}{pager}',
 	'itemView'=>'_view',
 	'pager'=>array(
-        'header'=>false,
+		'header'=>false,
 		'maxButtonCount'=>'9',
 	),
 	'sortableAttributes'=>array(
@@ -33,8 +33,8 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 <div class="toggle"><?php echo Yii::t('ui','View code'); ?></div>
 <?php $this->beginWidget('CTextHighlighter',array('language'=>'PHP')); ?>
 $this->widget('ext.widgets.alphapager.XAlphaLinkPager',array(
-    'pages'=>$alphaPages,
-    'header'=>false,
+	'pages'=>$alphaPages,
+	'header'=>false,
 ));
 
 $this->widget('zii.widgets.CListView', array(
@@ -43,7 +43,7 @@ $this->widget('zii.widgets.CListView', array(
 	'template'=>'{pager}{sorter}{summary}{items}{pager}',
 	'itemView'=>'_view',
 	'pager'=>array(
-        'header'=>false,
+		'header'=>false,
 		'maxButtonCount'=>'9',
 	),
 	'sortableAttributes'=>array(

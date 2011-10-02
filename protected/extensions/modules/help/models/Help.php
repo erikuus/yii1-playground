@@ -12,8 +12,8 @@ class Help extends CActiveRecord
 	 * @var string $content_en
 	 */
 
-	private static $_items=array();	
-	
+	private static $_items=array();
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return CActiveRecord the static model class
@@ -28,11 +28,11 @@ class Help extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return isset(Yii::app()->getModule('help')->helpTable) 
-			? Yii::app()->getModule('help')->helpTable 
+		return isset(Yii::app()->getModule('help')->helpTable)
+			? Yii::app()->getModule('help')->helpTable
 			: Yii::app()->controller->module->helpTable;
 	}
-	
+
 	// METHODS TO BE USED FROM WITHIN APPLICATION:
 
 	/**
@@ -49,10 +49,10 @@ class Help extends CActiveRecord
 		if($item && $edit)
 		{
 			$icon=CHtml::image(Yii::app()->baseUrl.'/images/update.png', Yii::t('HelpModule.ui','Edit'));
-			$url=Yii::app()->controller->createReturnableUrl('/help/default/updateOnPage',array('id'=>self::$_items[$code]['id'])); 
-			$item=$item.' '.CHtml::link($icon, $url); 
+			$url=Yii::app()->controller->createReturnableUrl('/help/default/updateOnPage',array('id'=>self::$_items[$code]['id']));
+			$item=$item.' '.CHtml::link($icon, $url);
 		}
-				
+
 		return $item;
 	}
 
@@ -74,9 +74,9 @@ class Help extends CActiveRecord
 			self::$_items[$code][$name]=$model->{$attr};
 			self::$_items[$code]['id']=$model->id;
 		}
-	}	
-	
-	// METHODS USED WITHIN MODULE: 
+	}
+
+	// METHODS USED WITHIN MODULE:
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -126,5 +126,5 @@ class Help extends CActiveRecord
 	public function localizeAttribute($name)
 	{
 		return $name.'_'.Yii::app()->language;
-	}	
+	}
 }

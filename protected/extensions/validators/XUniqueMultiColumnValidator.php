@@ -1,16 +1,16 @@
 <?php
 /**
  * XUniqueMultiColumnValidator validator
- * 
+ *
  * The following shows how to use this validator on model actions() method
  * <pre>
- *		return array(
- *			array('attr1+attr2+attr3','XUniqueMultiColumnValidator','caseSensitive'=>true),
- *		);
- * </pre> 
- * 
+ * return array(
+ *     array('attr1+attr2+attr3','XUniqueMultiColumnValidator','caseSensitive'=>true),
+ * );
+ * </pre>
+ *
  * NOTE! Message translation nee
- * 
+ *
  */
 class XUniqueMultiColumnValidator extends CValidator
 {
@@ -25,26 +25,26 @@ class XUniqueMultiColumnValidator extends CValidator
 			$attributes = explode("+", $attribute);
 		else
 			$attributes = array($attribute);
-	
+
 		foreach($attributes as $attribute)
 		{
 			$value = $object->$attribute;
 			if($this->allowEmpty && ($value===null || $value===''))
 				return;
-				
+
 			$column=$object->getTableSchema()->getColumn($attribute);
 			if($column===null)
 				throw new CException(Yii::t('yii','{class} does not have attribute "{attribute}".',
-				
+
 			array('{class}'=>get_class($object), '{attribute}'=>$attribute)));
 			$columnName=$column->rawName;
 			if(''!=$criteria['condition'])
 				$criteria['condition'].= " AND ";
-				
+
 			$criteria['condition'].=$this->caseSensitive===false && !is_numeric($value) ? "LOWER($columnName)=LOWER(:$attribute)" : "$columnName=:$attribute";
 			$criteria['params'][':'.$attribute]=$value;
 		}
-	
+
 		if($column->isPrimaryKey)
 			$exists=$object->exists($criteria);
 		else
@@ -69,9 +69,9 @@ class XUniqueMultiColumnValidator extends CValidator
 			$labels = $object->attributeLabels();
 			foreach ($attributes as $attribute)
 				$message .= $labels[$attribute] ? $labels[$attribute].", " : null;
-				
+
 			$message = substr ($message, 0, -2);
-			$message = $this->message!==null ? $this->message : Yii::t('vd','The Combination of ({attributes}) should be unique.', array('{attributes}'=>$message));		
+			$message = $this->message!==null ? $this->message : Yii::t('vd','The Combination of ({attributes}) should be unique.', array('{attributes}'=>$message));
 			$this->addError($object,$attributes[0],$message);
 		}
 	}

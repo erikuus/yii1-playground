@@ -9,7 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Yii Playground',
 	'defaultController'=>'Site',
-    'language'=>'et',
+	'language'=>'et',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -27,26 +27,26 @@ return array(
 
 	// modules
 	'modules'=>array(
-        'lookup'=>array(
-            'class'=>'ext.modules.lookup.LookupModule',
+		'lookup'=>array(
+			'class'=>'ext.modules.lookup.LookupModule',
 			'lookupLayout'=>'application.views.layouts.leftbar',
-            'lookupTable'=>'tbl_lookup',
-            'safeTypes'=>array('eyecolor'),
-            'leftPortlets'=>array(
-                'ptl.ModuleMenu'=>array()
-            )
-        ),
-        'help'=>array(
-            'class'=>'ext.modules.help.HelpModule',
-        	'helpLayout'=>'application.views.layouts.leftbar',
-            'helpTable'=>'tbl_help',
-            'leftPortlets'=>array(
-                'ptl.ModuleMenu'=>array()
-            ),
-            'editorCSS'=>'editor.css',
-            'editorUploadRoute'=>'/request/uploadFile',
-        ),
-    ),
+			'lookupTable'=>'tbl_lookup',
+			'safeTypes'=>array('eyecolor'),
+			'leftPortlets'=>array(
+				'ptl.ModuleMenu'=>array()
+			)
+		),
+		'help'=>array(
+			'class'=>'ext.modules.help.HelpModule',
+			'helpLayout'=>'application.views.layouts.leftbar',
+			'helpTable'=>'tbl_help',
+			'leftPortlets'=>array(
+				'ptl.ModuleMenu'=>array()
+			),
+			'editorCSS'=>'editor.css',
+			'editorUploadRoute'=>'/request/uploadFile',
+		),
+	),
 
 	// application components
 	'components'=>array(
@@ -58,21 +58,21 @@ return array(
 					'levels'=>'error, warning',
 				),
 				array(
-        			'class'=>'CProfileLogRoute',
-        			'report'=>'summary',
-                ),
+					'class'=>'CProfileLogRoute',
+					'report'=>'summary',
+				),
 			),
 		),
 		'errorHandler'=>array(
-            'errorAction'=>'site/error',
-        ),
+			'errorAction'=>'site/error',
+		),
 		'coreMessages'=>array(
-            'basePath'=>'protected/messages',
+			'basePath'=>'protected/messages',
 		),
 		'user'=>array(
 			'allowAutoLogin'=>true,
 		),
-    	'urlManager'=>array(
+		'urlManager'=>array(
 			'class' => 'ext.components.language.XUrlManager',
 			'urlFormat'=>'path',
 			'showScriptName'=>true,
@@ -81,17 +81,17 @@ return array(
 				'<language:\w{2}>' => 'site/index',
 				'<language:\w{2}>/<_c:\w+>' => '<_c>',
 				'<language:\w{2}>/<_c:\w+>/<_a:\w+>'=>'<_c>/<_a>',
-		        '<language:\w{2}>/<_m:\w+>' => '<_m>',
-                '<language:\w{2}>/<_m:\w+>/<_c:\w+>' => '<_m>/<_c>',
-                '<language:\w{2}>/<_m:\w+>/<_c:\w+>/<_a:\w+>' => '<_m>/<_c>/<_a>',
+				'<language:\w{2}>/<_m:\w+>' => '<_m>',
+				'<language:\w{2}>/<_m:\w+>/<_c:\w+>' => '<_m>/<_c>',
+				'<language:\w{2}>/<_m:\w+>/<_c:\w+>/<_a:\w+>' => '<_m>/<_c>/<_a>',
 			),
 		),
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/yiiplay.db',
 		),
 		'cache'=>array(
-    		'class'=>'CDbCache',
-        ),
+			'class'=>'CDbCache',
+		),
 	),
 
 	// application-level parameters that can be accessed

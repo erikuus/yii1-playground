@@ -1,7 +1,7 @@
 <?php
 /**
  * DummyForm class.
- * DummyForm is the data structure for keeping dummy test data only. 
+ * DummyForm is the data structure for keeping dummy test data only.
  */
 class DummyForm extends CFormModel
 {
@@ -10,8 +10,8 @@ class DummyForm extends CFormModel
 	public $email;
 	public $webpage;
 	public $country_id;
-	public $eyecolor_code;	
-	public $gender_code;	
+	public $eyecolor_code;
+	public $gender_code;
 	public $lang_et;
 	public $lang_en;
 	public $lang_de;
@@ -50,7 +50,7 @@ class DummyForm extends CFormModel
 			'lang_ru' => Yii::t('ui', 'Russian'),
 			'lang_es' => Yii::t('ui', 'Spanish'),
 			'lang_fi' => Yii::t('ui', 'Finnish'),
-			'persons' => Yii::t('ui', 'Persons'),				
+			'persons' => Yii::t('ui', 'Persons'),
 		);
 	}
 }

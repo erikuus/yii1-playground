@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Slider'); 
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('ui', 'Slider');
 $this->layout='leftbar';
 $this->leftPortlets['ptl.WidgetMenu']=array();
 ?>
@@ -67,7 +67,7 @@ $this->widget('zii.widgets.jui.CJuiSlider', array(
 		'min'=>0,
 		'max'=>100,
 		'slide'=>'js:function(event,ui){$("#amount").text(ui.value);}',
-    ),
+	),
 	'htmlOptions'=>array(
 		'style'=>'width:200px; float:left;'
 	),
@@ -90,7 +90,7 @@ $this->widget('zii.widgets.jui.CJuiSliderInput', array(
 		'min'=>0,
 		'max'=>100,
 		'slide'=>'js:function(event,ui){$("#amount").text(ui.value);}',
-    ),
+	),
 	'htmlOptions'=>array(
 		'style'=>'width:200px; float:left;'
 	),
