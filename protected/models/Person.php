@@ -43,7 +43,7 @@ class Person extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('firstname, lastname', 'required'),
+			array('firstname, lastname, country_id', 'required'),
 			array('birthyear, country_id, eyecolor_code', 'numerical', 'integerOnly'=>true),
 			array('firstname, lastname, email, webpage', 'length', 'max'=>64),
 			array('registered', 'safe'),

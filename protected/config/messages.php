@@ -15,8 +15,8 @@ return array(
 		'.project',
 		'.settings',
 		'.cache',
-		'error.php',
 		'/extensions',
 		'/messages',
 	),
+	"overwrite" => true
 );

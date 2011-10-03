@@ -3,6 +3,7 @@
 .project
 .cache/
 .settings/
+assets/
 
 # OS generated files #
 ######################
