@@ -161,7 +161,7 @@ select
 
 input.autocomplete
 {
-	background: #FFFFE0;	
+	background: #FFFFE0;
 }
 
 input.readonly
@@ -222,29 +222,29 @@ div.errorMessage
 	color: #C00;
 }
 
-label.error 
+label.error
 {
-    display: block;
+	display: block;
 }
 
 div.add
 {
-    cursor: pointer;
-    width: 60px;
-    padding: 2px;
-    border: 1px solid #a6c9e2;
-    color: #0066a7;
-    text-align: center;
+	cursor: pointer;
+	width: 60px;
+	padding: 2px;
+	border: 1px solid #a6c9e2;
+	color: #0066a7;
+	text-align: center;
 }
 
 div.remove
 {
-    cursor: pointer;
-    width: 60px;
-    padding: 2px;
-    border: 1px solid #a6c9e2;
-    color: #0066a7;
-    text-align: center;
+	cursor: pointer;
+	width: 60px;
+	padding: 2px;
+	border: 1px solid #a6c9e2;
+	color: #0066a7;
+	text-align: center;
 }
 
 textarea.template

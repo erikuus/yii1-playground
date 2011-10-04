@@ -19,10 +19,10 @@ $this->breadcrumbs=array(
 	'htmlOptions'=>array('style'=>'width:740px'),
 	'pager'=>array(
 		'header'=>'',
-		'firstPageLabel'=>'<<',
-		'prevPageLabel'=>'<',
-		'nextPageLabel'=>'>',
-		'lastPageLabel'=>'>>',
+		'firstPageLabel'=>'&lt;&lt;',
+		'prevPageLabel'=>'&lt;',
+		'nextPageLabel'=>'&gt;',
+		'lastPageLabel'=>'&gt;&gt;',
 	),
 	'columns'=>array(
 		/*
@@ -77,10 +77,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'filter'=>$model,
 	'pager'=>array(
 		'header'=>'',
-		'firstPageLabel'=>'<<',
-		'prevPageLabel'=>'<',
-		'nextPageLabel'=>'>',
-		'lastPageLabel'=>'>>',
+		'firstPageLabel'=>'&lt;&lt;',
+		'prevPageLabel'=>'&lt;',
+		'nextPageLabel'=>'&gt;',
+		'lastPageLabel'=>'&gt;&gt;',
 	),
 	'columns'=>array(
 		array(
