@@ -4,7 +4,7 @@
  *
  * XLangMenu should be used together with XLangMenu.
  *
- * The following example shows how to use XUrlManager
+ * The following example shows how to set up XUrlManager
  * in your application configuration (config/main.php):
  * <pre>
  * 'urlManager'=>array(

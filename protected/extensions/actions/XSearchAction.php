@@ -5,6 +5,7 @@
  * This action finds models through SearchForm
  *
  * The following shows how to use XSearchAction action.
+ *
  * Set up search action on controller actions() method:
  * <pre>
  * return array(

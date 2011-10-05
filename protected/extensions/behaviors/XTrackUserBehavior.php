@@ -5,7 +5,7 @@
  * This behavior adds methods to an ActiveRecord model that enable to save
  * and display information about when and who created or changed a record.
  *
- * It can be  be attached to a model on its behaviors() method:
+ * It can be attached to a model on its behaviors() method:
  * <pre>
  * public function behaviors()
  * {

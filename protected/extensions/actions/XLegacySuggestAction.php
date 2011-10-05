@@ -5,17 +5,19 @@
  * This action returns data for CAutoComplete widget
  *
  * The following shows how to use XLegacySuggestAction action
- * First set up fillTree action on RequestController actions() method
+ *
+ * First set up the action on RequestController actions() method:
  * <pre>
  * return array(
- *     'suggestCountry'=>array(
+ *     'legacySuggestCountry'=>array(
  *         'class'=>'ext.actions.XLegacySuggestAction',
  *         'modelName'=>'Country',
  *         'methodName'=>'legacySuggest',
  *     ),
  * );
  * </pre>
- * And then set up widget
+ *
+ * And then set up widget:
  * <pre>
  * $this->widget('CAutoComplete',array(
  *     'model'=>$model,

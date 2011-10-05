@@ -5,7 +5,8 @@
  * This action returns data for CJuiAutoComplete widget
  *
  * The following shows how to use XSuggestAction action
- * First set up suggestCountry action on RequestController actions() method
+ *
+ * First set up suggestCountry action on RequestController actions() method:
  * <pre>
  * public function actions()
  * {
@@ -18,7 +19,8 @@
  *     );
  * }
  * </pre>
- * And then set up widget
+ *
+ * And then set up widget:
  * <pre>
  * $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
  *     'model'=>$model,

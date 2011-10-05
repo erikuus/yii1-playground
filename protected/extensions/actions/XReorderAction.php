@@ -5,7 +5,8 @@
  * This action is designed to be used in connection with XReorderBehavior to reorder models
  *
  * The following shows how to use XReorderAction action.
- * Set up search action on controller actions() method:
+ *
+ * Set up the action on controller actions() method:
  * <pre>
  * return array(
  *     'reorder'=>array(

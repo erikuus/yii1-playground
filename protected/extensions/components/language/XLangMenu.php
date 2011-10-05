@@ -1,6 +1,6 @@
 <?php
 /**
- * XLangMenu displays an language menu.
+ * XLangMenu displays a language menu.
  *
  * XLangMenu depends on and must be used together with XUrlManager.
  *

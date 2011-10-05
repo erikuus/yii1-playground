@@ -1,11 +1,12 @@
 <?php
 /**
- * XEditableWidget action
+ * XEditableAction
  *
  * This action updates and returns data for XEditableWidget widget
  *
- * The following shows how to use XEditableWidget action
- * First set up fillTree action on RequestController actions() method
+ * The following shows how to use XEditableAction action.
+ *
+ * First set up the action on RequestController actions() method:
  * <pre>
  * return array(
  *     'clickToEdit'=>array(
@@ -13,7 +14,8 @@
  *     ),
  * );
  * </pre>
- * And then set up widget
+ *
+ * And then set up widget:
  * <pre>
  * $this->widget('ext.widgets.jeditable.XEditableWidget',array(
  *     'saveurl'=>$this->createUrl('request/clickToEdit',array('id'=>$model->id)),

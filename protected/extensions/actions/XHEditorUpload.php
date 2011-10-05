@@ -5,6 +5,7 @@
  * This action uploads file for XHEditor
  *
  * The following shows how to use XHEditorUpload action.
+ *
  * First set up uploadFile action on RequestController actions() method:
  * <pre>
  * return array(

@@ -4,8 +4,9 @@
  *
  * This action echos attribute value
  *
- * The following shows how to use XSuggestAction action.
- * First set up fillTree action on RequestController actions() method:
+ * The following shows how to use XAjaxEchoAction action.
+ *
+ * First set up the action on RequestController actions() method:
  * <pre>
  * return array(
  *     'displayTitle'=>array(
@@ -15,6 +16,7 @@
  *     ),
  * );
  * </pre>
+ *
  * And then in the view:
  * <pre>
  * echo CHtml::ajaxLink(Yii::t('ui','Display title'), array('request/displayTitle','id'=>1),array('update'=>'#titleDiv')));
