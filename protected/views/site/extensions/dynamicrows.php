@@ -83,6 +83,7 @@ $persons=array();
 							<?php echo $form->dropDownList($person,"[$i]eyecolor_code",Lookup::items('eyecolor'),array('style'=>'width:100px','prompt'=>'')); ?>
 						</td>
 						<td>
+							<input type="hidden" class="rowIndex" value="<?php echo $i;?>" />
 							<div class="remove"><?php echo Yii::t('ui','Remove');?>
 						</td>
 					</tr>
