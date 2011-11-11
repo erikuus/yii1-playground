@@ -238,8 +238,9 @@ class PersonController extends Controller
 		if(Yii::app()->request->isPostRequest)
 		{
 			$increment=!empty($_GET['op']) && $_GET['op']=='more' ?  1 : -1;
-			$updateIds=implode(',',$_POST['person-id']);
-			Person::model()->updateCounters(array('birthyear'=>$increment),"id IN ($updateIds)");
+			$criteria=new CDbCriteria();
+			$criteria->addInCondition('id', $_POST['person-id']);
+			Person::model()->updateCounters(array('birthyear'=>$increment), $criteria);
 
 			// if AJAX request, we should not redirect the browser
 			if(!isset($_GET['ajax']))
