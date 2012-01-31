@@ -17,7 +17,7 @@
  * </pre>
  *
  * @author Erik Uus <erik.uus@gmail.com>
- * @version 1.0.0
+ * @version 1.0.1
  */
 class XActionMenu extends CWidget
 {
@@ -35,7 +35,6 @@ class XActionMenu extends CWidget
 	 * In this template, the token "{menu}" will be replaced with the corresponding menu link or text.
 	 * Please see {@link itemTemplate} for more details. This option has been available since version 1.1.1.</li>
 	 * <li>linkOptions: array, optional, additional HTML attributes to be rendered for the link or span tag of the menu item.</li>
-	 * <li>itemOptions: array, optional, additional HTML attributes to be rendered for the container tag of the menu item.</li>
 	 * </ul>
 	 */
 	public $items=array();
@@ -44,17 +43,21 @@ class XActionMenu extends CWidget
 	 * the token "{menu}" will be replaced with the corresponding menu link or text.
 	 * If this property is not set, each menu will be rendered without any decoration.
 	 * This property will be overridden by the 'template' option set in individual menu items via {@items}.
-	 * @since 1.1.1
 	 */
 	public $itemTemplate;
 	/**
-	 * @var boolean whether the portlet is visible. Defaults to true.
+	 * @var boolean whether the widget is visible. Defaults to true.
 	 */
 	public $visible=true;
 	/**
 	 * @var boolean whether the labels for menu items should be HTML-encoded. Defaults to true.
 	 */
 	public $encodeLabel=true;
+	/**
+	 * @var string the menu's root container tag name. Defaults 'div'.
+	 * If this property is set to null, no container is used.
+	 */
+	public $containerTag='div';
 	/**
 	 * @var array HTML attributes for the menu's root container tag
 	 */
@@ -74,8 +77,7 @@ class XActionMenu extends CWidget
 		if($this->visible)
 		{
 			$this->htmlOptions['id']=$this->getId();
-			$route=$this->getController()->getRoute();
-			$this->items=$this->normalizeItems($this->items,$route,$hasActiveChild);
+			$this->items=$this->normalizeItems($this->items);
 		}
 	}
 
@@ -90,16 +92,18 @@ class XActionMenu extends CWidget
 
 	/**
 	 * Renders the menu items.
-	 * @param array menu items. Each menu item will be an array with at least two elements: 'label' and 'active'.
-	 * It may have three other optional elements: 'items', 'linkOptions' and 'itemOptions'.
+	 * @param array menu items. Each menu item will be an array with at least two elements: 'label' and 'url'.
+	 * It may have optional elements: 'visible','linkOptions', 'template'.
 	 */
 	protected function renderMenu($items)
 	{
 		if(count($items))
 		{
-			echo CHtml::openTag('div',$this->htmlOptions)."\n";
+			if($this->containerTag)
+				echo CHtml::openTag($this->containerTag,$this->htmlOptions)."\n";
 			$this->renderMenuItems($items);
-			echo CHtml::closeTag('div');
+			if($this->containerTag)
+				echo CHtml::closeTag($this->containerTag);
 		}
 	}
 
@@ -131,13 +135,11 @@ class XActionMenu extends CWidget
 	}
 
 	/**
-	 * Normalizes the {@link items} property so that the 'active' state is properly identified for every menu item.
+	 * Normalizes the items property.
 	 * @param array the items to be normalized.
-	 * @param string the route of the current request.
-	 * @param boolean whether there is an active child menu item.
 	 * @return array the normalized menu items
 	 */
-	protected function normalizeItems($items,$route,&$active)
+	protected function normalizeItems($items)
 	{
 		foreach($items as $i=>$item)
 		{
