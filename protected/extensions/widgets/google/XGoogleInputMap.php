@@ -28,7 +28,7 @@
 class XGoogleInputMap extends CInputWidget
 {
 	/**
-	 * @var string the google map api key (default www.ra.ee)
+	 * @var string the google map api key
 	 */
 	public $googleApiKey;
 	/**
