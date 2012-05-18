@@ -1,5 +1,4 @@
 /* begin form style */
-
 div.form
 {
 	border: 1px solid #D5E3F5;
@@ -252,3 +251,27 @@ textarea.template
 	display: none;
 }
 /* end of common style */
+
+/* start autocomplete style */
+.ui-autocomplete
+{
+	max-height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 30px;
+}
+
+.ui-autocomplete li.ui-menu-item {
+      padding: 1px;  /* needed to prevent the item sizes from changing on hover */
+}
+
+.ui-autocomplete a.ui-menu-item-alternate
+{
+	background-color: #eee;
+}
+
+.ui-autocomplete-loading
+{
+	background: url('loading.gif') right center no-repeat;
+}
+/* end of autocomplete style */

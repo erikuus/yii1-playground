@@ -35,6 +35,16 @@ $this->breadcrumbs=array(
 			'name'=>'lastname',
 			'type'=>'raw',
 			'value'=>'CHtml::link($data->lastname, $this->grid->controller->createReturnableUrl("view",array("id"=>$data->id)))',
+			'filter'=>$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+				'model'=>$model,
+				'attribute'=>'lastname',
+				'source'=>$this->createUrl('request/suggestLastname'),
+				'options'=>array(
+					'focus'=>"js:function(event, ui) {
+						$('#".CHtml::activeId($model,'lastname')."').val(ui.item.value);
+					}"
+				),
+			),true),
 		),
 		'firstname',
 		'birthyear',
@@ -64,6 +74,16 @@ $this->breadcrumbs=array(
 			'deleteConfirmation'=>Yii::t('ui','Are you sure to delete this item?'),
 		),
 	),
+	'afterAjaxUpdate'=>"function(){
+		jQuery('#".CHtml::activeId($model,'lastname')."').autocomplete({
+			'delay':300,
+			'minLength':2,
+			'source':'".$this->createUrl('request/suggestLastname')."',
+			'focus':function(event, ui) {
+				$('#".CHtml::activeId($model,'lastname')."').val(ui.item.value);
+			}
+		});
+	}",
 )); ?>
 
 <br />
@@ -86,8 +106,17 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		array(
 			'name'=>'lastname',
 			'type'=>'raw',
-			'value'=>'CHtml::link($data->lastname,
-				$this->grid->controller->createReturnableUrl("view",array("id"=>$data->id)))',
+			'value'=>'CHtml::link($data->lastname, $this->grid->controller->createReturnableUrl("view",array("id"=>$data->id)))',
+			'filter'=>$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+				'model'=>$model,
+				'attribute'=>'lastname',
+				'source'=>$this->createUrl('request/suggestLastname'),
+				'options'=>array(
+					'focus'=>"js:function(event, ui) {
+						$('#".CHtml::activeId($model,'lastname')."').val(ui.item.value);
+					}"
+				),
+			),true),
 		),
 		'firstname',
 		'birthyear',
@@ -117,6 +146,16 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'deleteConfirmation'=>Yii::t('ui','Are you sure to delete this item?'),
 		),
 	),
+	'afterAjaxUpdate'=>"function(){
+		jQuery('#".CHtml::activeId($model,'lastname')."').autocomplete({
+			'delay':300,
+			'minLength':2,
+			'source':'".$this->createUrl('request/suggestLastname')."',
+			'focus':function(event, ui) {
+				$('#".CHtml::activeId($model,'lastname')."').val(ui.item.value);
+			}
+		});
+	}",
 ));
 <?php $this->endWidget(); ?>
 </div>

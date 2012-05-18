@@ -54,6 +54,12 @@ class RequestController extends Controller
 				'methodName'=>'suggestHierarchy',
 				'limit'=>30
 			),
+			'suggestLastname'=>array(
+				'class'=>'ext.actions.XSuggestAction',
+				'modelName'=>'Person',
+				'methodName'=>'suggestLastname',
+				'limit'=>30
+			),
 			'fillAuTree'=>array(
 				'class'=>'ext.actions.XFillTreeAction',
 				'modelName'=>'AdminUnit',
@@ -92,8 +98,8 @@ class RequestController extends Controller
 		return array(
 			array('allow',
 				'actions'=>array(
-					'suggestCountry','legacySuggestCountry','fillTree','treePath','loadContent',
-					'suggestAuPlaces','suggestAuHierarchy','fillAuTree','viewUnitPath','viewUnitLabel'
+					'suggestCountry','legacySuggestCountry','fillTree','fillAuTree','treePath','loadContent',
+					'suggestAuPlaces','suggestLastname','suggestAuHierarchy','viewUnitPath','viewUnitLabel'
 				),
 				'users'=>array('*'),
 			),

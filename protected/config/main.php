@@ -72,6 +72,9 @@ return array(
 		'user'=>array(
 			'allowAutoLogin'=>true,
 		),
+        'widgetFactory'=>array(
+            'enableSkin'=>true,
+        ),
 		'urlManager'=>array(
 			'class' => 'ext.components.language.XUrlManager',
 			'urlFormat'=>'path',

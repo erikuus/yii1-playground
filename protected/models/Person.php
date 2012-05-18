@@ -155,6 +155,33 @@ class Person extends CActiveRecord
 	}
 
 	/**
+	 * Suggests a list of existing values matching the specified keyword.
+	 * @param string the keyword to be matched
+	 * @param integer maximum number of names to be returned
+	 * @return array list of matching lastnames
+	 */
+	public function suggestLastname($keyword, $limit=20)
+	{
+		$criteria=array(
+			'condition'=>'lastname LIKE :keyword',
+			'order'=>'lastname',
+			'limit'=>$limit,
+			'params'=>array(
+				':keyword'=>"$keyword%"
+			)
+		);
+		$models=$this->findAll($criteria);
+		$suggest=array();
+		foreach($models as $model) {
+				$suggest[] = array(
+					'value'=>$model->lastname,
+					'label'=>$model->lastname,
+				);
+		}
+		return $suggest;
+	}
+
+	/**
 	 * @param int $country_id
 	 * @return array for listbuilder (id => name)
 	 */
