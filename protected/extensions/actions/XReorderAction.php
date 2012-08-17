@@ -2,59 +2,23 @@
 /**
  * XReorderAction
  *
- * This action is designed to be used in connection with XReorderBehavior to reorder models
+ * This action is designed to be used in connection with
+ * - XReorderBehavior
+ * - XReorderColumn
  *
  * The following shows how to use XReorderAction action.
  *
  * Set up the action on controller actions() method:
  * <pre>
- * return array(
- *     'reorder'=>array(
- *         'class'=>'ext.actions.XReorderAction',
- *         'modelName'=>'someName'
- *     ),
- * );
- * </pre>
- *
- * In the gridview you can define reordering buttons as follows:
- * <pre>
- * array(
- *     'class'=>'CButtonColumn',
- *     'template'=>'{up} {down}',
- *     'buttons'=>array(
- *          'down'=>array(
- *              'label'=>Yii::t('ui','Move down'),
- *              'url'=>'array("reorder","move"=>"down","id"=>$data->id)',
- *              'imageUrl'=>XHtml::imageUrl('down.png'),
- *              'click'=>'function() {
- *                  $.fn.yiiGridView.update("some-grid", {
- *                      type:"POST",
- *                      url:$(this).attr("href"),
- *                      success:function() {
- *                          $.fn.yiiGridView.update("some-grid");
- *                      }
- *                  });
- *                  return false;
- *               }',
- *               'visible'=>'$this->grid->dataProvider->itemCount > $data->sort ? true : false',
- *          ),
- *          'up'=>array(
- *               'label'=>Yii::t('ui','Move up'),
- *               'url'=>'array("reorder","move"=>"up","id"=>$data->id)',
- *               'imageUrl'=>XHtml::imageUrl('up.png'),
- *               'click'=>'function() {
- *                   $.fn.yiiGridView.update("some-grid", {
- *                       type:"POST",
- *                       url:$(this).attr("href"),
- *                       success:function() {
- *                       $.fn.yiiGridView.update("some-grid");
- *                   }
- *               });
- *               return false;
- *          }',
- *          'visible'=>'$data->sort > 1 ? true : false',
- *      ),
- * )
+ * public function actions()
+ * {
+ *     return array(
+ *         'reorder'=>array(
+ *             'class'=>'ext.actions.XReorderAction',
+ *             'modelName'=>'someName'
+ *         ),
+ *     );
+ * }
  * </pre>
  *
  * @author Erik Uus <erik.uus@gmail.com>

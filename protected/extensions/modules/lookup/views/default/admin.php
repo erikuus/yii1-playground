@@ -55,13 +55,13 @@ $this->breadcrumbs=array(
 						});
 						return false;
 					}',
-				   'visible'=>'$data->position > 1 ? true : false',
-			   ),
-			   'down'=>array(
-				   'label'=>Yii::t('LookupModule.ui','Move down'),
-				   'url'=>'array("move","move"=>"down","id"=>$data->id)',
-				   'imageUrl'=>$this->getModule()->baseScriptUrl.'/images/down.png',
-				   'click'=>'function() {
+				'visible'=>'$data->position > 1 ? true : false',
+			),
+			'down'=>array(
+				'label'=>Yii::t('LookupModule.ui','Move down'),
+				'url'=>'array("move","move"=>"down","id"=>$data->id)',
+				'imageUrl'=>$this->getModule()->baseScriptUrl.'/images/down.png',
+				'click'=>'function() {
 						$.fn.yiiGridView.update("lookup-grid", {
 							type:"POST",
 							url:$(this).attr("href"),
@@ -71,9 +71,9 @@ $this->breadcrumbs=array(
 						});
 						return false;
 					}',
-				   'visible'=>'$this->grid->dataProvider->itemCount > $data->position ? true : false',
-			   ),
-		   ),
+				'visible'=>'$this->grid->dataProvider->itemCount > $data->position ? true : false',
+			),
+		),
 		),
 	),
 )); ?>

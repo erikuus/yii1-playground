@@ -12,15 +12,15 @@
  * @version $Id: $
  */
 return array (
-	'Lookup Names' => 'Klassifikaatorid',
-	'New' => 'Lisa klassifikaator',
-	'Update' => 'Muuda',
-	'Cancel' => 'Loobu',
-	'Save' => 'Salvesta muudatused',
+    'Lookup Names' => 'Klassifikaatorid',
+	'New' => 'Lisa',
+    'Update' => 'Muuda',
+    'Cancel' => 'Loobu',
+    'Save' => 'Salvesta muudatused',
 	'Create' => 'Salvesta',
-	'Move up' => 'Liiguta üles',
-	'Move down' => 'Liiguta alla',
-	'Are you sure to delete this item?' => 'Kas olete kindel, et soovite kustutada selle rea?',
+    'Move up' => 'Liiguta üles',
+    'Move down' => 'Liiguta alla',
+    'Are you sure to delete this item?' => 'Kas olete kindel, et soovite kustutada selle rea?',
 	'Fields with {mark} are required' => '{mark}-ga märgitud väljad on kohustuslikud',
 	'Installation'=>'Installeerimine',
 	'Create table "{table}" for lookup module.' => 'Loo klassifikaatorite haldamise mooduli jaoks tabel "{table}".',
@@ -34,5 +34,6 @@ return array (
 	'Type' => 'Tüüp',
 	'Position' => 'Jrk',
 	'-add-' => '-lisa-',
+	'{attribute} can only contain alphanumeric symbols.' => '{attribute} ei tohi sisaldada täpitähti, tühikuid ega erimärke.'
 );
 ?>

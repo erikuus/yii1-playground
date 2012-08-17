@@ -20,7 +20,7 @@
 		<?php echo "<?php echo \$form->textField(\$model,'$attribute'); ?>\n"; ?>
 		<?php echo "<?php echo \$form->error(\$model,'$attribute'); ?>\n"; ?>
 	</div>
-
+	
 <?php endforeach; ?>
 	<div class="action">
 		<?php echo "<?php echo CHtml::submitButton(Yii::t('ui', 'Search')); ?>\n"; ?>

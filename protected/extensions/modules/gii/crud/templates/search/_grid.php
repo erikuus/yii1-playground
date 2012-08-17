@@ -68,10 +68,10 @@ if($count>=7)
 								"'.Yii::t('ui','Yes').'": function() {
 									$.yii.submitForm(this, targetUrl,{});
 								}
-							   }
-					   });
-					   $("#delete-dialog").dialog("open");
-					   return false;
+				           	}
+				       });
+				       $("#delete-dialog").dialog("open");
+				       return false;
 					}',
 				),
 			),
@@ -81,7 +81,6 @@ if($count>=7)
 
 <?php echo "<?php"; ?> $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 	'id'=>'delete-dialog',
-	'theme'=>'redmond',
 	'options'=>array(
 		'title'=>Yii::t('ui','Confirm'),
 		'width'=>400,

@@ -62,7 +62,8 @@ class XLegacySuggestAction extends CAction
 	/**
 	 * @return CActiveRecord
 	 */
-	protected function getModel() {
+	protected function getModel()
+	{
 		return CActiveRecord::model($this->modelName);
 	}
 }

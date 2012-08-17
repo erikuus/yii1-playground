@@ -1,5 +1,4 @@
 <?php
-
 class DefaultController extends Controller
 {
 	/**
@@ -11,7 +10,7 @@ class DefaultController extends Controller
 	 * initialize the default portlets for the views
 	 */
 	public function init()
-	 {
+	{
 		parent::init();
 
 		$this->layout=Yii::app()->controller->module->lookupLayout;
@@ -28,7 +27,17 @@ class DefaultController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$this->render('index');
+		$model=new Lookup;
+
+		if(isset($_POST['Lookup']))
+		{
+			$model->attributes=$_POST['Lookup'];
+			if($model->save())
+				$this->redirect(array('admin','type'=>$model->type));
+		}
+		$this->render('index',array(
+			'model'=>$model
+		));
 	}
 
 	/**

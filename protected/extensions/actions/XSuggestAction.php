@@ -77,7 +77,7 @@ class XSuggestAction extends CAction
 	{
 		if(isset($_GET['term'])&&($keyword=trim($_GET['term']))!=='')
 		{
-			$suggest=$this->getModel()->{$this->methodName}($keyword, $this->limit, $_GET);
+			$suggest=$this->getModel()->{$this->methodName}($keyword,$this->limit,$_GET);
 			echo CJSON::encode($suggest);
 		}
 	}
@@ -85,7 +85,8 @@ class XSuggestAction extends CAction
 	/**
 	 * @return CActiveRecord
 	 */
-	protected function getModel() {
+	protected function getModel()
+	{
 		return CActiveRecord::model($this->modelName);
 	}
 }

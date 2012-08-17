@@ -54,24 +54,13 @@ class XSearchAction extends CAction
 	public function run()
 	{
 		$form=new $this->formModelName($this->scenario);
-		if($this->allowEmpty===false)
-			$this->notEmptySearch($form);
-		else
-			$this->allowEmptySearch($form);
-	}
 
-	/**
-	 * This method is used when empty search IS NOT allowed.
-	 * @param form CFormModel of Search form
-	 * @throws CHttpException if search is empty or if the search form is invalid
-	 */
-	protected function notEmptySearch($form)
-	{
-		if(isset($_GET['q']))
+		if($this->allowEmpty===false && $form->getParams()===array())
+			throw new CHttpException(400);
+
+		$form->attributes=$form->getParams();
+		if ($form->validate())
 		{
-			$form->attributes=$form->getParams();
-			if (!$form->validate())
-				throw new CHttpException(400);
 			$this->getController()->render($this->view,array(
 				'dataProvider'=>$this->getModel()->{$this->methodName}($form),
 				'form'=>$form
@@ -79,25 +68,6 @@ class XSearchAction extends CAction
 		}
 		else
 			throw new CHttpException(400);
-	}
-
-	/**
-	 * This method is used when empty search IS allowed.
-	 * @param form CFormModel of Search form
-	 * @throws CHttpException only if the search form is invalid
-	 */
-	protected function allowEmptySearch($form)
-	{
-		if(isset($_GET['q']))
-		{
-			$form->attributes=$form->getParams();
-			if (!$form->validate())
-				throw new CHttpException(400);
-		}
-		$this->getController()->render($this->view,array(
-			'dataProvider'=>$this->getModel()->{$this->methodName}($form),
-			'form'=>$form
-		));
 	}
 
 	/**

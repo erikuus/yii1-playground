@@ -1,4 +1,4 @@
-.xhe_vista table, .xhe_vista tr, .xhe_vista td, .xhe_vista iframe {border:0; margin:0; padding:0; background:transparent; white-space:nowrap; text-decoration:none; font-weight:normal; color:#000}
+.xhe_vista table, .xhe_vista tr, .xhe_vista td, .xhe_vista iframe {border:0; margin:0; padding:0; background:transparent;text-decoration:none; font-weight:normal; color:#000}
 
 .xhe_vista table.xheLayout {display:inline-table;background:#E0E8F5; border:1px solid #99BBE8;width:100%;height:100%;}
 .xhe_vista td.xheTool {padding:1px 3px;border-bottom:1px solid #99BBE8;}
@@ -94,12 +94,14 @@
 	margin:0;border-width:1px;border-style:solid;font-size:12px;
 	*border-width:expression((type!="checkbox")?'1px':0);*padding:expression((type=="text")?'1px':'auto');*width:expression((type=="text")?'160px':'auto');*border-color:expression((type=="text")?'#ABADB3':'#fff #888 #888 #fff');*background:expression((type=="button")?'#F0F0F0':'#FFFFFF');*cursor:expression((type=="button")?'pointer':'');*font-size:expression((type=="button")?'13px':'12px');
 }
-.xheDialog textarea{font-size:12px;resize:none;}
+.xheDialog textarea{font-size:12px;resize:none;border:1px solid #ccc;}
 .xheDialog input[type=text]{padding:1px;width:160px;border-color:#ABADB3;}
 .xheDialog input[type=button]{margin:0;border-color:#fff #888 #888 #fff;background:#F0F0F0;cursor:pointer;font-size:13px;}
 .xheDialog input[type=file]{font-size:13px;}
 .xheDialog input[type=checkbox]{border:0;}
 .xheDialog select{margin:0;border:1px #ABADB3 solid;}
+.xheDialog input,.xheDialog select,.xheDialog textarea{border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+.xheDialog input:focus,.xheDialog select:focus,.xheDialog textarea:focus{outline: 0;border-color: #EEC068;-webkit-box-shadow: 0 0 1px #EEC068;-moz-box-shadow: 0 0 1px #EEC068;box-shadow: 0 0 1px #EEC068;}
 .xheDialog .xheUpload{position: relative;display:inline-block;width:164px;}
 .xheDialog .xheUpload .xheBtn{position: absolute;top: 0px;left: 114px;width:50px;z-index: 1000001;padding:0;}
 .xheDialog .xheUpload .xheFile{cursor:pointer;position: absolute;top: 0px;left: 0px;width:164px;opacity:0;-ms-filter:'alpha(opacity=0)';filter:alpha(opacity=0);z-index: 1000002;}

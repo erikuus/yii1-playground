@@ -33,7 +33,7 @@ $this->menu=array(
 <div class="breadcrumbs">
 	<?php echo "<?php"; ?> echo $model->breadcrumbs; ?>
 </div><!-- breadcrumbs -->
-
+	
 <?php echo "<?php"; ?> $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'summaryText'=>false,

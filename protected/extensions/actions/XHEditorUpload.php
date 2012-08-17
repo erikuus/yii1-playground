@@ -62,7 +62,6 @@ class XHEditorUpload extends CAction
 	 */
 	public $msgType=2;
 
-
 	/**
 	 * Fills treeview based on the current user input.
 	 */

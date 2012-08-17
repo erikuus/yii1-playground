@@ -10,28 +10,28 @@
 class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseControllerClass."\n"; ?>
 {
 	/**
-	 * @var string the default action for the controller.
+	 * @var string the default action for the controller. 
 	 */
 	public $defaultAction='admin';
-
+		
 	/**
 	 * @var string the default layout for the views.
 	 */
 	public $layout='leftbar';
-
-	/**
-	 * initialize the default portlets for the views
-	 */
-	function init()
-	{
-		parent::init();
-
+	
+    /**
+     * initialize the default portlets for the views 
+     */	
+    function init()
+    {
+        parent::init();
+        
 		// Uncomment and edit the following lines if portlets are needed
-		// $this->leftPortlets['ptl.PortletClass']=array(
-		//     'title'=>Yii::t('ui','Portlet Title'),
-		//     'width'=>'200px',
+        // $this->leftPortlets['ptl.PortletClass']=array(
+		//	 'title'=>Yii::t('ui','Portlet Title'),
+		//	 'width'=>'200px',
 		// );
-	}
+    }
 
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
@@ -108,7 +108,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 		{
 			$model->attributes=$_POST['<?php echo $this->modelClass; ?>'];
 			if($model->save())
-			{
+			{			
 				// using xreturnable extension to go back
 				if(!$this->goBack())
 					$this->redirect(array('admin'));

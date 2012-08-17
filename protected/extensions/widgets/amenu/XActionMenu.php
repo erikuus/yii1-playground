@@ -65,7 +65,7 @@ class XActionMenu extends CWidget
 	/**
 	 * @var string separator of menu links
 	 */
-	public $separator=' | ';
+	public $separator='<span class="sep"> | </span>';
 
 	/**
 	 * Initializes the menu widget.
@@ -129,7 +129,7 @@ class XActionMenu extends CWidget
 				echo $menu;
 
 			if($count < count($items))
-				echo '<span class="sep">'.$this->separator.'</span>';
+				echo $this->separator;
 			$count++;
 		}
 	}

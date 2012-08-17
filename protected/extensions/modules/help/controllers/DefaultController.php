@@ -1,5 +1,4 @@
 <?php
-
 class DefaultController extends Controller
 {
 	/**
@@ -33,13 +32,9 @@ class DefaultController extends Controller
 	*/
 	public function actionView()
 	{
-		if(isset($_GET['code']))
-		{
-			$model=Help::model()->findByAttributes(array('code'=>$_GET['code']));
-			$this->renderPartial('_view', array('model'=>$model), false, true);
-		}
-		else
-			throw new CHttpException(404);
+		$this->renderPartial('_view', array(
+			'model'=>$this->loadModel()
+		), false, true);
 	}
 
 	/**
@@ -154,7 +149,7 @@ class DefaultController extends Controller
 				'pageSize'=>Yii::app()->params['pageSize'],
 			),
 			'sort'=>array(
-				'defaultOrder'=>'title_et',
+				'defaultOrder'=>array('title_et'=>false),
 			),
 		));
 
@@ -173,10 +168,28 @@ class DefaultController extends Controller
 		{
 			if(isset($_GET['id']))
 				$this->_model=Help::model()->findbyPk($_GET['id']);
+			elseif(isset($_GET['code']))
+				$this->_model=Help::model()->findByAttributes(array('code'=>$_GET['code']));
 			if($this->_model===null)
 				throw new CHttpException(404);
 		}
 		return $this->_model;
+	}
+
+	/**
+	 * Generate edit link if user authorized to edit help
+	 * @param integer help id
+	 * @return html link
+	 */
+	public function getEditLink($id)
+	{
+		if(
+			(Yii::app()->controller->module->rbac===false && Yii::app()->user->name=='admin') ||
+			(Yii::app()->controller->module->rbac!==false && Yii::app()->user->checkAccess(Yii::app()->controller->module->rbac))
+		)
+			return Help::model()->buildEditLink($id, 'createReturnStackUrl');
+		else
+			return null;
 	}
 
 	/**

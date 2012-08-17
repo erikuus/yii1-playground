@@ -102,7 +102,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 				if(!$this->goBack())
 					$this->redirect(array('view','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>));
 				else
-					$this->goBack();
+					$this->goBack();			
 			}
 		}
 
@@ -113,7 +113,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 		$this->render('create',array(
 			'model'=>$model,
 		));
-	}
+	}		
 
 	/**
 	 * Updates a particular model.
@@ -134,17 +134,17 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 				if(!$this->goBack())
 					$this->redirect(array('view','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>));
 				else
-					$this->goBack();
+					$this->goBack();				
 			}
 		}
-
+		
 		$model->parentPath=$model->getPathText($model->parent_id);
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
 	}
-
+	
 	/**
 	 * Take delete action according to command parameter
 	 */
@@ -152,16 +152,16 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	{
 		// we only allow deletion via POST request
 		if(Yii::app()->request->isPostRequest)
-		{
+		{		
 			$model=$this->loadModel();
-
+				
 			switch ($_GET['command']) {
 				case 'withChildren':
 					$model->deleteWithChildren();
 				break;
 				case 'keepChildren':
 					$model->deleteKeepChildren();
-				break;
+				break;			
 				case 'delete':
 					$model->delete();
 				break;
@@ -169,22 +169,22 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 					throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 				break;
 			}
-
+				
 			// using xreturnable extension to go back
 			if (!$this->goBack())
 				$this->redirect(array('admin'));
 			else
-				$this->goBack();
+				$this->goBack();						
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
-
+	
 	/**
 	 * Lists tree.
 	 */
 	public function actionIndex()
-	{
+	{		
 		$model=$this->loadModel();
 		$dataProvider=<?php echo $this->modelClass; ?>::model()->getDataProvider($model->id);
 		$this->render('index',array(
@@ -192,14 +192,14 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			'dataProvider'=>$dataProvider,
 		));
 	}
-
+	
 	/**
 	 * Displays tree in multilevel list.
 	 */
 	public function actionIndexMenu()
 	{
 		$this->render('menu');
-	}
+	}	
 
 	/**
 	 * Manages tree.
@@ -213,14 +213,14 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 			'dataProvider'=>$dataProvider,
 		));
 	}
-
+	
 	/**
 	 * Displays tree in multilevel list.
 	 */
 	public function actionAdminMenu()
 	{
 		$this->render('menu');
-	}
+	}	
 
 	/**
 	 * Displays tree in multilevel list.
@@ -229,7 +229,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	{
 		$this->render('menu');
 	}
-
+	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -237,15 +237,15 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	public function loadModel()
 	{
 		if($this->_model===null)
-		{
+		{		
 			$id=isset($_GET['id']) ? $_GET['id'] : <?php echo $this->modelClass; ?>::model()->rootId;
 			$this->_model=<?php echo $this->modelClass; ?>::model()->findbyPk($id);
-
+				
 			if($this->_model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
 		return $this->_model;
-	}
+	}	
 
 	/**
 	 * Performs the AJAX validation.

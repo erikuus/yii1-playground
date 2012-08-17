@@ -35,7 +35,7 @@ $this->menu=array(
 						},
 						"'.Yii::t('ui','Yes').'": function() {
 							$.yii.submitForm(this, targetUrl+"&command=delete",{});
-						},
+						}
 					}
 			});
 			$("#delete-dialog").dialog("open");

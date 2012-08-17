@@ -1,5 +1,4 @@
 <?php
-
 class InstallController extends Controller
 {
 	public function actionIndex()
@@ -30,12 +29,12 @@ class InstallController extends Controller
 				CREATE TABLE $lookupTable
 				(
 					id serial NOT NULL,
-					  code integer,
-					  name_et character varying(256),
-					  name_en character varying(256),
-					  type character varying(64),
-					  position integer,
-					  CONSTRAINT pk_lookup PRIMARY KEY (id)
+					code integer,
+					name_et character varying(256),
+					name_en character varying(256),
+					type character varying(64),
+					position integer,
+					CONSTRAINT pk_lookup PRIMARY KEY (id)
 				);
 			";
 			$db->createCommand($sql)->execute();

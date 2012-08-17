@@ -9,7 +9,7 @@
 	array('{mark}'=>'<span class="required">*</span>')); ?>
 </p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php // echo $form->errorSummary($model); ?>
 
 	<?php echo $form->hiddenField($model,'type'); ?>
 

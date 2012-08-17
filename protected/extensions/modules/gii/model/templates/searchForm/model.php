@@ -11,8 +11,8 @@
  */
 ?>
 <?php echo "<?php\n"; ?>
-
-class <?php echo $modelClass; ?> extends CFormModel
+Yii::import('ext.models.XSearchForm');
+class <?php echo $modelClass; ?> extends XSearchForm
 {
 	/**
 	 * The followings are the search parameters
@@ -51,36 +51,5 @@ class <?php echo $modelClass; ?> extends CFormModel
 			<?php echo "'$name' => Yii::t('md', '$label'),\n"; ?>
 <?php endforeach; ?>
 		);
-	}
-
-	/**
-	 * @return array of params for search url
-	 */
-	public function buildParams()
-	{
-		$params=array();
-		foreach ($this->attributes as $name=>$value)
-		{
-			if ($value)
-				$params[$name]=trim($value);
-		}
-		if($params!==array())
-			$params['q']= 1;
-
-		return $params;
-	}
-
-	/**
-	 * @return array get params that match form attributes
-	 */
-	public function getParams()
-	{
-		$params=array();
-		foreach ($_GET as $name=>$value)
-		{
-			if (in_array($name, $this->safeAttributeNames))
-				$params[$name]=$value;
-		}
-		return $params;
 	}
 }

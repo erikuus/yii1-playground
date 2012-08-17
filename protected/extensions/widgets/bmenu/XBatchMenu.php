@@ -99,9 +99,11 @@ class XBatchMenu extends XActionMenu
 	protected function registerClientScript()
 	{
 		$id=$this->getId();
-		$cs=Yii::app()->getClientScript();
+		$cs=Yii::app()->clientScript;
+		$cs->registerCoreScript('jquery');
 		$cs->registerScript(__CLASS__.'#'.$id, "
-			jQuery('#$id a').click(function() {
+			jQuery('#$id a').live('click',function(e) {
+				e.preventDefault();
 				if($(\"input[name='{$this->checkBoxId}\[\]']:checked\").length==0) {
 					alert('{$this->emptyText}');
 					return false;
@@ -121,7 +123,10 @@ class XBatchMenu extends XActionMenu
 			return null;
 		else
 		{
-			return "if(!confirm('".$this->confirm."')) return false;";
+			return "
+				if(!$(this).hasClass('skipConfirm') && !confirm('".$this->confirm."'))
+					return false;
+			";
 		}
 	}
 
@@ -131,11 +136,13 @@ class XBatchMenu extends XActionMenu
 	protected function renderSubmitScript()
 	{
 		if($this->ajaxUpdate===false)
+		{
 			return "
 				$('#{$this->formId}').attr('action', this.href);
+				$('#{$this->formId}').attr('target', this.target=='_blank' ? '_blank' : null);
 				$('#{$this->formId}').trigger('submit');
-				return false;
 			";
+		}
 		else
 		{
 			return "
@@ -147,7 +154,6 @@ class XBatchMenu extends XActionMenu
 						$.fn.yiiGridView.update('{$this->ajaxUpdate}');
 					}
 				});
-				return false;
 			";
 		}
 	}

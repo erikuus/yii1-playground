@@ -41,7 +41,7 @@ class XUniqueMultiColumnValidator extends CValidator
 			if(''!=$criteria['condition'])
 				$criteria['condition'].= " AND ";
 
-			$criteria['condition'].=$this->caseSensitive===false && !is_numeric($value) ? "LOWER($columnName)=LOWER(:$attribute)" : "$columnName=:$attribute";
+			$criteria['condition'].=$this->caseSensitive===false || is_numeric($value) || is_bool($value) ? "$columnName=:$attribute" : "LOWER($columnName)=LOWER(:$attribute)";
 			$criteria['params'][':'.$attribute]=$value;
 		}
 
@@ -68,7 +68,7 @@ class XUniqueMultiColumnValidator extends CValidator
 			$message = '';
 			$labels = $object->attributeLabels();
 			foreach ($attributes as $attribute)
-				$message .= $labels[$attribute] ? $labels[$attribute].", " : null;
+				$message .= isset($labels[$attribute]) ? $labels[$attribute].", " : null;
 
 			$message = substr ($message, 0, -2);
 			$message = $this->message!==null ? $this->message : Yii::t('vd','The Combination of ({attributes}) should be unique.', array('{attributes}'=>$message));

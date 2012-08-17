@@ -1,5 +1,4 @@
 <?php
-
 class Help extends CActiveRecord
 {
 	/**
@@ -32,51 +31,6 @@ class Help extends CActiveRecord
 			? Yii::app()->getModule('help')->helpTable
 			: Yii::app()->controller->module->helpTable;
 	}
-
-	// METHODS TO BE USED FROM WITHIN APPLICATION:
-
-	/**
-	 * Returns the item name for the specified type and code.
-	 * @param string the item code (corresponding to the 'code' column value)
-	 * @param string the item name ('title' or 'content').
-	 * @return string the value for the specified the type and code. False is returned if the item type or code does not exist.
-	 */
-	public static function item($code,$name,$edit=false)
-	{
-		if(!isset(self::$_item))
-			self::loadItems($code,$name);
-		$item=isset(self::$_items[$code][$name]) ? self::$_items[$code][$name] : null;
-		if($item && $edit)
-		{
-			$icon=CHtml::image(Yii::app()->baseUrl.'/images/update.png', Yii::t('HelpModule.ui','Edit'));
-			$url=Yii::app()->controller->createReturnableUrl('/help/default/updateOnPage',array('id'=>self::$_items[$code]['id']));
-			$item=$item.' '.CHtml::link($icon, $url);
-		}
-
-		return $item;
-	}
-
-	/**
-	 * Loads the items for the specified type from the database.
-	 * @param string the item code (corresponding to the 'code' column value)
-	 * @param string the item name ('title' or 'content').
-	 */
-	private static function loadItems($code,$name)
-	{
-		self::$_items[$name]=array();
-		$models=self::model()->findAll(array(
-			'condition'=>'code=:code',
-			'params'=>array(':code'=>$code),
-		));
-		$attr=self::model()->localizeAttribute($name);
-		foreach($models as $model)
-		{
-			self::$_items[$code][$name]=$model->{$attr};
-			self::$_items[$code]['id']=$model->id;
-		}
-	}
-
-	// METHODS USED WITHIN MODULE:
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -122,9 +76,60 @@ class Help extends CActiveRecord
 
 	/**
 	 * @return string the localized attribute
-	*/
+	 */
 	public function localizeAttribute($name)
 	{
 		return $name.'_'.Yii::app()->language;
+	}
+
+	/**
+	 * @param integer help id
+	 * @param string name of method that generates url
+	 * @return html link
+	 */
+	public function buildEditLink($id, $urlMethod='createReturnableUrl')
+	{
+		$icon=CHtml::image(Yii::app()->baseUrl.'/images/update.png', Yii::t('HelpModule.ui','Edit'));
+		$url=Yii::app()->controller->{$urlMethod}('/help/default/updateOnPage',array('id'=>$id));
+		return CHtml::link($icon, $url);
+	}
+
+	// METHODS TO BE USED FROM WITHIN APPLICATION:
+
+	/**
+	 * Returns the item name for the specified type and code.
+	 * @param string the item code (corresponding to the 'code' column value)
+	 * @param string the item name ('title' or 'content').
+	 * @return string the value for the specified the type and code. False is returned if the item type or code does not exist.
+	 */
+	public static function item($code,$name,$edit=false)
+	{
+		if(!isset(self::$_item))
+			self::loadItems($code,$name);
+		$item=isset(self::$_items[$code][$name]) ? self::$_items[$code][$name] : null;
+		if($item && $edit)
+			$item=$item.' '.Help::model()->buildEditLink(self::$_items[$code]['id']);
+
+		return $item;
+	}
+
+	/**
+	 * Loads the items for the specified type from the database.
+	 * @param string the item code (corresponding to the 'code' column value)
+	 * @param string the item name ('title' or 'content').
+	 */
+	private static function loadItems($code,$name)
+	{
+		self::$_items[$name]=array();
+		$models=self::model()->findAll(array(
+			'condition'=>'code=:code',
+			'params'=>array(':code'=>$code),
+		));
+		$attr=self::model()->localizeAttribute($name);
+		foreach($models as $model)
+		{
+			self::$_items[$code][$name]=$model->{$attr};
+			self::$_items[$code]['id']=$model->id;
+		}
 	}
 }

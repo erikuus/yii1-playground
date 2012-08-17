@@ -32,22 +32,9 @@ foreach($this->tableSchema->columns as $column)
 }
 ?>
 	<div class="action">
-		<?php echo "<?php \$this->widget('zii.widgets.jui.CJuiButton', array(
-			'buttonType'=>'submit',
-			'name'=>'btnSubmit',
-			'value'=>'Submit',
-			'caption'=>\$model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save'),
-		));  ?>\n"; ?>
-		<?php echo "<?php \$this->widget('zii.widgets.jui.CJuiButton', array(
-			'buttonType'=>'link',
-			'name'=>'btnCancel',
-			'value'=>'Cancel',
-			'caption'=>Yii::t('ui', 'Cancel'),
-			'url'=>\$model->isNewRecord ? array('admin') : \$this->getReturnUrl(),
-		)); ?>\n"; ?>
+		<?php echo "<?php echo CHtml::submitButton(\$model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save')); ?>\n"; ?>
+		<?php echo "<?php echo CHtml::link(Yii::t('ui', 'Cancel'), \$this->getReturnUrl() ? \$this->getReturnUrl() : array('search')); ?>\n"; ?>
 	</div>
-	<?php /* echo "<?php echo CHtml::submitButton(\$model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save')); ?>\n"; */ ?>
-	<?php /* echo "<?php echo CHtml::button(Yii::t('ui', 'Cancel'), array('submit' => \$model->isNewRecord ? array('admin') : \$this->getReturnUrl())) ?>\n"; */ ?>
 
 <?php echo "<?php \$this->endWidget(); ?>\n"; ?>
 

@@ -38,7 +38,7 @@ Yii::app()->clientScript->registerScript('search', "
 
 <div class="tpanel">
 	<div class="toggle"><?php echo "<?php echo Yii::t('ui', 'Search'); ?>"; ?></div>
-	<div class="search-form">
+	<div class="search-form">	
 	<?php echo "<?php \$this->renderPartial('_search',array(
 		'model'=>\$model,
 	)); ?>\n"; ?>

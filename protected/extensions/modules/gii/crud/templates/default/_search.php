@@ -11,7 +11,7 @@
 	'method'=>'get',
 )); ?>\n"; ?>
 
-	<p><?php  echo "<?php echo Yii::t('ui', 'You may optionally enter a comparison operator {operators} at the beginning of each of your search values',
+	<p><?php  echo "<?php echo Yii::t('ui', 'You may optionally enter a comparison operator {operators} at the beginning of each of your search values', 
 	array('{operators}'=>'<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>, <b>=</b>')); ?>\n"; ?></p>
 
 <?php foreach($this->tableSchema->columns as $column): ?>

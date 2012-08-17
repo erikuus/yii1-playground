@@ -2,7 +2,7 @@
 /**
  * XUrlManager handles language parameter in url.
  *
- * XLangMenu should be used together with XLangMenu.
+ * XUrlManager should be used together with XLangMenu.
  *
  * The following example shows how to set up XUrlManager
  * in your application configuration (config/main.php):

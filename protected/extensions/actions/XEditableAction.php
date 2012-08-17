@@ -10,7 +10,7 @@
  * <pre>
  * return array(
  *     'clickToEdit'=>array(
- *         'class'=>'ext.actions.XEditableWidget',
+ *         'class'=>'ext.actions.XEditableAction',
  *     ),
  * );
  * </pre>

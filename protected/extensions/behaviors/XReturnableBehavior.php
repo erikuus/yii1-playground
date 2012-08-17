@@ -1,12 +1,5 @@
 <?php
 /**
- * IMPORTANT WHEN UPGRADING!!!
- * New Method {@link  getReturnUrlRoute()}
- * Updated Method {@link  getReturnUrl()} by adding param prefix
- * @author Erik Uus <erik.uus@gmail.com>
- */
-
-/**
  * XReturnable behavior
  *
  * This behavior can create URLs that allow to return to a page
@@ -44,6 +37,22 @@
  * @license See http://www.yiiframework/extension/xreturnable
  * @version 1.0.2
  */
+
+/**
+ * IMPORTANT WHEN UPGRADING!!!
+ * New Method {@link  getReturnUrlRoute()}
+ * Updated Method {@link  getReturnUrl()}
+ *  by adding param prefix
+ *  so that you can now call $this->getReturnUrl('/')
+ *  to get return url from module to app
+ * Updated Method {@link  createReturnableUrl()}
+ *  by adding param $stackParams so that you can define return target
+ *  $this->createReturnableUrl('specify',array('id'=>$data->id),array('#'=>'order'.$data->id)),
+ * Updated Methods {@link  urlUncompress()} and {@link  loadStackFromUrl()}
+ *  to Fix PHP Warning gzuncompress()
+ *
+ * @author Erik Uus <erik.uus@gmail.com>
+ */
 class XReturnableBehavior extends CBehavior
 {
 	/**
@@ -72,14 +81,15 @@ class XReturnableBehavior extends CBehavior
 	 * parameters where added to that stack.
 	 *
 	 * @param mixed $route the route as used by {@link CController::createUrl}
-	 * @param array $params additional GET parametes as used by {@link CController::createUrl}
+	 * @param array $params additional GET parameters as used by {@link CController::createUrl}
+	 * @param string $stackParams additional GET parameters for returnable url (added by Erik Uus)
 	 * @param string $amp the separator as used by {@link CController::createUrl}
 	 * @return string the constructed URL with appended return parameters
 	 */
-	public function createReturnableUrl($route, $params=array(),$amp='&')
+	public function createReturnableUrl($route, $params=array(),$stackParams=array(),$amp='&')
 	{
 		$stack=$this->getReturnStack();
-		$stack[]=$this->getCurrentPageParams();
+		$stack[]=$this->getCurrentPageParams() + $stackParams;
 
 		$params[$this->paramName]=self::urlCompress($stack);
 		Yii::trace('Compressed length: '.strlen($params[$this->paramName]),'XReturnableBehavior');
@@ -162,12 +172,14 @@ class XReturnableBehavior extends CBehavior
 	/**
 	 * Uncompresses the given data
 	 *
+	 *
 	 * @param string the compressed data
 	 * @static
 	 * @return mixed the uncompressed data
 	 */
 	public static function urlUncompress($data) {
-		return unserialize(gzuncompress(base64_decode(urldecode($data))));
+		$uncompressed=@gzuncompress(base64_decode(urldecode($data))); // Fix PHP Warning gzuncompress() by Erik Uus
+		return $uncompressed===false ? null : unserialize($uncompressed);
 	}
 
 	/**
@@ -241,6 +253,9 @@ class XReturnableBehavior extends CBehavior
 	 */
 	protected function loadStackFromUrl()
 	{
-		$this->_returnStack=isset($_GET[$this->paramName]) ? self::urlUncompress($_GET[$this->paramName]) : array();
+		$this->_returnStack=
+			isset($_GET[$this->paramName]) &&
+			self::urlUncompress($_GET[$this->paramName]) // Fix PHP Warning gzuncompress() by Erik Uus
+				? self::urlUncompress($_GET[$this->paramName]) : array();
 	}
 }

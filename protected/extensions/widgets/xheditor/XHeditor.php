@@ -17,14 +17,12 @@
  * Changed list of configurable attributes
  * Added upLinkUrl,upLinkExt,upImgUrl,upImgExt,upFlashUrl,upFlashExt,upMediaUrl,upMediaExt
  * @author Erik Uus <erik.uus@gmail.com>
- * @since 1.1
  */
 
 /*
-
 Usage:
 
-<?php $this->widget('ext.widgets.xheditor.XHeditor',array(
+$this->widget('ext.widgets.xheditor.XHeditor',array(
 	'language'=>'en', // en, zh-cn, zh-tw, ru
 	'config'=>array(
 		'id'=>'xh1',
@@ -36,11 +34,10 @@ Usage:
 	),
 	'contentValue'=>'Enter your text here', // default value displayed in textarea/wysiwyg editor field
 	'htmlOptions'=>array('rows'=>5, 'cols'=>10), // to be applied to textarea
-)); ?>
+));
 
-Usage with a model
+Usage with a model:
 
-<?php
 $this->widget('ext.widgets.xheditor.XHeditor',array(
 	'model'=>$modelInstance,
 	'modelAttribute'=>'attribute',
@@ -49,8 +46,7 @@ $this->widget('ext.widgets.xheditor.XHeditor',array(
 		'tools'=>'full', // mini, simple, mfull, full or from XHeditor::$_tools
 		'width'=>'300',
 	),
-));?>
-
+));
 */
 
 class XHeditor extends CWidget
@@ -129,7 +125,7 @@ class XHeditor extends CWidget
 	/**
 	 * @var string XHeditor version.
 	 */
-	private $_XHeditor_version='1.1.9';
+	private $_XHeditor_version='1.1.12';
 
 	/**
 	 * @var string Pattern of script filename.

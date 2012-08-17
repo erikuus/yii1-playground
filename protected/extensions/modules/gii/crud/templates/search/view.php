@@ -61,7 +61,6 @@ foreach($this->tableSchema->columns as $column)
 
 <?php echo "<?php"; ?> $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
 	'id'=>'delete-dialog',
-	'theme'=>'redmond',
 	'options'=>array(
 		'title'=>Yii::t('ui','Confirm'),
 		'width'=>400,

@@ -13,15 +13,15 @@ $this->breadcrumbs=array(
 	'dataProvider'=>$dataProvider,
 	'pager'=>array(
 		'header'=>'',
-		'firstPageLabel'=>'<<',
-		'prevPageLabel'=>'<',
-		'nextPageLabel'=>'>',
-		'lastPageLabel'=>'>>',
+		'firstPageLabel'=>'&lt;&lt;',
+		'prevPageLabel'=>'&lt;',
+		'nextPageLabel'=>'&gt;',
+		'lastPageLabel'=>'&gt;&gt;',
 	),
 	'columns'=>array(
 		array(
-			   'name'=>'code',
-			   'visible'=>Yii::app()->user->name=='admin',
+			'name'=>'code',
+			'visible'=>Yii::app()->user->name=='admin',
 		),
 		'title_et',
 		'title_en',

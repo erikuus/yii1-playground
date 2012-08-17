@@ -1,5 +1,4 @@
 <?php
-
 class Lookup extends CActiveRecord
 {
 	/**
@@ -96,11 +95,12 @@ class Lookup extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name_et, name_en', 'required'),
+			array('type, name_et, name_en', 'required'),
 			array('code, position', 'numerical', 'integerOnly'=>true),
 			array('name_et, name_en', 'length', 'max'=>256),
 			array('type', 'length', 'max'=>64),
 			array('code', 'length', 'max'=>16),
+			array('type', 'match', 'pattern'=>'/^[A-Za-z0-9_]+$/u','message'=>Yii::t('LookupModule.ui', '{attribute} can only contain alphanumeric symbols.')),
 			array('type', 'safe', 'on'=>'search'),
 		);
 	}
@@ -159,9 +159,9 @@ class Lookup extends CActiveRecord
 		foreach($models as $model)
 		{
 			$menu[]=array(
-				 'label'=>Yii::t('ui',XHtml::labelize($model->type)),
-				 'url'=>array('admin','type'=>$model->type),
-				 'visible'=>$this->isTypeVisible($model->type),
+				'label'=>Yii::t('ui',XHtml::labelize($model->type)),
+				'url'=>array('admin','type'=>$model->type),
+				'visible'=>$this->isTypeVisible($model->type),
 			);
 		}
 		return $menu;
@@ -227,10 +227,10 @@ class Lookup extends CActiveRecord
 			return $model->position+1;
 	}
 
-	 /**
-	  * @param string the value of type attribute
-	  * @return boolean whether the type should be visible in LookupMenu.
-	  */
+	/**
+	 * @param string the value of type attribute
+	 * @return boolean whether the type should be visible in LookupMenu.
+	 */
 	protected function isTypeVisible($type)
 	{
 		$safeTypes=Yii::app()->controller->module->safeTypes;
@@ -240,10 +240,23 @@ class Lookup extends CActiveRecord
 			return true;
 	}
 
-	 /**
-	  * This is invoked before the record is saved.
-	  * @return boolean whether the record should be saved.
-	  */
+	/**
+	 * Prepares attributes before performing validation.
+	 */
+	protected function beforeValidate()
+	{
+		parent::beforeValidate();
+
+		if(!$this->name_en && $this->name_et)
+			$this->name_en=$this->name_et;
+
+		return true;
+	}
+
+	/**
+	 * This is invoked before the record is saved.
+	 * @return boolean whether the record should be saved.
+	 */
 	protected function beforeSave()
 	{
 		if(parent::beforeSave())
