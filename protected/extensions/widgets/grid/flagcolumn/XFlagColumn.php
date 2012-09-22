@@ -40,7 +40,8 @@ class XFlagColumn extends CGridColumn
 	public $callbackUrl = array('flag');
 	private $_flagClass = "flag_link";
 
-	public function init() {
+	public function init()
+	{
 		parent::init();
 		$cs=Yii::app()->getClientScript();
 		$gridId = $this->grid->getId();
@@ -61,7 +62,8 @@ SCRIPT;
 		$cs->registerScript(__CLASS__.$gridId.'#flag_link', $script);
 	}
 
-	protected function renderDataCellContent($row, $data) {
+	protected function renderDataCellContent($row, $data)
+	{
 		$value=CHtml::value($data,$this->name);
 
 		$this->callbackUrl['pk'] = $data->primaryKey;
