@@ -163,6 +163,7 @@ class Person extends CActiveRecord
 	public function suggestLastname($keyword, $limit=20)
 	{
 		$criteria=array(
+			'select'=>'DISTINCT(lastname) AS lastname',
 			'condition'=>'lastname LIKE :keyword',
 			'order'=>'lastname',
 			'limit'=>$limit,

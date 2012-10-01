@@ -42,6 +42,11 @@ $this->breadcrumbs=array(
 				'options'=>array(
 					'focus'=>"js:function(event, ui) {
 						$('#".CHtml::activeId($model,'lastname')."').val(ui.item.value);
+					}",
+					'select'=>"js:function(event, ui) {
+						$.fn.yiiGridView.update('person-grid', {
+							data: $('#person-grid .filters input, #person-grid .filters select').serialize()
+						});
 					}"
 				),
 			),true),
@@ -81,6 +86,11 @@ $this->breadcrumbs=array(
 			'source':'".$this->createUrl('request/suggestLastname')."',
 			'focus':function(event, ui) {
 				$('#".CHtml::activeId($model,'lastname')."').val(ui.item.value);
+			},
+			'select':function(event, ui) {
+				$.fn.yiiGridView.update('person-grid', {
+					data: $('#person-grid .filters input, #person-grid .filters select').serialize()
+				});
 			}
 		});
 	}",
@@ -95,6 +105,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'person-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+	'htmlOptions'=>array('style'=>'width:740px'),
 	'pager'=>array(
 		'header'=>'',
 		'firstPageLabel'=>'&lt;&lt;',
@@ -103,6 +114,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'lastPageLabel'=>'&gt;&gt;',
 	),
 	'columns'=>array(
+		/*
+		'id',
+		'email:email',
+		'webpage:url',
+		'registered',
+		*/
 		array(
 			'name'=>'lastname',
 			'type'=>'raw',
@@ -114,6 +131,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
 				'options'=>array(
 					'focus'=>"js:function(event, ui) {
 						$('#".CHtml::activeId($model,'lastname')."').val(ui.item.value);
+					}",
+					'select'=>"js:function(event, ui) {
+						$.fn.yiiGridView.update('person-grid', {
+							data: $('#person-grid .filters input, #person-grid .filters select').serialize()
+						});
 					}"
 				),
 			),true),
@@ -153,6 +175,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'source':'".$this->createUrl('request/suggestLastname')."',
 			'focus':function(event, ui) {
 				$('#".CHtml::activeId($model,'lastname')."').val(ui.item.value);
+			},
+			'select':function(event, ui) {
+				$.fn.yiiGridView.update('person-grid', {
+					data: $('#person-grid .filters input, #person-grid .filters select').serialize()
+				});
 			}
 		});
 	}",
