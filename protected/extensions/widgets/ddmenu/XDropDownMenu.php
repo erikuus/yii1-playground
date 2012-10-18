@@ -28,7 +28,15 @@ class XDropDownMenu extends CMenu
 
 	protected function renderDropDownMenu($items)
 	{
-		$this->htmlOptions = array_merge($this->htmlOptions, array('class' => 'sf-menu'));
+		//This will overwrite the class name provided in htmloptions of the menu by the user
+		//$this->htmlOptions = array_merge($this->htmlOptions, array('class' => 'sf-menu'));
+
+		//To account for if the user has provided the class value for htmlOptions of the menu
+		if(!isset($this->htmlOptions['class']))
+			$this->htmlOptions = array_merge($this->htmlOptions, array('class' => 'sf-menu'));
+		else
+			$this->htmlOptions['class'] .= ' sf-menu'; //attach sf-menu class to the user-provided values
+
 		$this->renderMenu($items);
 
 		$this->registerClientScript();
