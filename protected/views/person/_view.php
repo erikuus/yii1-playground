@@ -7,11 +7,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
-	<?php echo CFormatter::formatEmail($data->email); ?>
+	<?php echo Yii::app()->format->formatEmail($data->email); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('webpage')); ?>:</b>
-	<?php echo CFormatter::formatUrl($data->webpage); ?>
+	<?php echo Yii::app()->format->formatUrl($data->webpage); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('country_id')); ?>:</b>
