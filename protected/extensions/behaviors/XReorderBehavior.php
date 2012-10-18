@@ -22,7 +22,7 @@
  * </pre>
  *
  * @author Erik Uus <erik.uus@gmail.com>
- * @version 1.0.0
+ * @version 1.1.0
  */
 class XReorderBehavior extends CActiveRecordBehavior
 {
