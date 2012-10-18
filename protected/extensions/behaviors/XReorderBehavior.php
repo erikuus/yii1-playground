@@ -158,15 +158,19 @@ class XReorderBehavior extends CActiveRecordBehavior
 	protected function getGroupCondition()
 	{
 		$owner=$this->getOwner();
+		$alias=$owner->getTableAlias();
 		if(is_array($this->groupId))
 		{
 			$condition=array();
 			foreach ($this->groupId as $groupId)
-				$condition[]=$groupId."='".$owner->{$groupId}."'";
+			{
+				if($owner->{$groupId})
+					$condition[]="{$alias}.{$groupId}='".$owner->{$groupId}."'";
+			}
 			return implode(' AND ', $condition);
 		}
-		elseif($this->groupId)
-			return $this->groupId."='".$owner->{$this->groupId}."'";
+		elseif($this->groupId && $owner->{$this->groupId})
+			return "{$alias}.{$this->groupId}='".$owner->{$this->groupId}."'";
 		else
 			return '1=1'; //dummy condition
 	}
@@ -181,6 +185,7 @@ class XReorderBehavior extends CActiveRecordBehavior
 	protected function getGroupIdValue()
 	{
 		$owner=$this->getOwner();
+
 		if(is_array($this->groupId))
 		{
 			$value=array();
@@ -201,9 +206,10 @@ class XReorderBehavior extends CActiveRecordBehavior
 	protected function getMaxSort()
 	{
 		$owner=$this->getOwner();
+		$alias=$owner->getTableAlias();
 		$model=$owner->find(array(
-			'condition'=>"{$this->sort} IS NOT NULL AND {$this->groupCondition}",
-			'order'=>"{$this->sort} DESC",
+			'condition'=>"{$alias}.{$this->sort} IS NOT NULL AND {$this->groupCondition}",
+			'order'=>"{$alias}.{$this->sort} DESC",
 			'limit'=>1,
 		));
 		if($model===null)
@@ -222,8 +228,9 @@ class XReorderBehavior extends CActiveRecordBehavior
 	protected function updateDuplicate($newSort)
 	{
 		$owner=$this->getOwner();
+		$alias=$owner->getTableAlias();
 		$model=$owner->find(array(
-			'condition'=> "{$this->id}!=:id AND {$this->sort}=:sort AND {$this->groupCondition}",
+			'condition'=> "{$alias}.{$this->id}!=:id AND {$alias}.{$this->sort}=:sort AND {$this->groupCondition}",
 			'params'=> array(
 				':id'=>$owner->{$this->id},
 				':sort'=>$owner->{$this->sort}
@@ -245,10 +252,11 @@ class XReorderBehavior extends CActiveRecordBehavior
 	protected function repairSort($condition)
 	{
 		$owner=$this->getOwner();
+		$alias=$owner->getTableAlias();
 		$sort=1;
 		$models=$owner->findAll(array(
-			'condition'=>"{$this->sort} IS NOT NULL AND $condition",
-			'order'=>$this->sort
+			'condition'=>"{$alias}.{$this->sort} IS NOT NULL AND $condition",
+			'order'=>"{$alias}.{$this->sort}"
 		));
 		foreach($models as $model)
 		{
