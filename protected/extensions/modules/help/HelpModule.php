@@ -71,7 +71,7 @@ class HelpModule extends CWebModule
 	 * @var string list of tools for XHeditor widget
 	 * Possible values are also 'mini', 'simple', 'full'
 	 */
-	public $editorTools='GStart,Cut,Copy,Paste,Pastetext,GEnd,Separator,GStart,Blocktag,Bold,Italic,Underline,FontColor,BackColor,Removeformat,GEnd,Separator,GStart,Align,List,Outdent,Indent,GEnd,Separator,GStart,Link,Unlink,Img,Table,GEnd,Separator,GStart,Source,Preview,Fullscreen,GEnd';
+	public $editorTools='Cut,Copy,Paste,Pastetext,|,GStart,Blocktag,Bold,Italic,Underline,FontColor,BackColor,Removeformat,SelectAll,|,Align,List,Outdent,Indent,GEnd,|,Link,Unlink,Img,Table,|,Source,Preview,Fullscreen';
 	/**
 	 * @var mixed a rbac operation name that controlls access to restricted pages (admin, update, create).
 	 * Defaults to false, meaning role based access control is not used at all and all authenticated

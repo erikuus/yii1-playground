@@ -4,8 +4,6 @@
  * Creates xhEditor {@link http://xheditor.com/} WYSIWYG editor.
  * Supports skins, different languages, model->attribute use,
  * configurable panel elements.
- * Included xhEditor v1.1.9 (build 110803).
- * Included languages support: en, zh-cn, zh-tw, ru.
  * @author Robert Campbell <waprave@gmail.com>
  * @author Evgeny Lexunin <lexunin@gmail.com>
  * @link http://xheditor.com/
@@ -15,7 +13,7 @@
 
 /**
  * Changed list of configurable attributes
- * Added upLinkUrl,upLinkExt,upImgUrl,upImgExt,upFlashUrl,upFlashExt,upMediaUrl,upMediaExt
+ * Added upLinkUrl,upLinkExt,upImgUrl,upImgExt,upFlashUrl,upFlashExt,upMediaUrl,upMediaExt,plugins
  * @author Erik Uus <erik.uus@gmail.com>
  */
 
@@ -103,7 +101,7 @@ class XHeditor extends CWidget
 	 * passed to $this->config as array keys.
 	 * @var string
 	 */
-	private $_configurableAttributes = 'id,name,layerShadow,tools,skin,showBlocktag,internalScript,internalStyle,width,height,loadCSS,fullscreen,beforeSetSource,beforeGetSource,focus,blur,forcePtag,upLinkUrl,upLinkExt,upImgUrl,upImgExt,upFlashUrl,upFlashExt,upMediaUrl,upMediaExt';
+	private $_configurableAttributes = 'id,name,layerShadow,tools,skin,showBlocktag,internalScript,internalStyle,width,height,loadCSS,fullscreen,beforeSetSource,beforeGetSource,focus,blur,forcePtag,upLinkUrl,upLinkExt,upImgUrl,upImgExt,upFlashUrl,upFlashExt,upMediaUrl,upMediaExt,plugins';
 
 	/**
 	 * Comma separated list of attributes that can be
