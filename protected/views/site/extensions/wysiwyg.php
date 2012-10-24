@@ -14,7 +14,7 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 	'config'=>array(
 		'id'=>'xheditor_1',
 		'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
-		'skin'=>'o2007blue', // default, nostyle, o2007blue, o2007silver, vista
+		'skin'=>'default', // default, nostyle, o2007blue, o2007silver, vista
 		'width'=>'740px',
 		'height'=>'400px',
 		'loadCSS'=>XHtml::cssUrl('editor.css'),
@@ -34,7 +34,7 @@ $this->widget('ext.widgets.xheditor.XHeditor',array(
 	'config'=>array(
 		'id'=>'xheditor_1',
 		'tools'=>'mfull', // mini, simple, mfull, full or from XHeditor::$_tools, tool names are case sensitive
-		'skin'=>'o2007blue', // default, nostyle, o2007blue, o2007silver, vista
+		'skin'=>'default', // default, nostyle, o2007blue, o2007silver, vista
 		'width'=>'740px',
 		'height'=>'400px',
 		'loadCSS'=>XHtml::cssUrl('editor.css'),

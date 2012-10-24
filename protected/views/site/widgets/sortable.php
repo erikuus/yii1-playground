@@ -5,7 +5,7 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 
 Yii::app()->clientScript->registerCss('sortable', "
 #sortable {list-style-type: none; margin: 0; padding: 0; width: 60%;}
-#sortable li {margin: 2px; padding: 4px; border: 1px solid #D0DEF0; background: #EBF3FD;}
+#sortable li {margin: 2px; padding: 4px; border: 1px solid #e3e3e3; background: #f7f7f7}
 ", 'screen', CClientScript::POS_HEAD);
 ?>
 

@@ -7,7 +7,7 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 <h2><?php echo Yii::t('ui','Action menu');?></h2>
 
 <?php $this->widget('ext.widgets.amenu.XActionMenu', array(
-	'htmlOptions'=>array('class'=>'actionBar'),
+	'htmlOptions'=>array('class'=>'actionMenu'),
 	'items'=>array(
 		array('label'=>Yii::t('ui','Home'), 'url'=>array('/site/index')),
 		array('label'=>Yii::t('ui','Widgets'), 'url'=>array('/person/index')),

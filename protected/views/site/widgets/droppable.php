@@ -11,7 +11,7 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 		'drop'=>'js:function(event,ui){$(this).html("Dropped!")}',
 	),
 	'htmlOptions'=>array(
-		'style'=>'width: 150px; height: 150px; padding: 5px; border: 1px solid #D0DEF0; background: #EBF3FD;',
+		'style'=>'width: 150px; height: 150px; padding: 5px; border: 1px solid #e3e3e3; background: #f7f7f7',
 	),
 ));
 	echo 'Drop here';
@@ -26,7 +26,7 @@ $this->endWidget();
 		'cursor'=>'move',
 	),
 	'htmlOptions'=>array(
-		'style'=>'width: 50px; height: 50px; padding: 5px; border: 1px solid #fad42e; background: #fcefa1;',
+		'style'=>'width: 50px; height: 50px; padding: 5px; border: 1px solid #fad42e; background: #fcefa1',
 	),
 ));
 	echo 'Drag';

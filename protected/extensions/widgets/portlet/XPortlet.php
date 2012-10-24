@@ -54,6 +54,12 @@ class XPortlet extends CWidget
 	 * @var string the CSS class for the portlet content. Defaults to 'content'.
 	 */
 	public $contentCssClass='content';
+	/**
+	 * @var boolean whether to hide the portlet when the body content is empty. Defaults to true.
+	 */
+	public $hideOnEmpty=true;
+
+	private $_openTag;
 
 	/**
 	 * Initializes the portlet.
@@ -63,6 +69,9 @@ class XPortlet extends CWidget
 	{
 		if($this->visible)
 		{
+			ob_start();
+			ob_implicit_flush(false);
+
 			$cs=Yii::app()->clientScript;
 			if($this->cssFile===null)
 			{
@@ -76,6 +85,9 @@ class XPortlet extends CWidget
 			if($this->title!==null)
 				echo "<div class=\"{$this->headerCssClass}\">".$this->title."</div>\n";
 			echo "<div class=\"{$this->contentCssClass}\">\n";
+
+			$this->_openTag=ob_get_contents();
+			ob_clean();
 		}
 	}
 
@@ -88,6 +100,13 @@ class XPortlet extends CWidget
 		if($this->visible)
 		{
 			$this->renderContent();
+
+			$content=ob_get_clean();
+			if($this->hideOnEmpty&&trim($content)==='')
+				return;
+			echo $this->_openTag;
+
+			echo $content;
 			echo "</div><!-- {$this->contentCssClass} -->\n";
 			echo "</div><!-- {$this->cssClass} -->";
 		}

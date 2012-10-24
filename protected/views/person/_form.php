@@ -54,8 +54,8 @@
 	</div>
 
 	<div class="action">
-		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save')); ?>
-		<?php echo CHtml::button(Yii::t('ui', 'Cancel'), array('submit' => $model->isNewRecord ? array('admin') : $this->getReturnUrl())) ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('ui', 'Create') : Yii::t('ui','Save'),array('class'=>'btn btn-primary')); ?>
+		<?php echo CHtml::link(Yii::t('ui', 'Cancel'), $model->isNewRecord ? array('admin') : $this->getReturnUrl(), array('class'=>'btn')) ?>
 	</div>
 
 <?php $this->endWidget(); ?>

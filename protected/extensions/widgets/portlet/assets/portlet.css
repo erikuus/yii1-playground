@@ -1,72 +1,71 @@
-.portlet
-{
-	-moz-border-radius:4px;
-	-webkit-border-radius: 4px;
+.portlet {
 	margin: 0;
 	padding: 1px;
-	margin-bottom:15px;
-	background-color:#D0DEF0;
+	margin-bottom: 15px;
+	background-color: #e3e3e3;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.portlet .header
-{
-	color:#52565B;
-	font-weight:bold;
-	line-height:1;
-	padding:7px 10px 8px;
+.portlet .header {
+	color: #666666;
+	font-weight: bold;
+	line-height: 1;
+	padding: 7px 10px 8px;
 	margin: 0;
-	text-align:center;
-	background-color:#EBF3FD;
+	text-align: center;
+	background-color: #f7f7f7;
 	line-height: 120%;
 }
 
-.portlet .content
-{
-	-moz-border-radius-bottomleft:4px;
-	-moz-border-radius-bottomright:4px;
-	-webkit-border-bottom-left-radius: 4px;
-	-webkit-border-bottom-right-radius: 4px;
-	background:white;
-	padding:5px 5px 10px 5px;
+.portlet .content {
+	-moz-border-radius-bottomleft: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	background: #ffffff;
+	padding: 5px 5px 10px 5px;
 }
 
-.portlet ul, .portlet ol
-{
-	list-style-image:none;
-	list-style-position:outside;
-	list-style-type:none;
+.portlet ul,
+.portlet ol {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
 	margin: 0 0 0 5px;
 	padding: 0;
 }
 
-.portlet li
-{
+.portlet li {
 	padding: 4px 0 2px 0px;
 }
 
-.portlet li span
-{
-	color: #52565B;
-	font-weight:bold;
+.portlet li span {
+	color: #777777;
+	font-weight: bold;
 }
 
-.portlet li.active a
-{
-	color: red;
+.portlet li.active a {
+	color: #c00000;
 }
 
-.portlet .row
-{
+.portlet a.passive {
+	color: #888888;
+}
+
+.portlet .row {
 	margin: 0 0 5px 0;
 }
 
-.portlet .row label
-{
+.portlet .row label {
 	display: block;
 }
 
-.portlet .row .hint
-{
+.portlet .row .hint {
 	margin: 0;
 	padding: 0;
 	color: #999;

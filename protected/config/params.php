@@ -6,8 +6,6 @@ return array(
 	'contactEmail' => 'your.name@domain.com',
 	// this is used in error pages
 	'adminEmail' => 'your.name@domain.com',
-	// the copyright information displayed in the footer section
-	'copyrightInfo' => 'Copyright &copy; 2011 Erik Uus',
 	//pagesizes
 	'pageSize' => 10,
 	// google

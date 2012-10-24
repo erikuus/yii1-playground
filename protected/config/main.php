@@ -72,6 +72,11 @@ return array(
 		'user'=>array(
 			'allowAutoLogin'=>true,
 		),
+		'clientScript' => array(
+			'scriptMap' => array(
+				'jquery-ui.css'=> dirname($_SERVER['SCRIPT_NAME']).'/css/jui/custom/jquery-ui.css',
+			),
+		),
         'widgetFactory'=>array(
             'enableSkin'=>true,
         ),

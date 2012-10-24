@@ -27,11 +27,15 @@ Yii::app()->clientScript->registerScript('scriptId', "
 
 
 <h2><?php echo Yii::t('ui', 'Autocomplete new'); ?></h2>
-<h3><?php echo Yii::t('ui', 'Select single'); ?></h3>
+
+<div class="form">
+
+<div class="group">
+	<?php echo Yii::t('ui', 'Select single'); ?>
+</div>
 
 <?php echo Yii::t('ui','Country'); ?>:
 <br />
-
 <?php $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 	//'model'=>$model,
 	//'attribute'=>'name',
@@ -61,11 +65,12 @@ $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 
 <br />
 
-<h3><?php echo Yii::t('ui', 'Select multiple'); ?></h3>
+<div class="group">
+	<?php echo Yii::t('ui', 'Select multiple'); ?>
+</div>
 
 <?php echo Yii::t('ui','Country'); ?>:
 <br />
-
 <?php $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 	//'model'=>$model,
 	//'attribute'=>'name',
@@ -135,11 +140,12 @@ $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 
 <br />
 
-<h3><?php echo Yii::t('ui', 'Select in chain'); ?></h3>
+<div class="group">
+	<?php echo Yii::t('ui', 'Select in chain'); ?>
+</div>
 
 <?php echo Yii::t('ui','Country'); ?>:
 <br />
-
 <?php $this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 	//'model'=>$model,
 	//'attribute'=>'name',
@@ -206,6 +212,8 @@ protected/controllers/RequestController.php
 protected/extensions/actions/XSuggestAction.php
 protected/models/Country.php: public function suggest()
 </pre></div>
+
+</div><!-- form -->
 
 <br />
 

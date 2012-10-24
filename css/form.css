@@ -1,15 +1,17 @@
-/* begin form style */
-div.form
-{
-	border: 1px solid #D5E3F5;
-	background: #EBF3FD;
-	margin: 0;
-	padding: 5px;
+div.form {
+	border: 1px solid #eeeeee;
+	background: #f9f9f9;
+	color: #666666;
+	margin : 0;
+	padding: 6px;
 	width: 600px;
+	margin: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
-div.portlet div.form
-{
+div.portlet div.form {
 	border: none;
 	background: transparent;
 	margin: 0;
@@ -18,73 +20,68 @@ div.portlet div.form
 }
 
 div.form table.double td,
-div.form table.multiple td
-{
+div.form table.multiple td {
 	padding: 0 20px 0 0;
 	vertical-align: top;
 }
 
-div.form table.double td
-{
+div.form table.double td {
 	width: 45%;
 }
 
-div.form table.linear td
-{
+div.form table.linear td {
 	padding: 2px 3px 2px 3px;
 	text-align: center;
 	vertical-align: middle;
 }
 
-div.form p.hint
-{
-	color: gray;
+div.form p {
+	margin: 10px;
+	color: #999999;
+}
+
+div.form p.hint {
 	margin: 0 0 0 110px;
+	color: #999999;
 }
 
-div.form div.menu
-{
+div.form div.menu {
 	text-align: right;
-	color: #D5E3F5;
+	color: #666666;
 }
 
-div.form div.group
-{
+div.form div.group {
 	clear: left;
 	padding: 5px;
-	margin: 10px 0 10px 0;
-	background: #D5E3F5;
+	margin: 0 0 10px 0;
 	font-weight: bold;
+	color: #666666;
+	background: #eeeeee;
 }
 
-div.form div.group a
-{
+div.form div.group a {
 	font-size: 8pt;
 	font-weight: normal;
 }
 
-div.form label
-{
+div.form label {
+
 }
 
-div.form div.action
-{
+div.form div.action {
 	clear: left;
 	margin-left: 150px;
 	padding: 5px 0;
 }
 
-div.form div.simple,
-div.form div.complex
-{
+div.form div.simple,div.form div.complex {
 	clear: left;
-	padding: 4px 0 ;
+	padding: 4px 0;
 }
 
 div.form div.simple label,
 div.form div.complex span.label,
-div.form div.complex span label
-{
+div.form div.complex span label {
 	display: block;
 	float: left;
 	margin-right: 10px;
@@ -94,160 +91,163 @@ div.form div.complex span label
 }
 
 div.form div.simple div,
-div.form div.complex div.panel
-{
+div.form div.complex div.panel {
 	margin-left: 150px;
 }
 
-div.form div.complex table.grid td
-{
+div.form div.complex table.grid td {
 	padding: 0 5px 5px 0;
 	vertical-align: top;
 }
 
-div.form div.complex table.grid td label
-{
+div.form div.complex table.grid td label {
 	display: block;
 }
 
-div.form div.cpanel
-{
+div.form div.cpanel {
+
 }
 
-div.form div.cpanelContent
-{
+div.form div.cpanelContent {
 	padding: 5px 0 10px 0;
 }
 
 div.form div.rpanelContent,
 div.form div.spanelContent,
-div.form div.rpanelContent label.error,
-div.form div.spanelContent label.error,
-div.form div.rpanelContent div.errorMessage,
-div.form div.spanelContent div.errorMessage
+div.form div.rpanelContent>label.error,
+div.form div.spanelContent>label.error,
+div.form div.rpanelContent>div.errorMessage,
+div.form div.spanelContent>div.errorMessage
 {
 	display: inline;
 }
 
-/* end of form style */
 
-/* begin common style */
-form
-{
+div.form form {
 	margin: 0;
 }
 
-input[type=text],
-input[type=password],
-textarea,
-select
-{
-	background: white;
-	border: 1px solid #a6c9e2;
+div.form input[type=text],
+div.form input[type=password],
+div.form textarea,
+div.form select {
+	border: 1px solid #cccccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #ffffff;
 }
 
-input[type=text],
-input[type=password],
-textarea
-{
+div.form input[type=text]:focus,
+div.form input[type=password]:focus,
+div.form textarea:focus,
+div.form select:focus {
+	border: 1px solid rgba(82, 168, 236, 0.8);
+}
+
+div.form input[type=text],
+div.form input[type=password],
+div.form textarea {
 	padding: 2px;
 }
 
-select
-{
+div.form select {
 	padding: 1px;
 }
 
-input.autocomplete
-{
-	background: #FFFFE0;
+div.form input[disabled],
+div.form checkbox[disabled],
+div.form select[disabled],
+div.form textarea[disabled] {
+	background: #ddd;
 }
 
-input.readonly
-{
-	background: #F0F0F0;
+div.form input.error,
+div.form textarea.error,
+div.form select.error,
+div.form input.error:focus,
+div.form textarea.error:focus,
+div.form select.error:focus {
+	background: #feeeee;
+	border-color: #c00000;
 }
 
-label.required
-{
+input.autocomplete {
+	background: #ffffe0;
 }
 
-span.required
-{
-	color: red;
+input.readonly {
+	background: #f0f0f0;
+}
+
+label.required {
+
+}
+
+span.required {
+	color: #c00000;
 }
 
 label.error,
-span.error
-{
-	color: #C00;
+span.error {
+	color: #c00000;
 }
 
-input.error,
-textarea.error,
-select.error
-{
-	background: #FEE;
-	border-color: #C00;
-}
-
-div.errorSummary
-{
-	border: 2px solid #C00;
+div.errorSummary {
+	border: 2px solid #c00000;
 	padding: 7px 7px 12px 7px;
 	margin: 0 0 20px 0;
-	background: #FEE;
+	background: #feeeee;
 }
 
-div.errorSummary p
-{
+div.errorSummary p {
 	margin: 0;
 	padding: 5px;
 }
 
-div.errorSummary ul
-{
+div.errorSummary ul {
 	margin: 0;
 	padding: 0 0 0 20px;
 }
 
-div.errorSummary ul li
-{
+div.errorSummary ul li {
 	list-style: square;
 }
 
-div.errorMessage
-{
+div.errorMessage {
 	color: #C00;
 }
 
-label.error
-{
+label.error {
 	display: block;
 }
 
-div.add
-{
+div.preview {
+	border: 1px solid #DDD;
+	padding: 7px 7px 12px 7px;
+	margin: 0 0 20px 0;
+	background: #FFFFE0;
+}
+
+div.add {
 	cursor: pointer;
 	width: 60px;
 	padding: 2px;
-	border: 1px solid #a6c9e2;
-	color: #0066a7;
+	border: 1px solid #cccccc;
+	color: #0088cc;
 	text-align: center;
 }
 
-div.remove
-{
+div.remove {
 	cursor: pointer;
 	width: 60px;
 	padding: 2px;
-	border: 1px solid #a6c9e2;
-	color: #0066a7;
+	border: 1px solid #cccccc;
+	color: #0088cc;
 	text-align: center;
 }
 
-textarea.template
-{
+textarea.template {
 	display: none;
 }
 /* end of common style */

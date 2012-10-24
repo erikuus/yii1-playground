@@ -5,11 +5,15 @@ $this->leftPortlets['ptl.WidgetMenu'] = array();
 ?>
 
 <h2><?php echo Yii::t('ui', 'Autocomplete old'); ?></h2>
-<h3><?php echo Yii::t('ui', 'Select single'); ?></h3>
+
+<div class="form">
+
+<div class="group">
+	<?php echo Yii::t('ui', 'Select single'); ?>
+</div>
 
 <?php echo Yii::t('ui','Country'); ?>:
 <br />
-
 <?php $this->widget('CAutoComplete',array(
 	//'model'=>$model,
 	//'attribute'=>'name',
@@ -41,11 +45,12 @@ $this->widget('CAutoComplete',array(
 
 <br />
 
-<h3><?php echo Yii::t('ui', 'Select multiple'); ?></h3>
+<div class="group">
+	<?php echo Yii::t('ui', 'Select multiple'); ?>
+</div>
 
 <?php echo Yii::t('ui','Countries'); ?>:
 <br />
-
 <?php $this->widget('CAutoComplete',array(
 	//'model'=>$model,
 	//'attribute'=>'name',
@@ -81,11 +86,12 @@ $this->widget('CAutoComplete',array(
 
 <br />
 
-<h3><?php echo Yii::t('ui', 'Select in chain'); ?></h3>
+<div class="group">
+	<?php echo Yii::t('ui', 'Select in chain'); ?>
+</div>
 
 <?php echo Yii::t('ui','Country'); ?>:
 <br />
-
 <?php $this->widget('CAutoComplete',array(
 	//'model'=>$model,
 	//'attribute'=>'name',
@@ -157,6 +163,8 @@ protected/controllers/RequestController.php
 protected/extensions/actions/XLegacySuggestAction.php
 protected/models/Country.php: public function legacySuggest()
 </pre></div>
+
+</div><!-- form -->
 
 <br />
 

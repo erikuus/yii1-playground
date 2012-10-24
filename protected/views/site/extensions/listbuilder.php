@@ -6,6 +6,8 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 
 <h2><?php echo Yii::t('ui','List Builder'); ?></h2>
 
+<div class="form">
+
 <?php  if(Yii::app()->user->hasFlash('saved')): ?>
 	<div class="confirmation">
 		<?php echo Yii::app()->user->getFlash('saved'); ?>
@@ -24,7 +26,7 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 	'width'=>'200px',
 ));?>
 <br />
-<?php echo CHtml::submitButton(Yii::t('ui', 'Save')); ?>
+<?php echo CHtml::submitButton(Yii::t('ui', 'Save'), array('class'=>'btn btn-primary')); ?>&nbsp;
 <?php echo Yii::t('ui','NB! Access restricted by IP');?>
 <?php echo CHtml::endForm(); ?>
 
@@ -50,3 +52,5 @@ $this->widget('ext.widgets.multiselects.XMultiSelects',array(
 protected/controllers/SiteController.php: public function actionMovePersons()
 protected/models/Person.php
 </pre></div>
+
+</div><!-- form -->

@@ -5,7 +5,7 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 
 Yii::app()->clientScript->registerCss('selectable',"
 #selectable {list-style-type: none; margin: 0; padding: 0; width: 60%;}
-#selectable li {margin: 2px; padding: 4px; border: 1px solid #D0DEF0; background: #EBF3FD;}
+#selectable li {margin: 2px; padding: 4px; border: 1px solid #e3e3e3; background: #f7f7f7}
 #selectable .ui-selecting { border: 1px solid #fad42e; }
 #selectable .ui-selected { border: 1px solid #fad42e; background: #fcefa1;}
 #select-result {margin: 0 0 10px 2px; }

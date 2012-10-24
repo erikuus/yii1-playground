@@ -14,7 +14,7 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 		'maxHeight'=>500,
 	),
 	'htmlOptions'=>array(
-		'style'=>'width: 150px; height: 150px; padding: 0.5em; border: 1px solid #D0DEF0;'
+		'style'=>'width: 150px; height: 150px; padding: 0.5em; border: 1px solid #e3e3e3; background: #f7f7f7'
 	),
 ));
 	echo 'Your resizable content here';
@@ -33,7 +33,7 @@ $this->beginWidget('zii.widgets.jui.CJuiResizable', array(
 		'maxHeight'=>500,
 	),
 	'htmlOptions'=>array(
-		'style'=>'width: 150px; height: 150px; padding: 0.5em; border: 1px solid #D0DEF0'
+		'style'=>'width: 150px; height: 150px; padding: 0.5em; border: 1px solid #e3e3e3; background: #f7f7f7'
 	),
 ));
 	echo 'Your resizable content here';

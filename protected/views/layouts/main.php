@@ -22,8 +22,7 @@ if(!Yii::app()->request->isAjaxRequest)
 
 <body>
 
-<div id="page">
-
+<div class="page">
 	<div id="header">
 
 		<div id="menubar">
@@ -40,25 +39,29 @@ if(!Yii::app()->request->isAjaxRequest)
 			<?php echo XHtml::imageLabel('blocks.gif', Yii::app()->name);?>
 		</div><!-- logo -->
 
-		<div id="mainmenu">
-			<?php $this->widget('ptl.MainMenu'); ?>
-		</div><!-- mainmenu -->
-
 	</div><!-- header -->
+</div><!-- page -->
 
-	<?php if(empty($this->layout)): ?>
-	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-		'links'=>$this->breadcrumbs,
-	)); ?>
-	<!-- breadcrumbs -->
-	<?php endif; ?>
+<div id="mainmenu">
+	<div class="page">
+		<?php $this->widget('ptl.MainMenu'); ?>
+	</div>
+</div>
 
+<div class="page">
 	<div id="content">
+		<?php if(empty($this->layout)): ?>
+		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+			'links'=>$this->breadcrumbs,
+		)); ?>
+		<!-- breadcrumbs -->
+		<?php endif; ?>
+
 		<?php echo $content; ?>
 	</div><!-- content -->
 
 	<div id="footer">
-		<?php echo Yii::app()->params['copyrightInfo']; ?>
+		<?php echo 'Copyright &copy; '.date('Y').' Erik Uus'; ?>
 	</div><!-- footer -->
 
 </div><!-- page -->

@@ -11,7 +11,7 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 		'cursor'=>'move',
 	),
 	'htmlOptions'=>array(
-		'style'=>'width: 150px; height: 150px; padding: 5px; border: 1px solid #D0DEF0; background: #EBF3FD;'
+		'style'=>'width: 150px; height: 150px; padding: 5px; border: 1px solid #e3e3e3; background: #f7f7f7'
 	),
 ));
 	echo 'Your draggable content here';
@@ -27,7 +27,7 @@ $this->beginWidget('zii.widgets.jui.CJuiDraggable', array(
 		'cursor'=>'move',
 	),
 	'htmlOptions'=>array(
-		'style'=>'width: 150px; height: 150px; padding: 5px; border: 1px solid #D0DEF0; background: #EBF3FD;'
+		'style'=>'width: 150px; height: 150px; padding: 5px; border: 1px solid #e3e3e3; background: #f7f7f7'
 	),
 ));
 	echo 'Your draggable content here';

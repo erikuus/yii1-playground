@@ -12,7 +12,7 @@ class SiteController extends Controller
 			// this is used by the contact page
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
-				'backColor'=>0xEBF4FB,
+				'backColor'=>0xf9f9f9,
 			),
 			// widget action renders "static" pages stored under 'protected/views/site/widgets'
 			// They can be accessed via: index.php?r=site/widget&view=FileName

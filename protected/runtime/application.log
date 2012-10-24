@@ -2050,3 +2050,322 @@ Stack trace:
 #24 C:\inetpub\wwwroot\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
 #25 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
 #26 {main} REQUEST_URI=/yii/playground/
+2012/10/19 22:53:45 [error] [system.db.CDbCommand] Error in preparing SQL: DELETE FROM YiiCache WHERE expire>0 AND expire<1350672825
+2012/10/19 22:53:45 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 no such table: YiiCache. The SQL statement executed was: DELETE FROM YiiCache WHERE expire>0 AND expire<1350672825.
+2012/10/20 17:17:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "en/site/themes/jui/custom/jquery-ui.css".' in C:\inetpub\wwwroot\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('en/site/themes/...')
+#1 C:\inetpub\wwwroot\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/yii/playground/index.php/en/site/themes/jui/custom/jquery-ui.css
+2012/10/20 17:19:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "en/site/frontend.themes.jui.custom.jquery-ui.css".' in C:\inetpub\wwwroot\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('en/site/fronten...')
+#1 C:\inetpub\wwwroot\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/yii/playground/index.php/en/site/frontend.themes.jui.custom.jquery-ui.css
+2012/10/21 15:54:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/tab.css".' in C:\inetpub\wwwroot\yii\framework\web\CWebApplication.php:281
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\framework\web\CWebApplication.php(136): CWebApplication->runController('et/site/tab.css')
+#1 C:\inetpub\wwwroot\yii\framework\base\CApplication.php(158): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main} REQUEST_URI=/yii/playground/index.php/et/site/tab.css
+2012/10/21 16:39:06 [error] [system.db.CDbCommand] Error in preparing SQL: DELETE FROM YiiCache WHERE expire>0 AND expire<1350823146
+2012/10/21 16:39:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 no such table: YiiCache. The SQL statement executed was: DELETE FROM YiiCache WHERE expire>0 AND expire<1350823146.
+2012/10/21 16:48:44 [error] [php] Cannot use a scalar value as an array (C:\inetpub\wwwroot\yii\yii\framework\web\CWidgetFactory.php:193)
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(172): PersonController->createWidget()
+#1 C:\inetpub\wwwroot\yii\playground\protected\views\person\admin.php(97): PersonController->widget()
+#2 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(126): require()
+#3 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(95): PersonController->renderInternal()
+#4 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(869): PersonController->renderFile()
+#5 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(782): PersonController->renderPartial()
+#6 C:\inetpub\wwwroot\yii\playground\protected\controllers\PersonController.php(172): PersonController->render()
+#7 C:\inetpub\wwwroot\yii\yii\framework\web\actions\CInlineAction.php(49): PersonController->actionAdmin()
+#8 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(133): PersonController->runAction()
+#10 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CInlineFilter.php(58): PersonController->filterAccessControl()
+#13 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(265): PersonController->runActionWithFilters()
+#16 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(282): PersonController->run()
+#17 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#19 C:\inetpub\wwwroot\yii\playground\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/playground/index.php/et/person/admin
+2012/10/21 17:02:50 [error] [exception.CException] exception 'CException' with message 'Property "CGridView.0" is not defined.' in C:\inetpub\wwwroot\yii\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('0', Array)
+#1 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(PersonController), 'zii.widgets.gri...', Array)
+#2 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#3 C:\inetpub\wwwroot\yii\playground\protected\views\person\admin.php(97): CBaseController->widget('zii.widgets.gri...', Array)
+#4 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(126): require('C:\inetpub\wwwr...')
+#5 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\inetpub\wwwr...', Array, true)
+#6 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\inetpub\wwwr...', Array, true)
+#7 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#8 C:\inetpub\wwwroot\yii\playground\protected\controllers\PersonController.php(172): CController->render('admin', Array)
+#9 C:\inetpub\wwwroot\yii\yii\framework\web\actions\CInlineAction.php(49): PersonController->actionAdmin()
+#10 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#19 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('person/admin')
+#20 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#21 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/yii/playground/index.php/et/person/admin
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/person/view?id=1
+---
+2012/10/21 17:46:35 [error] [php] get_class() expects parameter 1 to be object, boolean given (C:\inetpub\wwwroot\yii\yii\framework\web\helpers\CHtml.php:2155)
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\helpers\CHtml.php(1214): resolveNameID()
+#1 C:\inetpub\wwwroot\yii\yii\framework\zii\widgets\grid\CDataColumn.php(97): activeTextField()
+#2 C:\inetpub\wwwroot\yii\yii\framework\zii\widgets\grid\CGridColumn.php(109): CDataColumn->renderFilterCellContent()
+#3 C:\inetpub\wwwroot\yii\yii\framework\zii\widgets\grid\CGridView.php(476): CDataColumn->renderFilterCell()
+#4 C:\inetpub\wwwroot\yii\yii\framework\zii\widgets\grid\CGridView.php(454): CGridView->renderFilter()
+#5 C:\inetpub\wwwroot\yii\yii\framework\zii\widgets\grid\CGridView.php(424): CGridView->renderTableHeader()
+#6 C:\inetpub\wwwroot\yii\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#7 unknown(0): CGridView->renderSection()
+#8 C:\inetpub\wwwroot\yii\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback()
+#9 C:\inetpub\wwwroot\yii\yii\framework\zii\widgets\CBaseListView.php(128): CGridView->renderContent()
+#10 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(173): CGridView->run()
+#11 C:\inetpub\wwwroot\yii\playground\protected\views\person\admin.php(93): PersonController->widget()
+#12 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(126): require()
+#13 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(95): PersonController->renderInternal()
+#14 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(869): PersonController->renderFile()
+#15 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(782): PersonController->renderPartial()
+#16 C:\inetpub\wwwroot\yii\playground\protected\controllers\PersonController.php(172): PersonController->render()
+#17 C:\inetpub\wwwroot\yii\yii\framework\web\actions\CInlineAction.php(49): PersonController->actionAdmin()
+#18 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#19 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(133): PersonController->runAction()
+#20 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#22 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CInlineFilter.php(58): PersonController->filterAccessControl()
+#23 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#24 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#25 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(265): PersonController->runActionWithFilters()
+#26 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(282): PersonController->run()
+#27 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#28 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#29 C:\inetpub\wwwroot\yii\playground\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/playground/index.php/et/person/admin
+2012/10/21 17:52:42 [error] [php] Trying to get property of non-object (C:\inetpub\wwwroot\yii\playground\protected\views\skins\CGridView.php:7)
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget()
+#1 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(172): PersonController->createWidget()
+#2 C:\inetpub\wwwroot\yii\playground\protected\views\person\admin.php(93): PersonController->widget()
+#3 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(126): require()
+#4 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(95): PersonController->renderInternal()
+#5 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(869): PersonController->renderFile()
+#6 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(782): PersonController->renderPartial()
+#7 C:\inetpub\wwwroot\yii\playground\protected\controllers\PersonController.php(172): PersonController->render()
+#8 C:\inetpub\wwwroot\yii\yii\framework\web\actions\CInlineAction.php(49): PersonController->actionAdmin()
+#9 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(133): PersonController->runAction()
+#11 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#13 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CInlineFilter.php(58): PersonController->filterAccessControl()
+#14 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#15 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(265): PersonController->runActionWithFilters()
+#17 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(282): PersonController->run()
+#18 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#20 C:\inetpub\wwwroot\yii\playground\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/playground/index.php/et/person/admin
+2012/10/21 17:59:44 [error] [php] include(CPortlet.php): failed to open stream: No such file or directory (C:\inetpub\wwwroot\yii\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\playground\protected\portlets\WidgetMenu.php(3): spl_autoload_call()
+#1 C:\inetpub\wwwroot\yii\yii\framework\YiiBase.php(314): require()
+#2 C:\inetpub\wwwroot\yii\yii\framework\web\CWidgetFactory.php(146): import()
+#3 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget()
+#4 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(172): PersonController->createWidget()
+#5 C:\inetpub\wwwroot\yii\playground\protected\views\layouts\leftbar.php(11): PersonController->widget()
+#6 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(126): require()
+#7 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(95): PersonController->renderInternal()
+#8 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(784): PersonController->renderFile()
+#9 C:\inetpub\wwwroot\yii\playground\protected\controllers\PersonController.php(158): PersonController->render()
+#10 C:\inetpub\wwwroot\yii\yii\framework\web\actions\CInlineAction.php(49): PersonController->actionIndex()
+#11 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(133): PersonController->runAction()
+#13 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CInlineFilter.php(58): PersonController->filterAccessControl()
+#16 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(265): PersonController->runActionWithFilters()
+#19 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(282): PersonController->run()
+#20 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#22 C:\inetpub\wwwroot\yii\playground\index.php(11): CWebApplication->run()
+REQUEST_URI=/yii/playground/index.php/et/person/index
+2012/10/21 19:52:39 [error] [exception.CException] exception 'CException' with message 'Property "CGridView.viewButtonImageUrl" is not defined.' in C:\inetpub\wwwroot\yii\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWidgetFactory.php(161): CComponent->__set('viewButtonImage...', '/yii/playground...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(PersonController), 'zii.widgets.gri...', Array)
+#2 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#3 C:\inetpub\wwwroot\yii\playground\protected\views\person\admin.php(93): CBaseController->widget('zii.widgets.gri...', Array)
+#4 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(126): require('C:\inetpub\wwwr...')
+#5 C:\inetpub\wwwroot\yii\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\inetpub\wwwr...', Array, true)
+#6 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\inetpub\wwwr...', Array, true)
+#7 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#8 C:\inetpub\wwwroot\yii\playground\protected\controllers\PersonController.php(172): CController->render('admin', Array)
+#9 C:\inetpub\wwwroot\yii\yii\framework\web\actions\CInlineAction.php(49): PersonController->actionAdmin()
+#10 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\inetpub\wwwroot\yii\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\inetpub\wwwroot\yii\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#19 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('person/admin')
+#20 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#21 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/yii/playground/index.php/et/person/admin
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/widget?view=starrating
+---
+2012/10/22 00:12:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg.gif')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/contact
+---
+2012/10/22 00:12:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg_ra.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg_ra.g...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg_ra.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/contact
+---
+2012/10/22 00:12:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg.gif')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/contact
+---
+2012/10/22 00:12:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg_ra.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg_ra.g...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg_ra.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/contact
+---
+2012/10/22 00:12:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/lookup/bg.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/lookup/bg.gi...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/lookup/bg.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/lookup/default
+---
+2012/10/22 00:12:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/lookup/bg_ra.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/lookup/bg_ra...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/lookup/bg_ra.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/lookup/default
+---
+2012/10/22 00:12:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg_ra.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg_ra.g...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg_ra.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/extension?view=dropdownmenu
+---
+2012/10/22 00:12:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg.gif')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/extension?view=dropdownmenu
+---
+2012/10/22 00:12:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/images/arrows-ffffff.png".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/images/...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/images/arrows-ffffff.png
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/extension?view=dropdownmenu
+---
+2012/10/22 00:13:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg.gif')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/extension?view=clicktoedit
+---
+2012/10/22 00:13:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg_ra.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg_ra.g...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg_ra.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/extension?view=clicktoedit
+---
+2012/10/22 00:13:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/person/bg_ra.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/person/bg_ra...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/person/bg_ra.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/person/index
+---
+2012/10/22 00:13:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/person/bg.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/person/bg.gi...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/person/bg.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/person/index
+---
+2012/10/22 00:13:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg.gif')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/widget?view=button
+---
+2012/10/22 00:13:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "et/site/bg_ra.gif".' in C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\inetpub\wwwroot\yii\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('et/site/bg_ra.g...')
+#1 C:\inetpub\wwwroot\yii\yii\framework\base\CApplication.php(168): CWebApplication->processRequest()
+#2 C:\inetpub\wwwroot\yii\playground\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/yii/playground/index.php/et/site/bg_ra.gif
+HTTP_REFERER=http://localhost/yii/playground/index.php/et/site/widget?view=button
+---

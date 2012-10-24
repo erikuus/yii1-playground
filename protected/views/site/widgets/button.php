@@ -13,6 +13,7 @@ $this->leftPortlets['ptl.WidgetMenu']=array();
 	'name'=>'btnSubmit',
 	'value'=>'1',
 	'caption'=>'Submit',
+	'htmlOptions'=>array('class'=>'ui-button-primary')
 )); ?>
 
 <div class="tpanel">
@@ -23,6 +24,7 @@ $this->widget('zii.widgets.jui.CJuiButton', array(
 	'name'=>'btnSubmit',
 	'value'=>'1',
 	'caption'=>'Submit',
+	'htmlOptions'=>array('class'=>'ui-button-primary')
 ));
 <?php $this->endWidget(); ?>
 </div>
@@ -33,7 +35,7 @@ $this->widget('zii.widgets.jui.CJuiButton', array(
 	'buttonType'=>'button',
 	'name'=>'btnClick',
 	'caption'=>'Click',
-	'options'=>array('icons'=>'js:{primary:"ui-icon-newwin"}'),
+	//'options'=>array('icons'=>'js:{primary:"ui-icon-newwin"}'),
 	'onclick'=>'js:function(){alert("clicked"); this.blur(); return false;}',
 )); ?>
 
@@ -44,7 +46,6 @@ $this->widget('zii.widgets.jui.CJuiButton', array(
 	'buttonType'=>'button',
 	'name'=>'btnClick',
 	'caption'=>'Click',
-	'options'=>array('icons'=>'js:{primary:"ui-icon-newwin"}'),
 	'onclick'=>'js:function(){alert("clicked"); this.blur(); return false;}',
 ));
 <?php $this->endWidget(); ?>
@@ -56,7 +57,7 @@ $this->widget('zii.widgets.jui.CJuiButton', array(
 	'buttonType'=>'link',
 	'name'=>'btnGo',
 	'caption'=>'Go',
-	'options'=>array('icons'=>'js:{secondary:"ui-icon-extlink"}'),
+	//'options'=>array('icons'=>'js:{secondary:"ui-icon-extlink"}'),
 	'url'=>array('site/index'),
 )); ?>
 
@@ -67,7 +68,6 @@ $this->widget('zii.widgets.jui.CJuiButton', array(
 	'buttonType'=>'link',
 	'name'=>'btnGo',
 	'caption'=>'Go',
-	'options'=>array('icons'=>'js:{secondary:"ui-icon-extlink"}'),
 	'url'=>array('site/index'),
 ));
 <?php $this->endWidget(); ?>

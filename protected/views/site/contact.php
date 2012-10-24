@@ -69,7 +69,7 @@
 	<?php endif; ?>
 
 	<div class="action">
-		<?php echo CHtml::submitButton(Yii::t('ui','Submit')); ?>
+		<?php echo CHtml::submitButton(Yii::t('ui','Submit'), array('class'=>'btn btn-primary')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
