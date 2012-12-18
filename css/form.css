@@ -1,7 +1,7 @@
 div.form {
-	border: 1px solid #eeeeee;
+	border: 1px solid #dddddd;
 	background: #f9f9f9;
-	color: #666666;
+	color: #333333;
 	margin : 0;
 	padding: 6px;
 	width: 600px;
@@ -37,12 +37,12 @@ div.form table.linear td {
 
 div.form p {
 	margin: 10px;
-	color: #999999;
+	color: #666666;
 }
 
 div.form p.hint {
 	margin: 0 0 0 110px;
-	color: #999999;
+	color: #666666;
 }
 
 div.form div.menu {
@@ -131,7 +131,7 @@ div.form input[type=text],
 div.form input[type=password],
 div.form textarea,
 div.form select {
-	border: 1px solid #cccccc;
+	border: 1px solid #cacaca;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -170,10 +170,6 @@ div.form textarea.error:focus,
 div.form select.error:focus {
 	background: #feeeee;
 	border-color: #c00000;
-}
-
-input.autocomplete {
-	background: #ffffe0;
 }
 
 input.readonly {
@@ -233,7 +229,7 @@ div.add {
 	cursor: pointer;
 	width: 60px;
 	padding: 2px;
-	border: 1px solid #cccccc;
+	border: 1px solid #cacaca;
 	color: #0088cc;
 	text-align: center;
 }
@@ -242,7 +238,7 @@ div.remove {
 	cursor: pointer;
 	width: 60px;
 	padding: 2px;
-	border: 1px solid #cccccc;
+	border: 1px solid #cacaca;
 	color: #0088cc;
 	text-align: center;
 }

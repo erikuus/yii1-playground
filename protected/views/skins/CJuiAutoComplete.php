@@ -18,7 +18,7 @@ return array(
 			}',
 		),
 		'htmlOptions'=>array(
-			'class'=>'autocomplete'
+			'style'=>'background: #ffffe0;'
 		),
 	),
 );

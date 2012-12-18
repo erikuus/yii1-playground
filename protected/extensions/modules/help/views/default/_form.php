@@ -65,7 +65,6 @@
 							'id'=>'Help_content_en',
 							'loadCSS'=>Yii::app()->baseUrl.'/css/'.Yii::app()->controller->module->editorCSS,
 							'tools'=>Yii::app()->controller->module->editorTools,
-							'skin'=>'o2007blue',
 							'width'=>'690px',
 							'height'=>'400px',
 							'upImgUrl'=>Yii::app()->controller->module->editorUploadRoute ? Yii::app()->controller->createUrl(Yii::app()->controller->module->editorUploadRoute) : null,
