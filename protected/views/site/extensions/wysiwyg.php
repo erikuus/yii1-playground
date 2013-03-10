@@ -18,6 +18,8 @@ $this->leftPortlets['ptl.ExtensionMenu']=array();
 		'width'=>'740px',
 		'height'=>'400px',
 		'loadCSS'=>XHtml::cssUrl('editor.css'),
+		'upLinkUrl'=>$this->createUrl('request/uploadFile'),
+		'upLinkExt'=>'zip,rar,txt,pdf',
 		'upImgUrl'=>$this->createUrl('request/uploadFile'),
 		'upImgExt'=>'jpg,jpeg,gif,png',
 	),
@@ -38,6 +40,8 @@ $this->widget('ext.widgets.xheditor.XHeditor',array(
 		'width'=>'740px',
 		'height'=>'400px',
 		'loadCSS'=>XHtml::cssUrl('editor.css'),
+		'upLinkUrl'=>$this->createUrl('request/uploadFile'),// <?php echo Yii::t('ui','NB! Access restricted by IP');?>
+		'upLinkExt'=>'zip,rar,txt,pdf',
 		'upImgUrl'=>$this->createUrl('request/uploadFile'), // <?php echo Yii::t('ui','NB! Access restricted by IP');?>
 		'upImgExt'=>'jpg,jpeg,gif,png',
 	),
