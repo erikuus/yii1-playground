@@ -56,7 +56,7 @@ class XHEditorUpload extends CAction
 	/**
 	 * @var upload extension
 	 */
-	public $upExt='txt,rar,zip,jpg,jpeg,gif,png,swf,wmv,avi,wma,mp3,mid';
+	public $upExt='pdf,txt,rar,zip,jpg,jpeg,gif,png,swf,wmv,avi,wma,mp3,mid';
 	/**
 	 * @var return format after upload: 1- only the url, 2- parameter array
 	 */
