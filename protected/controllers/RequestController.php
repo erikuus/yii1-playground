@@ -27,18 +27,6 @@ class RequestController extends Controller
 				'modelName'=>'Menu',
 				'attributeName'=>'pathText',
 			),
-			'loadContent'=>array(
-				'class'=>'ext.actions.XAjaxEchoAction',
-				'modelName'=>'Content',
-				'attributeName'=>'content',
-			),
-			'saveTitle'=>array(
-				'class'=>'ext.actions.XEditableAction',
-			),
-			'saveContent'=>array(
-				'class'=>'ext.actions.XEditableAction',
-				'markdown'=>true,
-			),
 			'uploadFile'=>array(
 				'class'=>'ext.actions.XHEditorUpload',
 			),

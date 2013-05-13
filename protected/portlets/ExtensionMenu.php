@@ -18,7 +18,6 @@ class ExtensionMenu extends XPortlet
 			array('label'=>'Form Extensions', 'items'=>array(
 				array('label'=>Yii::t('ui','WYSIWYG editor'), 'url'=>array('/site/extension', 'view'=>'wysiwyg')),
 				array('label'=>Yii::t('ui','List builder'), 'url'=>array('/site/extension', 'view'=>'listbuilder')),
-				array('label'=>Yii::t('ui','Click to edit'), 'url'=>array('/site/extension', 'view'=>'clicktoedit')),
 				array('label'=>Yii::t('ui','Input map'), 'url'=>array('/site/extension', 'view'=>'inputmap')),
 			)),
 			array('label'=>'JQuery Tricks', 'items'=>array(
