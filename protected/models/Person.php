@@ -19,6 +19,12 @@ class Person extends CActiveRecord
 	 */
 
 	/**
+	 * We use these custom attributes only to demonstrate select2 widget
+	 */
+	public $personIds;
+	public $countryIds;
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Person the static model class
 	 */
@@ -46,10 +52,10 @@ class Person extends CActiveRecord
 			array('firstname, lastname, country_id', 'required'),
 			array('birthyear, country_id, eyecolor_code', 'numerical', 'integerOnly'=>true),
 			array('firstname, lastname, email, webpage', 'length', 'max'=>64),
-			array('registered', 'safe'),
+			array('registered, personIds, countryIds', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, firstname, lastname, birthyear, email, webpage, country_id, registered, eyecolor_code', 'safe', 'on'=>'search'),
+			array('firstname, lastname, birthyear, email, webpage, country_id, registered, eyecolor_code', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -96,13 +102,12 @@ class Person extends CActiveRecord
 			'with'=>'country',
 		));
 
-		$criteria->compare('id',$this->id);
 		$criteria->icompare('firstname',$this->firstname,true);
 		$criteria->icompare('lastname',$this->lastname,true);
-		$criteria->compare('birthyear',$this->birthyear);
+		$criteria->ncompare('birthyear',$this->birthyear, true);
 		$criteria->icompare('email',$this->email,true);
 		$criteria->icompare('webpage',$this->webpage,true);
-		$criteria->compare('country_id',$this->country_id);
+		$criteria->ncompare('country_id',$this->country_id, true);
 		$criteria->icompare('registered',$this->registered,true);
 		$criteria->compare('eyecolor_code',$this->eyecolor_code);
 
@@ -112,19 +117,19 @@ class Person extends CActiveRecord
 				'pageSize'=>Yii::app()->params['pageSize'],
 				'pageVar'=>'page',
 			),
-			'sort'=>array(
-				'defaultOrder'=>'lastname,firstname',
-				'sortVar'=>'sort',
-				'attributes'=>array(
-					'firstname',
-					'lastname',
-					'birthyear',
-					'country_id'=>array(
-						'asc'=>'country.name',
-						'desc'=>'country.name DESC',
-					)
-				),
-			),
+    		'sort'=>array(
+    			'defaultOrder'=>'lastname,firstname',
+    			'sortVar'=>'sort',
+    			'attributes'=>array(
+    				'firstname',
+    				'lastname',
+    				'birthyear',
+    				'country_id'=>array(
+    					'asc'=>'country.name',
+    					'desc'=>'country.name DESC',
+    				)
+    			),
+    		),
 
 		));
 	}
@@ -149,13 +154,13 @@ class Person extends CActiveRecord
 			'order'=>"$attribute",
 		);
 		$models=$this->findAll($criteria);
-		foreach($models as $model)
+	    foreach($models as $model)
 			$chars[]=mb_strtoupper($model->$attribute);
 		return $chars;
 	}
 
 	/**
-	 * Suggests a list of existing values matching the specified keyword.
+	 * Suggests lastename for juiautocomplete widget
 	 * @param string the keyword to be matched
 	 * @param integer maximum number of names to be returned
 	 * @return array list of matching lastnames
@@ -174,12 +179,72 @@ class Person extends CActiveRecord
 		$models=$this->findAll($criteria);
 		$suggest=array();
 		foreach($models as $model) {
-				$suggest[] = array(
-					'value'=>$model->lastname,
-					'label'=>$model->lastname,
-				);
+	    		$suggest[] = array(
+	    			'value'=>$model->lastname,
+	        		'label'=>$model->lastname,
+	        	);
 		}
 		return $suggest;
+	}
+
+	/**
+	 * Suggests fullname for select 2 widget
+	 * @param string the keyword to be matched
+	 * @param integer maximum number of names to be returned
+	 * @return array list of matching lastnames
+	 */
+	public function suggestPerson($keyword, $limit=20)
+	{
+		$criteria=array(
+			'condition'=>'firstname LIKE :keyword OR lastname LIKE :keyword',
+			'order'=>'lastname',
+			'limit'=>$limit,
+			'params'=>array(
+				':keyword'=>"$keyword%"
+			)
+		);
+		$models=$this->findAll($criteria);
+		$data=array();
+		foreach($models as $model) {
+	    	$data[] = array(
+	    		'id'=>$model->id,
+	        	'text'=>$model->fullname,
+	        );
+		}
+		return $data;
+	}
+
+	/**
+	 * Suggests country grouped fullnames for select 2 widget
+	 * @param string the keyword to be matched
+	 * @param integer maximum number of names to be returned
+	 * @return array list of matching lastnames
+	 */
+	public function suggestPersonGroupCountry($keyword, $limit=20)
+	{
+		$criteria=array(
+			'with'=>'country',
+			'condition'=>'t.firstname LIKE :keyword OR t.lastname LIKE :keyword OR country.name LIKE :keyword',
+			'order'=>"country.name, t.lastname",
+			'limit'=>$limit,
+			'params'=>array(
+				':keyword'=>"$keyword%"
+			),
+		);
+		$models=$this->findAll($criteria);
+
+	    $data=array();
+	    $temp=null;
+		foreach($models as $model)
+        {
+        	if($temp!=$model->country->id)
+        		$data[]=array('text'=>$model->country->name,'type'=>'country');
+
+        	$data[]=array('id'=>$model->id,'text'=>$model->fullname,'type'=>'person');
+
+        	$temp=$model->country->id;
+        }
+        return $data;
 	}
 
 	/**
@@ -193,12 +258,12 @@ class Person extends CActiveRecord
 			'condition'=>'country_id='.$country_id,
 			'order'=>'firstname, lastname',
 		);
-		return CHtml::listData($this->findAll($criteria),'id','firstname');
+	    return CHtml::listData($this->findAll($criteria),'id','firstname');
 	}
 
 	/**
 	 * @param int $id the id (primary key) of person
-	 * @param int $country_id
+     * @param int $country_id
 	 */
 	public function updateUserCountry($id, $country_id)
 	{

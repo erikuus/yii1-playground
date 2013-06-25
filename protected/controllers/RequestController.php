@@ -2,6 +2,39 @@
 class RequestController extends Controller
 {
 	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl',
+			'ajaxOnly'
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow',
+				'actions'=>array(
+					'suggestCountry','legacySuggestCountry','fillTree','treePath','loadContent','suggestAuPlaces',
+					'suggestAuHierarchy','suggestLastname','fillAuTree','viewUnitPath','viewUnitLabel','uploadFile',
+					'initPerson','suggestPerson','suggestPersonGroupCountry','listPersonsWithSameFirstname'
+				),
+				'users'=>array('*'),
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
+
+	/**
 	 * @return array actions
 	 */
 	public function actions()
@@ -63,41 +96,41 @@ class RequestController extends Controller
 				'modelName'=>'AdminUnit',
 				'attributeName'=>'label',
 			),
+			'initPerson'=>array(
+				'class'=>'ext.actions.XSelect2InitAction',
+				'modelName'=>'Person',
+				'textField'=>'fullname',
+			),
+			'suggestPerson'=>array(
+				'class'=>'ext.actions.XSelect2SuggestAction',
+				'modelName'=>'Person',
+				'methodName'=>'suggestPerson',
+				'limit'=>30
+			),
+			'suggestPersonGroupCountry'=>array(
+				'class'=>'ext.actions.XSelect2SuggestAction',
+				'modelName'=>'Person',
+				'methodName'=>'suggestPersonGroupCountry',
+				'limit'=>30
+			),
 		);
 	}
 
 	/**
-	 * @return array action filters
+	 * Displays list on persons that have same firstname as person with given id
 	 */
-	public function filters()
+	public function actionListPersonsWithSameFirstname()
 	{
-		return array(
-			'accessControl',
-		);
-	}
+		if(isset($_GET['id']))
+			$model=Person::model()->findbyPk($_GET['id']);
+		if($model!==null)
+		{
+			$models=Person::model()->findAll("firstname='{$model->firstname}'");
+			$data=array();
+			foreach($models as $model)
+		    	$data[] = $model->fullname;
+			echo Yii::t('ui','Persons with same firstname: ').implode(', ', $data);
+		}
 
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',
-				'actions'=>array(
-					'suggestCountry','legacySuggestCountry','fillTree','fillAuTree','treePath','loadContent',
-					'suggestAuPlaces','suggestLastname','suggestAuHierarchy','viewUnitPath','viewUnitLabel'
-				),
-				'users'=>array('*'),
-			),
-			array('allow',
-				'actions'=>array('saveTitle','saveContent','uploadFile'),
-				'ips'=>$this->ips,
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
 	}
 }
