@@ -10,8 +10,9 @@ SQLite 3
 
 INSTALLATION
 ------------
-1) Make sure you have PHP 5.1.0 or above installed (with SQLite extension)
+1) Make sure you have PHP 5.1.0 or above installed (with SQLite extension).
 2) Download Yii framework 1.1.8 at http://www.yiiframework.com/download/
 3) Unpack the downloaded file to a Web-accessible directory.
-4) Download playground at https://github.com/erikuus/Yii-Playground
+4) Download playground at https://github.com/erikuus/Yii-Playground.
 5) Unpack the downloaded file to the same Web-accessible directory you unpacked framework.
+6) Make "assets" and "protected/runtime" directories writable.
