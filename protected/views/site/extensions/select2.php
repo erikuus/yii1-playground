@@ -80,7 +80,7 @@ $this->widget('ext.widgets.select2.XSelect2', array(
 		e.preventDefault();
 		var data=$('.countries-select').select2('val');
 		if ($.isArray(data) && data.length >= 5) {
-    	    alert('Maximum allowed number of drivers is 5');
+    	    alert('Maximum allowed number of countries is 5');
     	    return false;
         }
 		var id=$(this).attr('data-country');
@@ -130,7 +130,7 @@ Yii::app()->clientScript->registerScript('select2interact', "
 		e.preventDefault();
 		var data=$('.countries-select').select2('val');
 		if ($.isArray(data) && data.length >= 5) {
-    	    alert('Maximum allowed number of drivers is 5');
+    	    alert('Maximum allowed number of countries is 5');
     	    return false;
         }
 		var id=$(this).attr('data-country');
