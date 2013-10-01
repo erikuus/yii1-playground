@@ -23,8 +23,9 @@ class RequestController extends Controller
 			array('allow',
 				'actions'=>array(
 					'suggestCountry','legacySuggestCountry','fillTree','treePath','loadContent','suggestAuPlaces',
-					'suggestAuHierarchy','suggestLastname','fillAuTree','viewUnitPath','viewUnitLabel','uploadFile',
-					'initPerson','suggestPerson','suggestPersonGroupCountry','listPersonsWithSameFirstname'
+					'suggestAuHierarchy','suggestLastname','fillAuTree','viewUnitPath','viewUnitLabel','initPerson',
+					'suggestPerson','suggestPersonGroupCountry','listPersonsWithSameFirstname',
+					'addTabularInputs','addTabularInputsAsTable'
 				),
 				'users'=>array('*'),
 			),
@@ -112,6 +113,16 @@ class RequestController extends Controller
 				'modelName'=>'Person',
 				'methodName'=>'suggestPersonGroupCountry',
 				'limit'=>30
+			),
+			'addTabularInputs'=>array(
+				'class'=>'ext.actions.XTabularInputAction',
+				'modelName'=>'Person',
+				'viewName'=>'/site/extensions/_tabularInput',
+			),
+			'addTabularInputsAsTable'=>array(
+				'class'=>'ext.actions.XTabularInputAction',
+				'modelName'=>'Person',
+				'viewName'=>'/site/extensions/_tabularInputAsTable',
 			),
 		);
 	}

@@ -363,3 +363,71 @@ button.btn: :-moz-focus-inner {
 	padding: 0;
 }
 /* end of button style */
+
+/* navigation pills */
+.pill {
+	background: #00a6fc;
+	display: inline-block;
+	text-align: center;
+	padding: 9px 34px 11px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	font-family: verdana, tahoma, arial, sans-serif;
+	position: relative;
+	cursor: pointer;
+	border: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 10px;
+	padding: 5px 12px 6px;
+	width: auto;
+}
+
+.pill.full-width {
+	width: 100%;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	text-align: center;
+}
+
+.pill.pull-align {
+	text-align: left;
+	text-indent: 12px;
+}
+
+.blue.pill {
+	border: 1px solid #0593dc;
+	background-color: #0192dd;
+}
+
+.red.pill {
+	border: 1px solid #b90b0b;
+	background-color: #d01217;
+}
+
+.white.pill {
+	background-color: #f0f0f0;
+	color: #555555;
+	border: 1px solid #dddddd;
+	text-shadow: none !important;
+}
+
+.pill:hover {
+	color: #fff;
+}
+
+.blue.pill:hover {
+	background-color: #00a6fc;
+}
+
+.red.pill:hover {
+	background-color: #e91c21;
+}
+
+.white.pill:hover {
+	background-color: #f7f7f7;
+	color: #333;
+}
