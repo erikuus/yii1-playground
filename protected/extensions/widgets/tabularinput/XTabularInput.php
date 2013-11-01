@@ -332,14 +332,20 @@ SCRIPT;
 	 */
 	protected function renderContent()
 	{
+	    $owner=$this->getOwner();
 		foreach($this->models as $index=>$model)
 		{
 			echo CHtml::openTag($this->inputTagName, $this->inputHtmlOptions);
-			$this->controller->renderPartial($this->inputView, array('model'=>$model, 'index'=>$index));
+			if($owner instanceof CWidget) {
+			    $this->getOwner()->render($this->inputView, array('model'=>$model, 'index'=>$index));
+			} else {
+			    $this->getOwner()->renderPartial($this->inputView, array('model'=>$model, 'index'=>$index));
+			}
 			echo $this->getRemoveLinkAndIndexInput($index);
 			echo CHtml::closeTag($this->inputTagName);
 		}
 	}
+
 
 	/**
 	 * Get the the link that adds tabular input.
