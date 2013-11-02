@@ -221,12 +221,20 @@ class XTabularInput extends CWidget
 	 * Default CSS class for the element that adds inputs.
 	 */
 	public $addCssClass='tabular-input-add';
-
+	
+	public $modelName;
+	
+	public static function actions() {
+	    return array(
+	        'getinput'=>'XTabularInput',
+	    );
+	}
 	/**
 	 * Initializes the widget.
 	 */
 	public function init()
 	{
+	    $this->inputUrl=Yii::app()->getController()->createUrl($this->actionPrefix."getinput");
 		if(isset($this->containerHtmlOptions['id']))
 			$this->id=$this->containerHtmlOptions['id'];
 		else
@@ -266,17 +274,36 @@ class XTabularInput extends CWidget
 	/**
 	 * Renders the widget.
 	 */
-	public function run()
+	public function run($action=null)
 	{
-		$this->registerClientScript();
-		echo CHtml::openTag($this->containerTagName, $this->containerHtmlOptions);
-		if($this->header)
-			echo CHtml::tag($this->headerTagName, $this->headerHtmlOptions, $this->header);
-		echo CHtml::openTag($this->inputContainerTagName, $this->inputContainerHtmlOptions);
-		$this->renderContent();
-		echo CHtml::closeTag($this->inputContainerTagName);
-		echo $this->getAddLink();
-		echo CHtml::closeTag($this->containerTagName);
+	    if((Yii::app()->request->isAjaxRequest && isset($_GET['index'])))
+	    {
+	        $index=$_GET['index'];
+    	    $owner=$this->getOwner();
+
+    		foreach($this->models as $index=>$model)
+    		{
+    	        $params=array(
+    	        		'model'=>$this->models,
+    	        		'index'=>$index++,
+    	        );
+    		    if($owner instanceof CWidget) {
+    			    $owner->render($this->inputView, $params);
+    			} else {
+    			    $owner->renderPartial($this->inputView, $params);
+    			}
+    		}
+	    } else {
+    		$this->registerClientScript();
+    		echo CHtml::openTag($this->containerTagName, $this->containerHtmlOptions);
+    		if($this->header)
+    			echo CHtml::tag($this->headerTagName, $this->headerHtmlOptions, $this->header);
+    		echo CHtml::openTag($this->inputContainerTagName, $this->inputContainerHtmlOptions);
+    		$this->renderContent();
+    		echo CHtml::closeTag($this->inputContainerTagName);
+    		echo $this->getAddLink();
+    		echo CHtml::closeTag($this->containerTagName);
+	    }
 	}
 
 	/**
@@ -332,20 +359,20 @@ SCRIPT;
 	 */
 	protected function renderContent()
 	{
+	    print "\n";
 	    $owner=$this->getOwner();
 		foreach($this->models as $index=>$model)
 		{
 			echo CHtml::openTag($this->inputTagName, $this->inputHtmlOptions);
 			if($owner instanceof CWidget) {
-			    $this->getOwner()->render($this->inputView, array('model'=>$model, 'index'=>$index));
+			    $owner->render($this->inputView, array('model'=>$model, 'index'=>$index));
 			} else {
-			    $this->getOwner()->renderPartial($this->inputView, array('model'=>$model, 'index'=>$index));
+			    $owner->renderPartial($this->inputView, array('model'=>$model, 'index'=>$index));
 			}
 			echo $this->getRemoveLinkAndIndexInput($index);
 			echo CHtml::closeTag($this->inputTagName);
 		}
 	}
-
 
 	/**
 	 * Get the the link that adds tabular input.
