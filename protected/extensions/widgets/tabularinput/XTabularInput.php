@@ -281,10 +281,10 @@ class XTabularInput extends CWidget
 	        $index=$_GET['index'];
     	    $owner=$this->getOwner();
 
-    		foreach($this->models as $index=>$model)
+    		foreach($this->models as $model)
     		{
     	        $params=array(
-    	        		'model'=>$this->models,
+    	        		'model'=>$model,
     	        		'index'=>$index++,
     	        );
     		    if($owner instanceof CWidget) {
@@ -359,7 +359,6 @@ SCRIPT;
 	 */
 	protected function renderContent()
 	{
-	    print "\n";
 	    $owner=$this->getOwner();
 		foreach($this->models as $index=>$model)
 		{
