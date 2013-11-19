@@ -1,8 +1,10 @@
 <?php
+
 /**
  * XGoogleBboxMap class file
  *
  * Widget to display Google Map with bounding box.
+ * Based on Google Maps JavaScript API v3
  *
  * The minimal code needed to use XGoogleBboxMap is as follows:
  * <pre>
@@ -13,7 +15,8 @@
  * </pre>
  *
  * @author Erik Uus <erik.uus@gmail.com>
- * @version 1.0.0
+ * @author Urmas Tamm (from Google Maps JavaScript API v2 to v3)
+ * @version 2.0.0
  */
 class XGoogleBboxMap extends CWidget
 {
@@ -148,7 +151,7 @@ class XGoogleBboxMap extends CWidget
 			$ceLat=$this->model->{$this->ce_lat};
 			$ceLon=$this->model->{$this->ce_lon};
 			$zoom=$this->model->{$this->zoom};
-			return "{$id}_map.setCenter(new GLatLng({$ceLat},{$ceLon}), {$zoom});";
+			return "{$id}_map.setCenter(new google.maps.LatLng({$ceLat},{$ceLon}), {$zoom});";
 		}
 		elseif($this->checkBounds()===true)
 		{
@@ -158,14 +161,14 @@ class XGoogleBboxMap extends CWidget
 			$ne_lon=$this->model->{$this->ne_lon};
 
 			return "
-			var {$id}_southWest=new GLatLng({$sw_lat},{$sw_lon})
-			var {$id}_northEast=new GLatLng({$ne_lat},{$ne_lon})
-			var {$id}_bounds=new GLatLngBounds({$id}_southWest,{$id}_northEast);
-			{$id}_map.setCenter({$id}_bounds.getCenter(), {$id}_map.getBoundsZoomLevel({$id}_bounds));
+				var {$id}_southWest=new google.maps.LatLng({$sw_lat},{$sw_lon})
+				var {$id}_northEast=new google.maps.LatLng({$ne_lat},{$ne_lon})
+				var {$id}_bounds=new google.maps.LatLngBounds({$id}_southWest,{$id}_northEast);
+				{$id}_map.setCenter({$id}_bounds.getCenter(), {$id}_map.fitBounds({$id}_bounds));
 			";
 		}
 		else
-			return "{$id}_map.setCenter(new GLatLng({$this->defaultCeLat},{$this->defaultCeLon}), {$this->defaultZoom});";
+			return "{$id}_map.setCenter(new google.maps.LatLng({$this->defaultCeLat},{$this->defaultCeLon}), {$this->defaultZoom});";
 	}
 
 	/**
@@ -177,14 +180,21 @@ class XGoogleBboxMap extends CWidget
 
 		if($this->checkBounds())
 		{
-			$p1 = 'new GLatLng('.$this->model->{$this->sw_lat}.','.$this->model->{$this->sw_lon}.')';
-			$p2 = 'new GLatLng('.$this->model->{$this->ne_lat}.','.$this->model->{$this->sw_lon}.')';
-			$p3 = 'new GLatLng('.$this->model->{$this->ne_lat}.','.$this->model->{$this->ne_lon}.')';
-			$p4 = 'new GLatLng('.$this->model->{$this->sw_lat}.','.$this->model->{$this->ne_lon}.')';
+			$p1='new google.maps.LatLng('.$this->model->{$this->sw_lat}.','.$this->model->{$this->sw_lon}.')';
+			$p2='new google.maps.LatLng('.$this->model->{$this->ne_lat}.','.$this->model->{$this->sw_lon}.')';
+			$p3='new google.maps.LatLng('.$this->model->{$this->ne_lat}.','.$this->model->{$this->ne_lon}.')';
+			$p4='new google.maps.LatLng('.$this->model->{$this->sw_lat}.','.$this->model->{$this->ne_lon}.')';
 
 			return "
-			var polygon = new GPolygon([$p1,$p2,$p3,$p4,$p1], 'red',2,0.5,'yellow',0.3);
-			{$id}_map.addOverlay(polygon);
+				var polygon = new google.maps.Polygon({
+					paths: [$p1,$p2,$p3,$p4,$p1],
+					strokeColor: 'red',
+					strokeWeight: 2,
+					strokeOpacity: 0.5,
+					fillColor: 'yellow',
+					fillOpacity: 0.3
+				});
+				polygon.setMap({$id}_map);
 			";
 		}
 		else
@@ -199,28 +209,26 @@ class XGoogleBboxMap extends CWidget
 		$id=$this->getId();
 
 		$cs=Yii::app()->clientScript;
-		$cs->registerScriptFile('http://maps.google.com/maps?file=api&v=2&sensor=false&key='.$this->googleApiKey, CClientScript::POS_HEAD);
-		$cs->registerScript(__CLASS__.'#'.$id, "
-			GEvent.addDomListener(window,'load',function(){
-				if (GBrowserIsCompatible()) {
-					// if map is inside hidden div you need to set size in constructor
-					var {$id}_map = new GMap2(document.getElementById('{$id}_map_canvas'));
+		$cs->registerScriptFile('https://maps.googleapis.com/maps/api/js?sensor=false&key='.$this->googleApiKey,CClientScript::POS_HEAD);
+		$cs->registerScript(__CLASS__.'#'.$id,"
+			function {$id}_initialize() {
+				var mapOptions = {
+					zoom: {$this->defaultZoom},
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					panControl: true,
+					streetViewControl: false
+				};
 
-					// set center and zoom level
-					{$this->getCenterAndZoom()}
+				// if map is inside hidden div you need to set size in constructor
+				var {$id}_map = new google.maps.Map(document.getElementById('{$id}_map_canvas'),mapOptions);
 
-					{$id}_map.addControl(new GLargeMapControl());
-					{$id}_map.addControl(new GHierarchicalMapTypeControl());
-					{$id}_map.addMapType(G_PHYSICAL_MAP);
-					{$id}_map.enableScrollWheelZoom();
+				//set center and zoom level
+				{$this->getCenterAndZoom()}
 
-					// get polygon
-					{$this->getPolygon()}
-				}
-			});
-			GEvent.addDomListener(window,'unload',function(){
-				GUnload();
-			});
-		", CClientScript::POS_HEAD);
+				// get polygon
+				{$this->getPolygon()}
+			}
+			google.maps.event.addDomListener(window, 'load', {$id}_initialize);
+		",CClientScript::POS_HEAD);
 	}
 }

@@ -11,7 +11,7 @@ return array(
 	// google
 	'googleAnalytics' => false,
 	'googleAnalyticsTracker' => '',
-	'googleApiKey' => 'ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxQGj0PqsCtxKvarsoS-iqLdqZSKfxRdmoPmGl7Y9335WLC36wIGYa6o5Q',
+	'googleApiKey' => 'putYourKeyHere',
 	//upload directory
 	'uploadDir' => 'upload2/',
 );
