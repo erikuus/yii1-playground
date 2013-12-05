@@ -261,6 +261,9 @@ class XTabularInput extends CWidget
 			$this->addHtmlOptions=array_merge($this->addHtmlOptions, array('class'=>$this->addCssClass));
 		else
 			$this->addHtmlOptions['class'].=' '.$this->addCssClass;
+			
+		if($this->models===array())
+			$this->headerHtmlOptions=array_merge($this->headerHtmlOptions, array('style'=>'display:none'));			
 	}
 
 	/**
