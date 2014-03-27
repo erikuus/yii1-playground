@@ -8,7 +8,7 @@ class RequestController extends Controller
 	{
 		return array(
 			'accessControl',
-			'ajaxOnly'
+			'ajaxOnly -uploadFile'
 		);
 	}
 
@@ -25,7 +25,7 @@ class RequestController extends Controller
 					'suggestCountry','legacySuggestCountry','fillTree','treePath','loadContent','suggestAuPlaces',
 					'suggestAuHierarchy','suggestLastname','fillAuTree','viewUnitPath','viewUnitLabel','initPerson',
 					'suggestPerson','suggestPersonGroupCountry','listPersonsWithSameFirstname',
-					'addTabularInputs','addTabularInputsAsTable'
+					'addTabularInputs','addTabularInputsAsTable','uploadFile'
 				),
 				'users'=>array('*'),
 			),
