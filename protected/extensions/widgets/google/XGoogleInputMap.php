@@ -94,27 +94,24 @@ class XGoogleInputMap extends CInputWidget
 
 	/**
 	 * Initializes the widget.
-	 * This method will initialize required property values
 	 */
 	public function init()
 	{
-		if(!isset($this->googleApiKey))
+		if(!$this->googleApiKey)
 			throw new CException('"googleApiKey" have to be set!');
 
-		if(!isset($this->form))
+		if(!$this->form)
 			throw new CException('"form" have to be set!');
 
-		if(!isset($this->model))
+		if(!$this->model)
 			throw new CException('"model" have to be set!');
 
-		if(!$this->checkBounds() && !$this->model->{$this->zoom})
+		if($this->checkBounds()===false && $this->checkCenterAndZoom()===false)
+		{
 			$this->model->{$this->zoom}=$this->defaultZoom;
-
-		if(!$this->checkBounds() && !$this->model->{$this->ce_lat})
 			$this->model->{$this->ce_lat}=$this->defaultCeLat;
-
-		if(!$this->checkBounds() && !$this->model->{$this->ce_lon})
 			$this->model->{$this->ce_lon}=$this->defaultCeLon;
+		}
 	}
 
 	/**
@@ -177,14 +174,8 @@ class XGoogleInputMap extends CInputWidget
 	protected function getClientScriptPart()
 	{
 		$id=$this->getId();
-		if($this->checkCenterAndZoom()===true)
-		{
-			$ceLat=$this->model->{$this->ce_lat};
-			$ceLon=$this->model->{$this->ce_lon};
-			$zoom=$this->model->{$this->zoom};
-			return "{$id}_map.setCenter(new google.maps.LatLng({$ceLat},{$ceLon}), {$zoom});";
-		}
-		elseif($this->checkBounds()===true)
+
+		if($this->checkBounds()===true && $this->checkCenterAndZoom()===false)
 		{
 			return "
 				var {$id}_southWest=new google.maps.LatLng($('#{$id}_sw_lat').val(),$('#{$id}_sw_lon').val())
@@ -194,7 +185,12 @@ class XGoogleInputMap extends CInputWidget
 			";
 		}
 		else
-			return "{$id}_map.setCenter(new google.maps.LatLng({$this->defaultCeLat},{$this->defaultCeLon}), {$this->defaultZoom});";
+		{
+			$ceLat=$this->model->{$this->ce_lat};
+			$ceLon=$this->model->{$this->ce_lon};
+			$zoom=$this->model->{$this->zoom};
+			return "{$id}_map.setCenter(new google.maps.LatLng({$ceLat},{$ceLon}), {$zoom});";
+		}
 	}
 
 	/**
@@ -205,6 +201,7 @@ class XGoogleInputMap extends CInputWidget
 		$id=$this->getId();
 		$assets=dirname(__FILE__).DIRECTORY_SEPARATOR.'assets';
 		$baseUrl=Yii::app()->getAssetManager()->publish($assets);
+		$initZoom=$this->model->{$this->zoom} ? $this->model->{$this->zoom} : $this->defaultZoom;
 
 		$cs=Yii::app()->clientScript;
 		$cs->registerScriptFile($baseUrl.'/MPolyDragControl.js',CClientScript::POS_HEAD);
@@ -212,7 +209,7 @@ class XGoogleInputMap extends CInputWidget
 		$cs->registerScript(__CLASS__.'#'.$id,"
 			function {$id}_initialize() {
 				var mapOptions = {
-					zoom: {$this->defaultZoom},
+					zoom: $initZoom,
 					mapTypeId: google.maps.MapTypeId.ROADMAP,
 					panControl: true,
 					streetViewControl: false
