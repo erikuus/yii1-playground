@@ -23,13 +23,7 @@ class ExtensionMenu extends XPortlet
                 array('label'=>Yii::t('ui','Input map'), 'url'=>array('/site/extension', 'view'=>'inputmap')),
                 array('label'=>Yii::t('ui','Select2'), 'url'=>array('/site/extension', 'view'=>'select2')),
                 array('label'=>Yii::t('ui','Tabular input'), 'url'=>array('/site/extension', 'view'=>'tabular')),
-            )),
-            array('label'=>'JQuery Tricks', 'visible'=>$this->controller->isIpMatched(), 'items'=>array(
-            	array('label'=>Yii::t('ui','Toggle content'), 'url'=>array('/site/extension', 'view'=>'togglecontent')),
-                array('label'=>Yii::t('ui','Checkbox panels'), 'url'=>array('/site/extension', 'view'=>'checkboxpanels')),
-                array('label'=>Yii::t('ui','Radio panels'), 'url'=>array('/site/extension', 'view'=>'radiopanels')),
-                array('label'=>Yii::t('ui','Select panels'), 'url'=>array('/site/extension', 'view'=>'selectpanels')),
-                array('label'=>Yii::t('ui','Dynamic rows'),'url'=>array('/site/extension', 'view'=>'dynamicrows')),
+ 				array('label'=>Yii::t('ui','Dynamic form'), 'url'=>array('/site/extension', 'view'=>'dynamicform')),
             )),
         );
 	}

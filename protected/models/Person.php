@@ -25,6 +25,25 @@ class Person extends CActiveRecord
 	public $countryIds;
 
 	/**
+	 * We use these custom attribute only to demonstrate dynamic form
+	 */
+	public $selectOption;
+
+	const SELECT_EYECOLOR=2;
+	const SELECT_COUNTRY=1;
+
+	/**
+	 * @return array select options
+	 */
+	public function getSelectOptions()
+	{
+		return array(
+			self::SELECT_EYECOLOR=>Yii::t('ui', 'Eyecolor'),
+			self::SELECT_COUNTRY=>Yii::t('ui', 'Country'),
+		);
+	}
+
+	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Person the static model class
 	 */
@@ -103,12 +122,19 @@ class Person extends CActiveRecord
 		));
 
 		$criteria->icompare('firstname',$this->firstname,true);
+
 		$criteria->icompare('lastname',$this->lastname,true);
+
 		$criteria->ncompare('birthyear',$this->birthyear, true);
+
 		$criteria->icompare('email',$this->email,true);
+
 		$criteria->icompare('webpage',$this->webpage,true);
+
 		$criteria->ncompare('country_id',$this->country_id, true);
+
 		$criteria->icompare('registered',$this->registered,true);
+
 		$criteria->compare('eyecolor_code',$this->eyecolor_code);
 
 		return new CActiveDataProvider(get_class($this), array(
@@ -169,7 +195,7 @@ class Person extends CActiveRecord
 	{
 		$criteria=array(
 			'select'=>'DISTINCT(lastname) AS lastname',
-			'condition'=>'lastname LIKE :keyword',
+			'condition'=>'lastname ILIKE :keyword',
 			'order'=>'lastname',
 			'limit'=>$limit,
 			'params'=>array(
@@ -196,7 +222,7 @@ class Person extends CActiveRecord
 	public function suggestPerson($keyword, $limit=20)
 	{
 		$criteria=array(
-			'condition'=>'firstname LIKE :keyword OR lastname LIKE :keyword',
+			'condition'=>'firstname ILIKE :keyword OR lastname ILIKE :keyword',
 			'order'=>'lastname',
 			'limit'=>$limit,
 			'params'=>array(
@@ -224,7 +250,7 @@ class Person extends CActiveRecord
 	{
 		$criteria=array(
 			'with'=>'country',
-			'condition'=>'t.firstname LIKE :keyword OR t.lastname LIKE :keyword OR country.name LIKE :keyword',
+			'condition'=>'t.firstname ILIKE :keyword OR t.lastname ILIKE :keyword OR country.name ILIKE :keyword',
 			'order'=>"country.name, t.lastname",
 			'limit'=>$limit,
 			'params'=>array(
