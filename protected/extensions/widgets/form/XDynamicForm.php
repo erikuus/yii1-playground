@@ -144,6 +144,11 @@ SCRIPT;
 		else
 			$contentOptions = array_merge($contentOptions, array('class'=>$this->contentCssClass));
 
+		if(isset($contentOptions['style']))
+			$contentOptions['style'].='display:none; '.$contentOptions['style'];
+		else
+			$contentOptions = array_merge($contentOptions, array('style'=>'display:none'));
+
 		echo CHtml::openTag('div', $containerOptions);
 			echo $input;
 			echo CHtml::openTag('div', $contentOptions);
