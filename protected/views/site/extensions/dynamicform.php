@@ -4,7 +4,9 @@ $this->layout='leftbar';
 $this->leftPortlets['application.portlets.ExtensionMenu']=array();
 
 $model=new Person;
+//$model->selectOption=Person::SELECT_COUNTRY;
 $model2=new Person2;
+$model2->selectOption=Person::SELECT_EYECOLOR;
 ?>
 
 <h2><?php echo Yii::t('ui','Dynamic Form');?></h2>
@@ -16,9 +18,6 @@ $model2=new Person2;
 <?php $form=$this->beginWidget('ext.widgets.form.XDynamicForm', array(
 	'id'=>'dynamic-form-checkbox'
 )); ?>
-
-	<p><?php echo Yii::t('ui', 'Fields with {mark} are required',
-	array('{mark}'=>'<span class="required">*</span>')); ?></p>
 
 	<?php $checkBox=$form->explodeCheckBoxList($model, 'selectOption', $model->selectOptions);?>
 	<div class="complex">
@@ -67,9 +66,6 @@ $model2=new Person2;
 	'contentCssClass'=>'xpanelContent'
 )); ?>
 
-	<p><?php echo Yii::t('ui', 'Fields with {mark} are required',
-	array('{mark}'=>'<span class="required">*</span>')); ?></p>
-
 	<?php $radioButton=$form->explodeRadioButtonList($model2, 'selectOption', $model->selectOptions);?>
 
 	<div class="complex">
@@ -94,6 +90,51 @@ $model2=new Person2;
 			<?php $form->endDynamicArea()?>
 		</div>
 	</div>
+
+<?php $this->endWidget(); ?>
+
+</div><!-- form -->
+
+<br />
+
+<h3><?php echo Yii::t('ui','Dropdown panels'); ?></h3>
+
+<div class="form" style="width:auto">
+
+<?php $form=$this->beginWidget('ext.widgets.form.XDynamicForm', array(
+	'id'=>'dynamic-form-dropdown',
+	'enableRadioToggle'=>false,
+	'enableChecboxToggle'=>false
+)); ?>
+
+	<div class="action">
+		<?php echo $form->DynamicDropDownList($model2, 'selectOption', $model->selectOptions);?>
+	</div>
+
+	<?php $form->beginDynamicAreaDDL($model2, 'selectOption', Person::SELECT_COUNTRY); ?>
+	<div class="complex">
+		<span class="label">
+			<?php echo Yii::t('ui','Country'); ?>
+		</span>
+		<div class="panel">
+			<?php echo $form->DropDownList($model,'country_id',Country::model()->options, array('prompt'=>''));?>
+			<?php echo $form->error($model,'country_id'); ?>
+		</div>
+	</div>
+	<?php $form->endDynamicAreaDDL(); ?>
+
+	<?php $form->beginDynamicAreaDDL($model2, 'selectOption', Person::SELECT_EYECOLOR); ?>
+	<div class="complex">
+		<span class="label">
+			<?php echo Yii::t('ui','Eyecolor'); ?>
+		</span>
+		<div class="panel">
+			<?php echo $form->radioButtonList($model2,'eyecolor_code', Lookup::items('eyecolor')); ?>
+			<?php echo $form->error($model2,'eyecolor_code'); ?>
+		</div>
+	</div>
+	<?php $form->endDynamicAreaDDL(); ?>
+
 
 <?php $this->endWidget(); ?>
 
