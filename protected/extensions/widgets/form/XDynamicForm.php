@@ -142,7 +142,7 @@ class XDynamicForm extends CActiveForm
 		var selected=$('#{$id}').val();
 		$('.{$id}').hide();
 		$('.{$id}.selected_'+selected).show();
-		$('#{$id}').change(function(){
+		$('#{$id}').live('change', function(){
 			var selected=$(this).val();
 			$('.{$id}').hide();
 			$('.{$id}.selected_'+selected).show();
