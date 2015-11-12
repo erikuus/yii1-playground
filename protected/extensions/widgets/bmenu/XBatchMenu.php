@@ -3,7 +3,7 @@
  * XBatchMenu displays batch process menu for CGridView.
  *
  * XBatchMenu extends XActionMenu.
- * XActionMenu is simplified version of CMenu.
+ * XActionMenu is a simplified version of CMenu.
  *
  * The following example shows how to use XBatchMenu for CGridView with ajaxUpdate true:
  * <pre>
@@ -14,8 +14,24 @@
  *     'emptyText'=>Yii::t('ui','Please check items you would like to perform this action on!'),
  *     'confirm'=>Yii::t('ui','Are you sure to perform this action on checked items?'),
  *     'items'=>array(
- *         array('label'=>Yii::t('ui','Make something with selected items'),'url'=>array('batchProcess1')),
- *         array('label'=>Yii::t('ui','Make something else with selected items'),'url'=>array('batchProcess2')),
+ *         array(
+ *             'label'=>Yii::t('ui','Make something with selected items'),
+ *             'url'=>array('controller1/action1')
+ *         ),
+ *         array(
+ *             'label'=>Yii::t('ui','Make something else with selected items'),
+ *             'url'=>array('controller2/action2'),
+ *             'linkOptions'=>array(
+ *                 'class'=>'skipConfirm'
+ *             ),
+ *         ),
+ *         array(
+ *             'label'=>Yii::t('ui','Simple link that is unrelated to batch work'),
+ *             'url'=>array('controller3/action3'),
+ *             'linkOptions'=>array(
+ *                 'class'=>'noBatch'
+ *             ),
+ *         ),
  *     ),
  * ));
  *
@@ -63,26 +79,34 @@ Yii::import('ext.widgets.amenu.XActionMenu');
 class XBatchMenu extends XActionMenu
 {
 	/**
-	 * @var string The id of the form element
+	 * @var string $formId The id of the form element
 	 */
 	public $formId;
 	/**
-	 * @var string The id of the {@link CCheckBoxColumn}
+	 * @var string $checkBoxId The id of the {@link CCheckBoxColumn}
 	 */
 	public $checkBoxId;
 	/**
-	 * @var string The message to be displayed when {@link CCheckBoxColumn} does not have any checkbox checked.
+	 * @var string $emptyText The message to be displayed when {@link CCheckBoxColumn} does not have any checkbox checked.
 	 */
 	public $emptyText;
 	/**
-	 * @var string The confirmation message. Defaults to false, meaning no confrmation is asked.
+	 * @var string $confirm The confirmation message. Defaults to false, meaning no confrmation is asked.
 	 */
 	public $confirm=false;
 	/**
-	 * @var mixed The ID of the gridview whose content may be updated with an AJAX response.
+	 * @var mixed $ajaxUpdate The ID of the gridview whose content may be updated with an AJAX response.
 	 * Defaults to false, meaning update will be performed in normal page requests instead of AJAX requests.
 	 */
 	public $ajaxUpdate=false;
+	/**
+	 * @var string $skipConfirmCssClass The css class name that enables menu item to skip confirmation message on click.
+	 */
+	public $skipConfirmCssClass='skipConfirm';
+	/**
+	 * @var string $noBatchCssClass The css class name that enables menu item to act as simple link unrelated to batch work.
+	 */
+	public $noBatchCssClass='noBatch';
 
 	/**
 	 * Renders the widget.
@@ -102,7 +126,7 @@ class XBatchMenu extends XActionMenu
 		$cs=Yii::app()->clientScript;
 		$cs->registerCoreScript('jquery');
 		$cs->registerScript(__CLASS__.'#'.$id, "
-			jQuery('#$id a').live('click',function(e) {
+			jQuery('#$id a:not(.{$this->noBatchCssClass})').live('click',function(e) {
 				e.preventDefault();
 				if($(\"input[name='{$this->checkBoxId}\[\]']:checked\").length==0) {
 					alert('{$this->emptyText}');
@@ -124,7 +148,7 @@ class XBatchMenu extends XActionMenu
 		else
 		{
 			return "
-				if(!$(this).hasClass('skipConfirm') && !confirm('".$this->confirm."'))
+				if(!$(this).hasClass('".$this->skipConfirmCssClass."') && !confirm('".$this->confirm."'))
 					return false;
 			";
 		}
